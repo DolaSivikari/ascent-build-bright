@@ -6,9 +6,12 @@ const allowedOrigins = [
   'http://localhost:4173'
 ];
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+const getCorsHeaders = (origin: string | null) => {
+  const allowedOrigin = origin && allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  };
 };
 
 interface ContactSubmission {
@@ -65,6 +68,18 @@ const getRealIP = (req: Request): string => {
 };
 
 Deno.serve(async (req) => {
+  const origin = req.headers.get('origin');
+  const corsHeaders = getCorsHeaders(origin);
+
+  // Validate origin for non-OPTIONS requests
+  if (req.method !== 'OPTIONS' && origin && !allowedOrigins.includes(origin)) {
+    console.warn('Blocked request from unauthorized origin:', origin);
+    return new Response('Forbidden', { 
+      status: 403,
+      headers: { 'Content-Type': 'text/plain' }
+    });
+  }
+
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
