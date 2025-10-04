@@ -1,0 +1,141 @@
+{
+  "currency": "CAD",
+  "tax_rate": 0.13,
+  "services": {
+    "residential_painting": {
+      "display_name": "Residential Painting",
+      "base_per_sqft": {
+        "min": 2.5,
+        "max": 5.5
+      },
+      "notes": "Base range per sq ft includes labor and standard materials for interior/exterior painting. Final price depends on prep, number of coats, and finish quality."
+    },
+    "stucco_eifs": {
+      "display_name": "Stucco / EIFS",
+      "base_per_sqft": {
+        "min": 8.0,
+        "max": 20.0
+      },
+      "notes": "Base range per sq ft for typical EIFS/stucco systems depends on insulation, substrate preparation, and complexity."
+    }
+  },
+  "add_ons": {
+    "scaffolding": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "name": "low",
+          "min": 400,
+          "max": 800
+        },
+        {
+          "name": "mid",
+          "min": 800,
+          "max": 1200
+        },
+        {
+          "name": "high",
+          "min": 1200,
+          "max": 2500
+        }
+      ]
+    },
+    "color_consultation": {
+      "flat_min": 0,
+      "flat_max": 150,
+      "default_included_with_full_job": true
+    },
+    "rush_scheduling": {
+      "multiplier_min": 1.1,
+      "multiplier_max": 1.35,
+      "description": "Applies a multiplier to total estimate for expedited scheduling."
+    },
+    "warranty_extension": {
+      "flat_min": 200,
+      "flat_max": 800
+    },
+    "site_cleanup": {
+      "flat_min": 100,
+      "flat_max": 400
+    }
+  },
+  "modifiers": {
+    "prep_complexity": {
+      "none": 1.0,
+      "standard": 1.15,
+      "heavy": 1.35,
+      "structural_repair_required": 1.6
+    },
+    "finish_quality": {
+      "standard": 1.0,
+      "premium": 1.25,
+      "luxury": 1.6
+    },
+    "stories_multiplier": {
+      "1": 1.0,
+      "2": 1.15,
+      "3_plus": 1.35
+    },
+    "regional_multiplier": {
+      "gta_default": 1.0,
+      "inner_city": 1.08,
+      "suburban": 1.0,
+      "rural": 0.95
+    }
+  },
+  "estimation_rules": {
+    "minimum_job_fee": {
+      "amount": 350,
+      "currency": "CAD",
+      "description": "Minimum charge for small jobs to cover mobilization and admin"
+    },
+    "square_footage_floor": 100,
+    "scaffolding_threshold_sqft": 400,
+    "calculation_steps": [
+      "1. Determine base range = base_per_sqft.min * sqft  to base_per_sqft.max * sqft",
+      "2. Apply prep_complexity multiplier",
+      "3. Apply finish_quality multiplier",
+      "4. Apply stories multiplier",
+      "5. Add scaffolding or flat add-ons if triggered",
+      "6. Apply regional multiplier",
+      "7. Ensure minimum_job_fee applied",
+      "8. Display estimated range and short explanation of assumptions",
+      "9. Capture lead and schedule follow-up"
+    ]
+  },
+  "webhook_payload_example": {
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "phone": "+1-416-555-0100",
+    "address": "123 Example St, Mississauga, ON",
+    "service": "residential_painting",
+    "sqft": 1200,
+    "stories": 2,
+    "prep_complexity": "standard",
+    "finish_quality": "premium",
+    "add_ons": [
+      "color_consultation"
+    ],
+    "estimated_range": "$3,600 - $9,900",
+    "notes": "Photos attached; customer prefers morning contact."
+  },
+  "api_fields": {
+    "required": [
+      "name",
+      "email",
+      "phone",
+      "service",
+      "sqft"
+    ],
+    "optional": [
+      "address",
+      "stories",
+      "prep_complexity",
+      "finish_quality",
+      "add_ons",
+      "attachments",
+      "preferred_contact_time"
+    ]
+  },
+  "notes_for_developers": "\n- Use the 'calculation_steps' block as implementation guide.\n- Base per-sqft min/max should be editable via CMS.\n- Scaffolding tier selection can be auto-suggested when sqft > scaffolding_threshold_sqft or when stories > 1.\n- All multipliers should be editable in CMS to adapt to market changes.\n- When presenting the estimate to a user, show:\n    a) Estimated Range (min - max)\n    b) Breakdown of major assumptions (sqft, prep multiplier, finish)\n    c) CTA to 'Request Exact Quote' that captures photos and schedule\n- Ensure GDPR/PIPEDA-compliant storage and terms checkbox on form.\n"
+}
