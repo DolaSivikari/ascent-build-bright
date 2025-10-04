@@ -115,47 +115,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experienced professionals dedicated to bringing your vision to life
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {companyData.team.map((member) => (
-              <Card key={member.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-square overflow-hidden bg-muted">
-                  <OptimizedImage
-                    src={member.image}
-                    alt={`${member.name} - ${member.role}`}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary font-semibold mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                    {member.bio}
-                  </p>
-                  <div className="space-y-2">
-                    <div className="text-xs font-semibold text-muted-foreground mb-1">
-                      Expertise:
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {member.expertise.slice(0, 2).map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
 
         {/* Sustainability */}
         <section className="bg-muted py-16">
