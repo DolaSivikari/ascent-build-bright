@@ -4,6 +4,8 @@ import SEO from "@/components/SEO";
 import SkipToContent from "@/components/SkipToContent";
 import HeroSection from "@/components/home/HeroSection";
 import TrustBadges from "@/components/home/TrustBadges";
+import AboutSection from "@/components/home/AboutSection";
+import CredentialsSection from "@/components/home/CredentialsSection";
 import StatsSection from "@/components/home/StatsSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyAscent from "@/components/home/WhyAscent";
@@ -25,6 +27,8 @@ const Home = () => {
       <main id="main-content" role="main">
         <HeroSection />
         <TrustBadges />
+        <AboutSection />
+        <CredentialsSection />
         <StatsSection />
         <ServicesPreview />
         <WhyAscent />

@@ -22,8 +22,12 @@ const WhyAscent = () => {
   return (
     <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
+        {/* Label + Question Format */}
         <div className="text-center mb-16">
-          <h2 className="section-title mb-4 text-primary">Why Choose Ascent?</h2>
+          <div className="inline-block mb-3 px-4 py-1.5 bg-primary/10 rounded-full">
+            <span className="text-primary font-semibold text-sm tracking-wider uppercase">Ascent Advantage</span>
+          </div>
+          <h2 className="section-title mb-4 text-primary">Why Choose Us?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Experience the difference of working with a construction partner who values excellence
           </p>

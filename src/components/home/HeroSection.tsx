@@ -86,18 +86,24 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl">
           <div className="animate-slide-up">
-            <div className="inline-block mb-4 px-4 py-2 bg-secondary/20 backdrop-blur-sm border border-secondary/30 rounded-full">
+            {/* Tagline Badge */}
+            <div className="inline-block mb-6 px-5 py-2.5 bg-secondary/20 backdrop-blur-sm border border-secondary/30 rounded-full hover:bg-secondary/30 transition-all duration-300">
               <span className="text-secondary font-bold text-sm tracking-wider uppercase flex items-center gap-2">
-                <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-                Mississauga's Premier Construction Firm
+                <Award className="w-4 h-4" />
+                Experts Since 1999
               </span>
             </div>
             
-            <h1 className="hero-text text-primary-foreground mb-6 leading-tight">
-              Build With<br />
+            {/* Split Headline with Dramatic Typography */}
+            <h1 className="hero-text text-primary-foreground mb-6 leading-[0.95]">
+              <span className="block text-6xl md:text-7xl lg:text-8xl font-extrabold mb-2">BUILDING</span>
+              <span className="block text-6xl md:text-7xl lg:text-8xl font-extrabold mb-2">TODAY FOR</span>
               <span className="relative inline-block">
-                <span className="text-secondary">Confidence.</span>
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-secondary to-transparent" />
+                <span className="text-secondary text-6xl md:text-7xl lg:text-8xl font-extrabold">A STRONGER</span>
+              </span>
+              <span className="block text-6xl md:text-7xl lg:text-8xl font-extrabold text-secondary">
+                TOMORROW
+                <div className="absolute -bottom-3 left-0 w-3/4 h-1.5 bg-gradient-to-r from-secondary via-secondary/60 to-transparent" />
               </span>
             </h1>
           </div>
@@ -167,8 +173,9 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Enhanced Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce">
+        <span className="text-primary-foreground/60 text-xs uppercase tracking-widest font-semibold">Scroll to Discover</span>
         <div className="w-6 h-10 border-2 border-primary-foreground/40 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-secondary rounded-full animate-pulse" />
         </div>
