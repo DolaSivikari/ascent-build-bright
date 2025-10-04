@@ -7,6 +7,7 @@ interface SEOProps {
   keywords?: string;
   image?: string;
   type?: string;
+  structuredData?: object;
 }
 
 const SEO = ({ 
@@ -14,7 +15,8 @@ const SEO = ({
   description, 
   keywords = "residential painting, stucco, EIFS, construction, Mississauga, GTA",
   image = "https://www.ascentgroupconstruction.com/og-image.jpg",
-  type = "website"
+  type = "website",
+  structuredData
 }: SEOProps) => {
   const location = useLocation();
   const url = `https://www.ascentgroupconstruction.com${location.pathname}`;
@@ -64,7 +66,22 @@ const SEO = ({
       document.head.appendChild(canonical);
     }
     canonical.href = url;
-  }, [title, description, keywords, image, type, url, fullTitle]);
+
+    // Structured Data (JSON-LD)
+    if (structuredData) {
+      let script = document.querySelector('script[type="application/ld+json"][data-dynamic]') as HTMLScriptElement;
+      if (!script) {
+        script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.setAttribute('data-dynamic', 'true');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(structuredData);
+    }
+
+    // Accessibility: Set lang attribute
+    document.documentElement.lang = 'en';
+  }, [title, description, keywords, image, type, url, fullTitle, structuredData]);
 
   return null;
 };

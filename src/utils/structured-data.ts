@@ -1,0 +1,87 @@
+// Structured data schemas for SEO
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ascent Group Construction",
+  "url": "https://www.ascentgroupconstruction.com",
+  "logo": "https://www.ascentgroupconstruction.com/og-image.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-905-555-0100",
+    "contactType": "customer service",
+    "areaServed": "CA",
+    "availableLanguage": "en"
+  },
+  "sameAs": [
+    "https://www.facebook.com/ascentgroupconstruction",
+    "https://www.linkedin.com/company/ascentgroupconstruction"
+  ]
+};
+
+export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `https://www.ascentgroupconstruction.com${item.url}`
+  }))
+});
+
+export const serviceSchema = (name: string, description: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": name,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Ascent Group Construction"
+  },
+  "description": description,
+  "areaServed": {
+    "@type": "City",
+    "name": "Mississauga"
+  }
+});
+
+export const articleSchema = (
+  title: string,
+  description: string,
+  image: string,
+  datePublished: string,
+  dateModified: string
+) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": image,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": {
+    "@type": "Organization",
+    "name": "Ascent Group Construction"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ascent Group Construction",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.ascentgroupconstruction.com/og-image.jpg"
+    }
+  }
+});
+
+export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
