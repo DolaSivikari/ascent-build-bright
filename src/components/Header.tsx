@@ -65,7 +65,7 @@ const Header = () => {
                 src={ascentLogo} 
                 alt="Ascent Group Construction Logo" 
                 className={`transition-all duration-300 ${
-                  isScrolled ? 'h-12 md:h-14' : 'h-14 md:h-16'
+                  isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
                 } w-auto object-contain group-hover:scale-105`}
               />
             </Link>
