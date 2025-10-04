@@ -1,0 +1,82 @@
+{
+  "projects": [
+    {
+      "id": "modern-downtown-condo",
+      "title": "Modern Downtown Condo Transformation",
+      "category": "Residential Painting",
+      "location": "Toronto, ON",
+      "year": 2024,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "Complete interior painting refresh for a 2,500 sq ft luxury condo",
+      "services": ["Interior Painting", "Trim & Baseboards", "Ceiling Work"],
+      "featured": true
+    },
+    {
+      "id": "heritage-home-stucco",
+      "title": "Heritage Home EIFS Restoration",
+      "category": "Stucco/EIFS",
+      "location": "Mississauga, ON",
+      "year": 2024,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "Historic home exterior restoration with modern EIFS system",
+      "services": ["EIFS Installation", "Waterproofing", "Custom Textures"],
+      "featured": true
+    },
+    {
+      "id": "oakville-exterior-repaint",
+      "title": "Oakville Family Home Exterior",
+      "category": "Residential Painting",
+      "location": "Oakville, ON",
+      "year": 2023,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "Full exterior repaint with weather-resistant premium coatings",
+      "services": ["Exterior Painting", "Surface Prep", "Trim Restoration"],
+      "featured": true
+    },
+    {
+      "id": "burlington-townhouse",
+      "title": "Burlington Townhouse Complex",
+      "category": "Residential Painting",
+      "location": "Burlington, ON",
+      "year": 2023,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "12-unit townhouse complex interior refresh",
+      "services": ["Interior Painting", "Drywall Repair", "Color Consultation"],
+      "featured": false
+    },
+    {
+      "id": "commercial-stucco-repair",
+      "title": "Commercial Plaza Stucco Repair",
+      "category": "Stucco/EIFS",
+      "location": "Brampton, ON",
+      "year": 2023,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "Large-scale stucco crack repair and refinishing",
+      "services": ["Crack Repair", "Stucco Refinishing", "Waterproofing"],
+      "featured": false
+    },
+    {
+      "id": "luxury-kitchen-cabinets",
+      "title": "Luxury Kitchen Cabinet Refinish",
+      "category": "Residential Painting",
+      "location": "Toronto, ON",
+      "year": 2023,
+      "thumbnail": "/placeholder.svg",
+      "beforeImage": "/placeholder.svg",
+      "afterImage": "/placeholder.svg",
+      "shortDescription": "High-end kitchen cabinet spray painting transformation",
+      "services": ["Cabinet Painting", "Custom Color Match", "Premium Finish"],
+      "featured": true
+    }
+  ]
+}

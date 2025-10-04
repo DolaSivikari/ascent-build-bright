@@ -1,0 +1,171 @@
+{
+  "caseStudies": {
+    "modern-downtown-condo": {
+      "id": "modern-downtown-condo",
+      "title": "Modern Downtown Condo Transformation",
+      "client": "Private Homeowner",
+      "category": "Residential Painting",
+      "location": "Toronto, ON",
+      "year": 2024,
+      "duration": "2 weeks",
+      "size": "2,500 sq ft",
+      "heroImage": "/placeholder.svg",
+      "gallery": [
+        "/placeholder.svg",
+        "/placeholder.svg",
+        "/placeholder.svg",
+        "/placeholder.svg"
+      ],
+      "challenge": "The client wanted to transform their dated condo into a modern, bright living space while minimizing disruption to their busy schedule. The project required precise color matching and working around existing furniture.",
+      "solution": "Our team developed a phased approach, completing one room at a time to allow the client to continue living in the space. We used low-VOC premium paints and implemented careful surface preparation to ensure a flawless finish.",
+      "results": [
+        "100% on-time completion within 2-week timeline",
+        "Zero disruption to client's daily routine",
+        "Transformed dark spaces into bright, modern rooms",
+        "Client referred 3 additional projects within the same building"
+      ],
+      "testimonial": {
+        "quote": "Ascent Group exceeded all expectations. Their attention to detail and professionalism made the entire process stress-free. The transformation is stunning!",
+        "author": "Sarah M.",
+        "role": "Homeowner"
+      },
+      "services": [
+        "Interior Wall Painting",
+        "Ceiling Refinishing",
+        "Trim & Baseboards",
+        "Color Consultation",
+        "Surface Preparation"
+      ],
+      "specifications": {
+        "Paint Type": "Benjamin Moore Aura Interior",
+        "Finish": "Eggshell walls, Semi-gloss trim",
+        "Coats": "2 coats walls, 3 coats trim",
+        "Prep Work": "Patch, sand, prime all surfaces"
+      }
+    },
+    "heritage-home-stucco": {
+      "id": "heritage-home-stucco",
+      "title": "Heritage Home EIFS Restoration",
+      "client": "Heritage Property Owners",
+      "category": "Stucco/EIFS",
+      "location": "Mississauga, ON",
+      "year": 2024,
+      "duration": "3 weeks",
+      "size": "3,200 sq ft exterior",
+      "heroImage": "/placeholder.svg",
+      "gallery": [
+        "/placeholder.svg",
+        "/placeholder.svg",
+        "/placeholder.svg"
+      ],
+      "challenge": "A 1920s heritage home had deteriorating stucco with water infiltration issues. The owners wanted to preserve the historic character while upgrading to modern, energy-efficient materials.",
+      "solution": "We designed a custom EIFS system that replicated the original stucco texture while providing superior insulation and waterproofing. All work was done in compliance with heritage preservation guidelines.",
+      "results": [
+        "30% improvement in home energy efficiency",
+        "Complete elimination of water infiltration",
+        "Heritage board approval on first submission",
+        "15-year warranty on all EIFS work"
+      ],
+      "testimonial": {
+        "quote": "They perfectly balanced preserving our home's character with modern performance. The craftsmanship is outstanding.",
+        "author": "Robert & Linda K.",
+        "role": "Homeowners"
+      },
+      "services": [
+        "EIFS Installation",
+        "Waterproofing Systems",
+        "Custom Texture Matching",
+        "Heritage Compliance",
+        "Insulation Upgrade"
+      ],
+      "specifications": {
+        "System": "Dryvit Outsulation Plus MD",
+        "Insulation": "R-10 EPS foam board",
+        "Finish": "Custom heritage texture",
+        "Warranty": "15-year manufacturer + workmanship"
+      }
+    },
+    "oakville-exterior-repaint": {
+      "id": "oakville-exterior-repaint",
+      "title": "Oakville Family Home Exterior",
+      "client": "Johnson Family",
+      "category": "Residential Painting",
+      "location": "Oakville, ON",
+      "year": 2023,
+      "duration": "10 days",
+      "size": "4,000 sq ft exterior",
+      "heroImage": "/placeholder.svg",
+      "gallery": [
+        "/placeholder.svg",
+        "/placeholder.svg"
+      ],
+      "challenge": "Severe paint failure from previous DIY attempts, with peeling, cracking, and exposed wood in multiple areas. Client needed weather-resistant solution before winter.",
+      "solution": "Complete surface preparation including scraping, sanding, and wood repair. Applied premium weather-resistant coating system with proper primers and two finish coats.",
+      "results": [
+        "Completed before winter deadline",
+        "10-year paint warranty provided",
+        "Increased home value by $25,000",
+        "Zero callbacks or touch-ups needed"
+      ],
+      "testimonial": {
+        "quote": "After our DIY disaster, Ascent Group rescued our home. Their expertise and quality are unmatched.",
+        "author": "Michael J.",
+        "role": "Homeowner"
+      },
+      "services": [
+        "Exterior Painting",
+        "Wood Repair & Replacement",
+        "Surface Preparation",
+        "Trim Restoration",
+        "Weather-Resistant Coating"
+      ],
+      "specifications": {
+        "Paint": "Sherwin-Williams Duration Exterior",
+        "Primer": "Multi-surface bonding primer",
+        "Coats": "1 primer + 2 finish coats",
+        "Warranty": "10-year paint & labor"
+      }
+    },
+    "luxury-kitchen-cabinets": {
+      "id": "luxury-kitchen-cabinets",
+      "title": "Luxury Kitchen Cabinet Refinish",
+      "client": "Private Residence",
+      "category": "Residential Painting",
+      "location": "Toronto, ON",
+      "year": 2023,
+      "duration": "1 week",
+      "size": "25 cabinet doors + boxes",
+      "heroImage": "/placeholder.svg",
+      "gallery": [
+        "/placeholder.svg",
+        "/placeholder.svg"
+      ],
+      "challenge": "Client wanted to update their kitchen without the cost and disruption of full cabinet replacement. Required factory-quality finish with custom color.",
+      "solution": "Professional spray finishing in our climate-controlled facility. Custom color matching to client's specification using premium conversion varnish.",
+      "results": [
+        "Saved $18,000 vs. cabinet replacement",
+        "Factory-quality finish achieved",
+        "Perfect custom color match",
+        "Kitchen ready to use in 1 week"
+      ],
+      "testimonial": {
+        "quote": "I can't believe these are the same cabinets! The finish is flawless and the color is exactly what I wanted.",
+        "author": "Jennifer L.",
+        "role": "Homeowner"
+      },
+      "services": [
+        "Cabinet Spray Finishing",
+        "Custom Color Matching",
+        "Professional Facility Work",
+        "Hardware Refinishing",
+        "Premium Topcoat"
+      ],
+      "specifications": {
+        "Finish": "ML Campbell Magnalac conversion varnish",
+        "Color": "Custom matched to sample",
+        "Sheen": "Satin (30-35 gloss)",
+        "Coats": "2 primer + 2 topcoat"
+      }
+    }
+  }
+}

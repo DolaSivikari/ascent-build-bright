@@ -1,24 +1,34 @@
 import { Card } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, MapPin } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
     name: "Sarah Mitchell",
-    role: "Homeowner, Oakville",
-    quote: "Ascent transformed our home's exterior with beautiful stucco work. The team was professional, punctual, and the quality exceeded our expectations.",
+    role: "Homeowner",
+    location: "Toronto, ON",
+    project: "Condo Interior Painting",
+    quote: "Ascent Group exceeded all expectations. Their attention to detail and professionalism made the entire process stress-free. The transformation is stunning!",
     rating: 5,
+    initials: "SM"
   },
   {
-    name: "David Chen",
-    role: "Property Manager, Mississauga",
-    quote: "We've used Ascent for multiple painting projects. Their attention to detail and transparent pricing makes them our go-to contractor.",
+    name: "Robert & Linda K.",
+    role: "Heritage Homeowners",
+    location: "Mississauga, ON",
+    project: "EIFS Restoration",
+    quote: "They perfectly balanced preserving our home's character with modern performance. The craftsmanship is outstanding.",
     rating: 5,
+    initials: "RK"
   },
   {
-    name: "Jessica Thompson",
-    role: "Homeowner, Burlington",
-    quote: "From the initial estimate to final walkthrough, Ascent made our renovation stress-free. Highly recommend their services!",
+    name: "Michael Johnson",
+    role: "Homeowner",
+    location: "Oakville, ON",
+    project: "Exterior Repaint",
+    quote: "After our DIY disaster, Ascent Group rescued our home. Their expertise and quality are unmatched. Completed before winter!",
     rating: 5,
+    initials: "MJ"
   },
 ];
 
@@ -37,7 +47,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.name}
-              className="p-8 card-hover border-2"
+              className="p-8 card-hover border-2 hover:shadow-[--shadow-medium]"
               style={{
                 animationDelay: `${index * 0.1}s`,
                 opacity: 0,
@@ -49,12 +59,23 @@ const TestimonialsSection = () => {
                   <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
                 ))}
               </div>
-              <p className="text-foreground/90 mb-6 italic">
+              <p className="text-foreground mb-6 italic leading-relaxed">
                 "{testimonial.quote}"
               </p>
-              <div className="border-t border-border pt-4">
-                <div className="font-semibold text-primary">{testimonial.name}</div>
-                <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+              <div className="flex items-center gap-4 pt-4 border-t border-border">
+                <Avatar className="h-12 w-12 bg-primary text-primary-foreground">
+                  <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                </Avatar>
+                <div className="flex-1">
+                  <div className="font-semibold text-primary">{testimonial.name}</div>
+                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
+                    <MapPin className="w-3 h-3" />
+                    <span>{testimonial.location}</span>
+                    <span className="mx-1">•</span>
+                    <span>{testimonial.project}</span>
+                  </div>
+                </div>
               </div>
             </Card>
           ))}

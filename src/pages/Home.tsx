@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import HeroSection from "@/components/home/HeroSection";
+import TrustBadges from "@/components/home/TrustBadges";
 import StatsSection from "@/components/home/StatsSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyAscent from "@/components/home/WhyAscent";
@@ -19,6 +20,7 @@ const Home = () => {
       <Header />
       <main id="main-content" role="main">
         <HeroSection />
+        <TrustBadges />
         <StatsSection />
         <ServicesPreview />
         <WhyAscent />

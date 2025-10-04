@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
+import CaseStudy from "./pages/CaseStudy";
 import Estimate from "./pages/Estimate";
 import Contact from "./pages/Contact";
 import ResidentialPainting from "./pages/service/ResidentialPainting";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/services/painting" element={<ResidentialPainting />} />
           <Route path="/services/stucco" element={<StuccoEIFS />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<CaseStudy />} />
           <Route path="/estimate" element={<Estimate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin/login" element={<Login />} />
