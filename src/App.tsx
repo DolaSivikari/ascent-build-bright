@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import OurProcess from "./pages/OurProcess";
 import Projects from "./pages/Projects";
 import CaseStudy from "./pages/CaseStudy";
 import Blog from "./pages/Blog";
@@ -23,6 +24,9 @@ import Sealants from "./pages/service/Sealants";
 import Masonry from "./pages/service/Masonry";
 import TileFlooring from "./pages/service/TileFlooring";
 import MetalCladding from "./pages/service/MetalCladding";
+import Homeowners from "./pages/audience/Homeowners";
+import PropertyManagers from "./pages/audience/PropertyManagers";
+import CommercialClients from "./pages/audience/CommercialClients";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -38,6 +42,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/our-process" element={<OurProcess />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/painting" element={<ResidentialPainting />} />
           <Route path="/services/stucco" element={<StuccoEIFS />} />
@@ -49,6 +54,9 @@ const App = () => (
           <Route path="/services/masonry" element={<Masonry />} />
           <Route path="/services/tile-flooring" element={<TileFlooring />} />
           <Route path="/services/metal-cladding" element={<MetalCladding />} />
+          <Route path="/for/homeowners" element={<Homeowners />} />
+          <Route path="/for/property-managers" element={<PropertyManagers />} />
+          <Route path="/for/commercial" element={<CommercialClients />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<CaseStudy />} />
           <Route path="/blog" element={<Blog />} />
