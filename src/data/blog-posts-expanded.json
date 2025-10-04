@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "id": "complete-guide-eifs-systems",
+      "title": "The Complete Guide to EIFS: Everything You Need to Know",
+      "slug": "complete-guide-eifs-systems",
+      "author": "Ascent Group Technical Team",
+      "date": "2024-04-15",
+      "category": "Stucco & EIFS",
+      "excerpt": "An in-depth guide to EIFS technology, benefits, installation process, and why it's the superior choice for modern exterior cladding.",
+      "featured": true,
+      "image": "/src/assets/blog-stucco-eifs.jpg",
+      "readTime": "15 min read"
+    },
+    {
       "id": "commercial-vs-residential-painting",
       "title": "Commercial vs. Residential Painting: Key Differences",
       "slug": "commercial-vs-residential-painting",
