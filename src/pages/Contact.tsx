@@ -1,51 +1,92 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Loader2 } from "lucide-react";
+import { contactFormSchema, type ContactFormData } from "@/lib/validations";
+import { checkRateLimit, getRemainingTime } from "@/lib/rate-limit";
+import { supabase } from "@/integrations/supabase/client";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    console.log("Contact form submitted:", formData);
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-
-    setFormData({
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       name: "",
       email: "",
       phone: "",
       subject: "",
       message: "",
-    });
+    },
+  });
+
+  const handleSubmit = async (data: ContactFormData) => {
+    // Check rate limit
+    const rateCheck = checkRateLimit('contact');
+    if (!rateCheck.allowed) {
+      const remaining = getRemainingTime(rateCheck.resetTime!);
+      toast({
+        title: "Please Wait",
+        description: `You can submit again in ${remaining} seconds.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Get IP address (fallback to unknown if not available)
+      let ipAddress = 'unknown';
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        ipAddress = ipData.ip;
+      } catch (e) {
+        console.warn('Could not fetch IP address');
+      }
+
+      const { error } = await supabase.functions.invoke('submit-contact', {
+        body: {
+          data,
+          ip: ipAddress,
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      form.reset();
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -133,95 +174,124 @@ const Contact = () => {
                 <h2 className="text-3xl font-heading font-bold mb-6 text-primary">
                   Send Us a Message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="name" className="text-base font-medium mb-2 block">
-                        Your Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        placeholder="John Smith"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="h-12"
-                        required
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium">
+                              Your Name *
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="John Smith"
+                                className="h-12"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium">
+                              Email Address *
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="email"
+                                placeholder="john@example.com"
+                                className="h-12"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
 
-                    <div>
-                      <Label htmlFor="email" className="text-base font-medium mb-2 block">
-                        Email Address *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="h-12"
-                        required
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium">
+                              Phone Number
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="tel"
+                                placeholder="(905) 555-0100"
+                                className="h-12"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium">
+                              Subject
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Project inquiry"
+                                className="h-12"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="phone" className="text-base font-medium mb-2 block">
-                        Phone Number
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="(905) 555-0100"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="subject" className="text-base font-medium mb-2 block">
-                        Subject
-                      </Label>
-                      <Input
-                        id="subject"
-                        placeholder="Project inquiry"
-                        value={formData.subject}
-                        onChange={(e) =>
-                          setFormData({ ...formData, subject: e.target.value })
-                        }
-                        className="h-12"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message" className="text-base font-medium mb-2 block">
-                      Message *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us about your project..."
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      className="min-h-[150px]"
-                      required
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-medium">
+                            Message *
+                          </FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Tell us about your project..."
+                              className="min-h-[150px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <Button type="submit" className="btn-hero w-full md:w-auto px-12">
-                    Send Message
-                  </Button>
-                </form>
+                    <Button 
+                      type="submit" 
+                      className="btn-hero w-full md:w-auto px-12"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </Form>
               </Card>
             </div>
           </div>

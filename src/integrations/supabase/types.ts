@@ -14,7 +14,147 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          ip_address: string | null
+          message: string
+          name: string
+          phone: string | null
+          subject: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          ip_address?: string | null
+          message: string
+          name: string
+          phone?: string | null
+          subject?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          ip_address?: string | null
+          message?: string
+          name?: string
+          phone?: string | null
+          subject?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      estimate_requests: {
+        Row: {
+          address: string | null
+          color_consultation: boolean | null
+          created_at: string
+          email: string
+          estimate_max: number | null
+          estimate_min: number | null
+          finish_quality: string
+          id: string
+          ip_address: string | null
+          name: string
+          notes: string | null
+          phone: string
+          preferred_contact: string | null
+          prep_complexity: string
+          region: string
+          rush_scheduling: boolean | null
+          scaffolding: string | null
+          service: string
+          site_cleanup: boolean | null
+          sqft: number
+          stories: string
+          user_agent: string | null
+          warranty_extension: boolean | null
+        }
+        Insert: {
+          address?: string | null
+          color_consultation?: boolean | null
+          created_at?: string
+          email: string
+          estimate_max?: number | null
+          estimate_min?: number | null
+          finish_quality: string
+          id?: string
+          ip_address?: string | null
+          name: string
+          notes?: string | null
+          phone: string
+          preferred_contact?: string | null
+          prep_complexity: string
+          region: string
+          rush_scheduling?: boolean | null
+          scaffolding?: string | null
+          service: string
+          site_cleanup?: boolean | null
+          sqft: number
+          stories: string
+          user_agent?: string | null
+          warranty_extension?: boolean | null
+        }
+        Update: {
+          address?: string | null
+          color_consultation?: boolean | null
+          created_at?: string
+          email?: string
+          estimate_max?: number | null
+          estimate_min?: number | null
+          finish_quality?: string
+          id?: string
+          ip_address?: string | null
+          name?: string
+          notes?: string | null
+          phone?: string
+          preferred_contact?: string | null
+          prep_complexity?: string
+          region?: string
+          rush_scheduling?: boolean | null
+          scaffolding?: string | null
+          service?: string
+          site_cleanup?: boolean | null
+          sqft?: number
+          stories?: string
+          user_agent?: string | null
+          warranty_extension?: boolean | null
+        }
+        Relationships: []
+      }
+      form_rate_limits: {
+        Row: {
+          form_type: string
+          id: string
+          ip_address: string
+          last_submission: string
+          submission_count: number
+          window_start: string
+        }
+        Insert: {
+          form_type: string
+          id?: string
+          ip_address: string
+          last_submission?: string
+          submission_count?: number
+          window_start?: string
+        }
+        Update: {
+          form_type?: string
+          id?: string
+          ip_address?: string
+          last_submission?: string
+          submission_count?: number
+          window_start?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

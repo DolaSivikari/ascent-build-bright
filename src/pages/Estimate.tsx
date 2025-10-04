@@ -12,6 +12,9 @@ import EstimatorStep3 from "@/components/estimator/EstimatorStep3";
 import EstimatorStep4 from "@/components/estimator/EstimatorStep4";
 import EstimatorStep5 from "@/components/estimator/EstimatorStep5";
 import { calculateEstimate, EstimateInput, EstimateResult, formatCurrency } from "@/utils/estimator";
+import { estimatorFormSchema } from "@/lib/validations";
+import { checkRateLimit, getRemainingTime } from "@/lib/rate-limit";
+import { supabase } from "@/integrations/supabase/client";
 
 const Estimate = () => {
   const { toast } = useToast();
@@ -135,23 +138,80 @@ const Estimate = () => {
   const handleSubmit = async () => {
     if (!validateStep(5) || !estimate) return;
 
-    // Simulate form submission
+    // Validate entire form
     try {
-      // In production, this would send to your CRM/backend
-      console.log("Submitting estimate request:", {
-        ...formData,
-        estimatedRange: `${formatCurrency(estimate.min)} - ${formatCurrency(estimate.max)}`,
+      estimatorFormSchema.parse(formData);
+    } catch (error: any) {
+      toast({
+        title: "Validation Error",
+        description: error.errors?.[0]?.message || "Please check your information.",
+        variant: "destructive",
       });
+      return;
+    }
+
+    // Check rate limit
+    const rateCheck = checkRateLimit('estimate');
+    if (!rateCheck.allowed) {
+      const remaining = getRemainingTime(rateCheck.resetTime!);
+      toast({
+        title: "Please Wait",
+        description: `You can submit again in ${remaining} seconds.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // Get IP address (fallback to unknown if not available)
+      let ipAddress = 'unknown';
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        ipAddress = ipData.ip;
+      } catch (e) {
+        console.warn('Could not fetch IP address');
+      }
+
+      const { error } = await supabase.functions.invoke('submit-estimate', {
+        body: {
+          data: {
+            service: formData.service,
+            sqft: parseInt(formData.sqft),
+            stories: formData.stories,
+            prepComplexity: formData.prepComplexity,
+            finishQuality: formData.finishQuality,
+            region: formData.region,
+            scaffolding: formData.scaffolding,
+            colorConsultation: formData.colorConsultation,
+            rushScheduling: formData.rushScheduling,
+            warrantyExtension: formData.warrantyExtension,
+            siteCleanup: formData.siteCleanup,
+            estimateMin: estimate.min,
+            estimateMax: estimate.max,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            preferredContact: formData.preferredContact,
+            notes: formData.notes,
+          },
+          ip: ipAddress,
+        },
+      });
+
+      if (error) throw error;
 
       setSubmitted(true);
       toast({
         title: "Success!",
         description: "Your estimate request has been received. We'll contact you within 48 hours.",
       });
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Estimate submission error:', error);
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again or call us directly.",
+        title: "Submission Failed",
+        description: error.message || "Something went wrong. Please try again or call us directly.",
         variant: "destructive",
       });
     }

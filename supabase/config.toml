@@ -1,1 +1,7 @@
 project_id = "wiksprbjwvifckfmlndh"
+
+[functions.submit-contact]
+verify_jwt = false
+
+[functions.submit-estimate]
+verify_jwt = false
