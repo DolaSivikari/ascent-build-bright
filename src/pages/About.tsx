@@ -29,7 +29,7 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "15+", label: "Years Experience" },
+    { value: "7+", label: "Years Experience" },
     { value: "850+", label: "Projects Completed" },
     { value: "780+", label: "Happy Clients" },
     { value: "99%", label: "Safety Rating" },
@@ -47,7 +47,7 @@ const About = () => {
                 About Ascent Group
               </h1>
               <p className="text-xl opacity-90">
-                Building excellence in residential construction since 2008
+                Our mission, values, and the team delivering premium painting and Stucco services across the GTA
               </p>
             </div>
           </div>
@@ -61,16 +61,24 @@ const About = () => {
                 <h2 className="text-4xl font-heading font-bold mb-6 text-primary">
                   Our Story
                 </h2>
-                <div className="space-y-4 text-lg text-muted-foreground">
-                  <p>
-                    Founded in 2008, Ascent Group Construction began with a simple mission: to provide homeowners in the GTA with exceptional painting and exterior finishing services they can trust.
-                  </p>
-                  <p>
-                    Over the past 15+ years, we've grown from a small team to one of Mississauga's most trusted residential contractors, completing over 850 projects across the Greater Toronto Area.
-                  </p>
-                  <p>
-                    Today, we specialize in residential painting and Stucco/EIFS installation, combining traditional craftsmanship with modern technology to deliver outstanding results on every project.
-                  </p>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Founded in Mississauga, Ascent Group Construction exists to improve homes and neighborhoods through high-quality finishes and reliable service. Our mission is to deliver exceptional results while prioritizing safety, communication, and environmental responsibility.
+                </p>
+                
+                <h3 className="text-2xl font-heading font-bold mb-4 text-primary">Timeline</h3>
+                <div className="space-y-4 text-muted-foreground">
+                  <div>
+                    <strong className="text-primary">2017 — Founding:</strong> Ascent Group formed by construction professionals with a shared vision: beautiful, durable residential finishes done the right way.
+                  </div>
+                  <div>
+                    <strong className="text-primary">2019 — Expanded Services:</strong> Introduced specialized Stucco/EIFS offerings and invested in training for high-performance systems.
+                  </div>
+                  <div>
+                    <strong className="text-primary">2022 — Tech & Systems:</strong> Implemented digital scheduling, customer portal, and improved quality control checklists.
+                  </div>
+                  <div>
+                    <strong className="text-primary">2024 — Community Growth:</strong> Active partnerships with local suppliers and trade schools to support local workforce development.
+                  </div>
                 </div>
               </div>
 
@@ -145,7 +153,7 @@ const About = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="section-title mb-6 text-primary">Our Mission</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                To be the most trusted residential construction partner in the GTA by consistently delivering exceptional quality, transparent service, and innovative solutions that transform houses into homes our clients love.
+                To be the most trusted residential construction partner in the GTA by consistently delivering exceptional quality, transparent service, and innovative solutions that transform houses into homes our clients love. We combine craftsmanship, technology, and respect for the communities we build in.
               </p>
             </div>
           </div>
@@ -181,13 +189,14 @@ const About = () => {
                   Community Focus
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  We're proud to be part of the GTA community. From supporting local suppliers to participating in community initiatives, we believe in giving back.
+                  Ascent participates in local habitat restoration projects and uses low-VOC paint options and responsible waste disposal to reduce environmental impact.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Local team serving the GTA since 2008</li>
+                  <li>• Local team serving the GTA since 2017</li>
                   <li>• Supporting local suppliers and trades</li>
                   <li>• Community partnership programs</li>
                   <li>• Environmentally conscious practices</li>
+                  <li>• Low-VOC paint options available</li>
                 </ul>
               </Card>
             </div>

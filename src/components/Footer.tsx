@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm opacity-90 mb-6">
-              Professional residential painting and Stucco/EIFS services in Mississauga and the Greater Toronto Area.
+              Serving homeowners across the GTA with trusted, professional painting and Stucco services. Licensed, insured, and locally proud.
             </p>
             <div className="flex gap-4">
               <a

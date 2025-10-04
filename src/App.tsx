@@ -9,6 +9,8 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Estimate from "./pages/Estimate";
 import Contact from "./pages/Contact";
+import ResidentialPainting from "./pages/service/ResidentialPainting";
+import StuccoEIFS from "./pages/service/StuccoEIFS";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,8 +25,8 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/painting" element={<Services />} />
-          <Route path="/services/stucco" element={<Services />} />
+          <Route path="/services/painting" element={<ResidentialPainting />} />
+          <Route path="/services/stucco" element={<StuccoEIFS />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/estimate" element={<Estimate />} />
           <Route path="/contact" element={<Contact />} />

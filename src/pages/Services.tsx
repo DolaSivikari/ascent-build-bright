@@ -59,9 +59,14 @@ const Services = () => {
                   ))}
                 </div>
 
-                <Link to="/estimate">
-                  <Button className="btn-hero">Get a Painting Estimate</Button>
-                </Link>
+                <div className="flex gap-4">
+                  <Link to="/services/painting">
+                    <Button variant="outline" className="border-2">Learn More</Button>
+                  </Link>
+                  <Link to="/estimate">
+                    <Button className="btn-hero">Get a Painting Estimate</Button>
+                  </Link>
+                </div>
               </div>
 
               <div className="order-1 lg:order-2">
@@ -116,9 +121,14 @@ const Services = () => {
                   ))}
                 </div>
 
-                <Link to="/estimate">
-                  <Button className="btn-hero">Get a Stucco Estimate</Button>
-                </Link>
+                <div className="flex gap-4">
+                  <Link to="/services/stucco">
+                    <Button variant="outline" className="border-2">Learn More</Button>
+                  </Link>
+                  <Link to="/estimate">
+                    <Button className="btn-hero">Get a Stucco Estimate</Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
