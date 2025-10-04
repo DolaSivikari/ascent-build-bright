@@ -15,6 +15,9 @@ import Estimate from "./pages/Estimate";
 import Contact from "./pages/Contact";
 import ResidentialPainting from "./pages/service/ResidentialPainting";
 import StuccoEIFS from "./pages/service/StuccoEIFS";
+import CommercialPainting from "./pages/service/CommercialPainting";
+import ParkingGarage from "./pages/service/ParkingGarage";
+import CondoPainting from "./pages/service/CondoPainting";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -33,6 +36,9 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/painting" element={<ResidentialPainting />} />
           <Route path="/services/stucco" element={<StuccoEIFS />} />
+          <Route path="/services/commercial" element={<CommercialPainting />} />
+          <Route path="/services/parking-garage" element={<ParkingGarage />} />
+          <Route path="/services/condo" element={<CondoPainting />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<CaseStudy />} />
           <Route path="/blog" element={<Blog />} />

@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import BlogCard from "@/components/blog/BlogCard";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import blogData from "@/data/blog-posts.json";
+import blogData from "@/data/blog-posts-expanded.json";
 
 const Blog = () => {
   const [filter, setFilter] = useState<string>("all");

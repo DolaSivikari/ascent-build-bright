@@ -33,109 +33,127 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Residential Painting */}
+        {/* Services Grid */}
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="order-2 lg:order-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Paintbrush className="w-6 h-6 text-primary" />
-                  </div>
-                  <h2 className="text-4xl font-heading font-bold text-primary">
-                    Residential Painting
-                  </h2>
-                </div>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Transform your home with professional interior and exterior painting services. We use premium coatings and meticulous prep work to ensure a flawless, long-lasting finish.
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="section-title text-primary mb-4">Our Specialized Services</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  From residential homes to large-scale commercial projects, we deliver exceptional results across all markets
                 </p>
-                
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Interior & exterior painting",
-                    "Premium paint brands & materials",
-                    "Professional color consultation",
-                    "Surface preparation & repair",
-                    "Multi-coat application",
-                    "Clean-up & protection",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <Link to="/services/painting">
-                    <Button variant="outline" className="border-2">Learn More</Button>
-                  </Link>
-                  <Link to="/estimate">
-                    <Button className="btn-hero">Get a Painting Estimate</Button>
-                  </Link>
-                </div>
               </div>
 
-              <div className="order-1 lg:order-2">
-                <OptimizedImage
-                  src={paintingProject}
-                  alt="Professional residential exterior painting project showcasing premium finishes and expert craftsmanship"
-                  className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
-                />
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Residential Painting",
+                    icon: Paintbrush,
+                    description: "Complete interior and exterior painting for homeowners",
+                    link: "/services/painting",
+                    features: ["Interior & Exterior", "Color Consultation", "Premium Finishes"]
+                  },
+                  {
+                    title: "Commercial Painting",
+                    icon: Home,
+                    description: "Professional painting for offices, retail, and industrial spaces",
+                    link: "/services/commercial",
+                    features: ["Minimal Disruption", "After-Hours Work", "Large-Scale Projects"]
+                  },
+                  {
+                    title: "Stucco & EIFS",
+                    icon: Home,
+                    description: "Expert installation and repair of exterior cladding systems",
+                    link: "/services/stucco",
+                    features: ["Complete Systems", "Repairs", "Energy Efficient"]
+                  },
+                  {
+                    title: "Condo & Multi-Unit",
+                    icon: Home,
+                    description: "Specialized services for property managers and condo boards",
+                    link: "/services/condo",
+                    features: ["Fast Turnaround", "Volume Pricing", "Tenant Coordination"]
+                  },
+                  {
+                    title: "Parking Garage Coating",
+                    icon: Home,
+                    description: "Heavy-duty coatings for parking structures and parkades",
+                    link: "/services/parking-garage",
+                    features: ["Traffic Coatings", "Line Striping", "Waterproofing"]
+                  },
+                  {
+                    title: "Custom Solutions",
+                    icon: Paintbrush,
+                    description: "Specialty finishes and unique project requirements",
+                    link: "/contact",
+                    features: ["Decorative Finishes", "Heritage Work", "Consulting"]
+                  }
+                ].map((service, index) => (
+                  <Link key={service.title} to={service.link}>
+                    <Card className="p-6 h-full card-hover border-2 group"
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        opacity: 0,
+                        animation: 'slide-up 0.6s ease-out forwards'
+                      }}
+                    >
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <service.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-heading font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4">{service.description}</p>
+                      <ul className="space-y-2">
+                        {service.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-2 text-sm">
+                            <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Stucco / EIFS */}
+        {/* Industries We Serve */}
         <section className="py-24 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div>
-                <OptimizedImage
-                  src={stuccoDetail}
-                  alt="Professional stucco and EIFS installation detail showing high-quality exterior cladding system with superior insulation and weatherproofing"
-                  className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
-                />
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Home className="w-6 h-6 text-primary" />
-                  </div>
-                  <h2 className="text-4xl font-heading font-bold text-primary">
-                    Stucco / EIFS
-                  </h2>
-                </div>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Expert installation of Exterior Insulation and Finish Systems (EIFS) and traditional stucco. Superior insulation, weatherproofing, and lasting beauty for your home's exterior.
-                </p>
-                
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Complete EIFS systems installation",
-                    "Traditional stucco application",
-                    "Superior insulation & energy efficiency",
-                    "Weather-resistant finishes",
-                    "Custom textures & colors",
-                    "Repair & restoration services",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <Link to="/services/stucco">
-                    <Button variant="outline" className="border-2">Learn More</Button>
-                  </Link>
-                  <Link to="/estimate">
-                    <Button className="btn-hero">Get a Stucco Estimate</Button>
-                  </Link>
-                </div>
+            <div className="max-w-6xl mx-auto">
+              <h2 className="section-title text-center mb-16 text-primary">
+                Industries We Serve
+              </h2>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  "Residential Homes",
+                  "Condominiums",
+                  "Office Buildings",
+                  "Retail Spaces",
+                  "Industrial Facilities",
+                  "Hotels & Hospitality",
+                  "Healthcare",
+                  "Educational Institutions",
+                  "Property Management",
+                  "Parking Structures",
+                  "Warehouses",
+                  "Commercial Plazas"
+                ].map((industry, index) => (
+                  <Card key={industry} className="p-4 text-center card-hover"
+                    style={{
+                      animationDelay: `${index * 0.05}s`,
+                      opacity: 0,
+                      animation: 'fade-in 0.4s ease-out forwards'
+                    }}
+                  >
+                    <CheckCircle2 className="w-6 h-6 text-primary mx-auto mb-2" />
+                    <span className="font-semibold text-sm">{industry}</span>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>

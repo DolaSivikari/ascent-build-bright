@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import projectsData from "@/data/projects.json";
+import projectsData from "@/data/projects-expanded.json";
 
 const Projects = () => {
   const [filter, setFilter] = useState<string>("all");
