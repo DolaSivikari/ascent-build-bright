@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Award, Users, Shield, TrendingUp } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 import teamWork from "@/assets/team-work.jpg";
 
 const About = () => {
@@ -37,6 +39,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="About Us"
+        description="Learn about Ascent Group Construction's mission, values, and the team delivering premium painting and Stucco/EIFS services across the GTA. Licensed, insured, and community-focused."
+        keywords="about Ascent Group, construction company Mississauga, licensed contractor GTA, painting company values"
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}
@@ -83,11 +90,10 @@ const About = () => {
               </div>
 
               <div>
-                <img
+                <OptimizedImage
                   src={teamWork}
                   alt="Ascent Group Construction team members collaborating on a residential painting project, showcasing our commitment to quality craftsmanship and teamwork"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
-                  loading="lazy"
                 />
               </div>
             </div>

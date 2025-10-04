@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft, Search } from "lucide-react";
 
 const NotFound = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 px-4">
+      <SEO 
+        title="404 - Page Not Found"
+        description="The page you're looking for doesn't exist. Return to Ascent Group Construction homepage."
+      />
       <div className="max-w-2xl w-full text-center animate-fade-in">
         <div className="mb-8">
           <h1 className="text-9xl font-heading font-bold text-primary mb-4">404</h1>

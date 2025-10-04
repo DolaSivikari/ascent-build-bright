@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -116,6 +117,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with Ascent Group Construction. Call us at (905) 555-0100, email info@ascentgroup.ca, or visit our Mississauga office for your construction needs."
+        keywords="contact construction company, Mississauga contractor, get quote, construction consultation"
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}

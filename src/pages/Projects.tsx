@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import OptimizedImage from "@/components/OptimizedImage";
 import paintingProject from "@/assets/painting-project.jpg";
 import stuccoDetail from "@/assets/stucco-detail.jpg";
 import teamWork from "@/assets/team-work.jpg";
@@ -106,6 +108,11 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO 
+        title="Projects Portfolio"
+        description="View our completed painting and Stucco/EIFS projects across the GTA. Residential transformations showcasing quality craftsmanship and attention to detail."
+        keywords="construction projects, painting portfolio, stucco projects, before and after, completed projects Mississauga"
+      />
       <Header />
       <main className="flex-1" role="main">
         {/* Hero */}
@@ -222,11 +229,10 @@ const Projects = () => {
                     }}
                   >
                     <div className="relative overflow-hidden h-72">
-                      <img
+                      <OptimizedImage
                         src={project.image}
                         alt={`${project.title} - ${project.category} project in ${project.location} - ${project.description}`}
                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                        loading="lazy"
                       />
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

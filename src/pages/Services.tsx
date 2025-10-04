@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Paintbrush, Home, CheckCircle2 } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 import paintingProject from "@/assets/painting-project.jpg";
 import stuccoDetail from "@/assets/stucco-detail.jpg";
 
 const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Services"
+        description="Expert residential painting and Stucco/EIFS installation across the GTA. Premium materials, professional craftsmanship, and transparent pricing."
+        keywords="painting services, stucco installation, EIFS, exterior painting, interior painting, residential construction services"
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}
@@ -70,11 +77,10 @@ const Services = () => {
               </div>
 
               <div className="order-1 lg:order-2">
-                <img
+                <OptimizedImage
                   src={paintingProject}
                   alt="Professional residential exterior painting project showcasing premium finishes and expert craftsmanship"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -86,11 +92,10 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>
-                <img
+                <OptimizedImage
                   src={stuccoDetail}
                   alt="Professional stucco and EIFS installation detail showing high-quality exterior cladding system with superior insulation and weatherproofing"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
-                  loading="lazy"
                 />
               </div>
 

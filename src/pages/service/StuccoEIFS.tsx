@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 import stuccoDetail from "@/assets/stucco-detail.jpg";
 
 const StuccoEIFS = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Stucco & EIFS Installation Services"
+        description="Expert Stucco and EIFS installation, repair, and restoration across the GTA. Superior insulation, weather-resistant finishes, and manufacturer-backed warranties."
+        keywords="stucco installation, EIFS, exterior insulation, stucco repair, EIFS contractor Mississauga, stucco GTA"
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}
@@ -72,11 +79,11 @@ const StuccoEIFS = () => {
               </div>
 
               <div>
-                <img
+                <OptimizedImage
                   src={stuccoDetail}
                   alt="Professional stucco and EIFS installation detail showcasing complete system with insulation integration, moisture management, and premium textured finish"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full mb-8"
-                  loading="lazy"
+                  priority
                 />
 
                 <Card className="p-6 mb-8 border-2">

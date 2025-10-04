@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -230,6 +231,10 @@ const Estimate = () => {
   if (submitted) {
     return (
       <div className="min-h-screen flex flex-col">
+        <SEO 
+          title="Estimate Request Submitted"
+          description="Your estimate request has been received. Our team will contact you within 24 hours with a detailed quote."
+        />
         <Header />
         <main className="flex-1 flex items-center justify-center py-20 px-4">
           <Card className="max-w-2xl w-full p-12 text-center">
@@ -267,6 +272,11 @@ const Estimate = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Free Project Estimate"
+        description="Get an instant estimate for your residential painting or Stucco/EIFS project. Answer a few questions to receive a detailed quote range within minutes."
+        keywords="free estimate, painting quote, stucco quote, construction estimate calculator, project cost estimate"
+      />
       <Header />
       <main className="flex-1 py-24 px-4">
         <div className="container mx-auto max-w-4xl">

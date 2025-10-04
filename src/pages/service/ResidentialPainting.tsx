@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 import paintingProject from "@/assets/painting-project.jpg";
 
 const ResidentialPainting = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Residential Painting Services"
+        description="Professional interior and exterior painting services across the GTA. Premium coatings, expert surface prep, and color consultation. Request a free estimate today."
+        keywords="residential painting, interior painting, exterior painting, house painters Mississauga, painting contractor GTA"
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}
@@ -30,11 +37,11 @@ const ResidentialPainting = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
               <div>
-                <img
+                <OptimizedImage
                   src={paintingProject}
                   alt="Professional residential painting project showcasing interior and exterior painting with premium finishes, detailed surface prep, and expert color application"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full mb-8"
-                  loading="lazy"
+                  priority
                 />
                 
                 <Card className="p-6 bg-muted/30 border-2">
