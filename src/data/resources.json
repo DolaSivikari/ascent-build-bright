@@ -95,6 +95,86 @@
         "Common exclusions",
         "Extended coverage options"
       ]
+    },
+    {
+      "id": "project-planning-guide",
+      "title": "Complete Project Planning Guide",
+      "category": "Planning",
+      "description": "Step-by-step guide to planning your painting or renovation project from start to finish.",
+      "type": "PDF Guide",
+      "downloadUrl": "#",
+      "featured": true,
+      "topics": [
+        "Budget planning worksheet",
+        "Timeline development",
+        "Contractor selection criteria",
+        "Material selection guide",
+        "Quality checkpoints"
+      ]
+    },
+    {
+      "id": "color-consultation-prep",
+      "title": "Color Consultation Preparation Kit",
+      "category": "Tools",
+      "description": "Get the most out of your color consultation with our preparation checklist and tips.",
+      "type": "Interactive PDF",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Sample selection tips",
+        "Lighting assessment",
+        "Photo documentation guide",
+        "Question checklist",
+        "Style inspiration board"
+      ]
+    },
+    {
+      "id": "roi-calculator",
+      "title": "Home Improvement ROI Calculator",
+      "category": "Tools",
+      "description": "Calculate the return on investment for your painting and exterior improvement projects.",
+      "type": "Excel Tool",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Property value impact",
+        "Cost vs. value analysis",
+        "Market comparison data",
+        "Resale timeline factors",
+        "Investment recommendations"
+      ]
+    },
+    {
+      "id": "maintenance-schedule",
+      "title": "5-Year Maintenance Schedule",
+      "category": "Maintenance",
+      "description": "Comprehensive 5-year maintenance plan to protect your investment and extend the life of your finishes.",
+      "type": "PDF Calendar",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Monthly inspection points",
+        "Seasonal tasks",
+        "Professional service intervals",
+        "Product recommendations",
+        "Cost planning guide"
+      ]
+    },
+    {
+      "id": "emergency-repair-guide",
+      "title": "Emergency Repair Quick Guide",
+      "category": "Guides",
+      "description": "Quick reference for handling common paint and stucco emergencies before professional help arrives.",
+      "type": "PDF Guide",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Water damage response",
+        "Crack assessment",
+        "Temporary fixes",
+        "When to call professionals",
+        "Documentation for insurance"
+      ]
     }
   ],
   "faqs": [
