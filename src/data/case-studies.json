@@ -9,12 +9,12 @@
       "year": 2024,
       "duration": "2 weeks",
       "size": "2,500 sq ft",
-      "heroImage": "/placeholder.svg",
+      "heroImage": "/src/assets/project-modern-condo.jpg",
       "gallery": [
-        "/placeholder.svg",
-        "/placeholder.svg",
-        "/placeholder.svg",
-        "/placeholder.svg"
+        "/src/assets/project-modern-condo.jpg",
+        "/src/assets/project-modern-condo.jpg",
+        "/src/assets/project-modern-condo.jpg",
+        "/src/assets/project-modern-condo.jpg"
       ],
       "challenge": "The client wanted to transform their dated condo into a modern, bright living space while minimizing disruption to their busy schedule. The project required precise color matching and working around existing furniture.",
       "solution": "Our team developed a phased approach, completing one room at a time to allow the client to continue living in the space. We used low-VOC premium paints and implemented careful surface preparation to ensure a flawless finish.",
@@ -52,11 +52,11 @@
       "year": 2024,
       "duration": "3 weeks",
       "size": "3,200 sq ft exterior",
-      "heroImage": "/placeholder.svg",
+      "heroImage": "/src/assets/project-heritage-stucco.jpg",
       "gallery": [
-        "/placeholder.svg",
-        "/placeholder.svg",
-        "/placeholder.svg"
+        "/src/assets/project-heritage-stucco.jpg",
+        "/src/assets/project-heritage-stucco.jpg",
+        "/src/assets/project-heritage-stucco.jpg"
       ],
       "challenge": "A 1920s heritage home had deteriorating stucco with water infiltration issues. The owners wanted to preserve the historic character while upgrading to modern, energy-efficient materials.",
       "solution": "We designed a custom EIFS system that replicated the original stucco texture while providing superior insulation and waterproofing. All work was done in compliance with heritage preservation guidelines.",
@@ -94,10 +94,10 @@
       "year": 2023,
       "duration": "10 days",
       "size": "4,000 sq ft exterior",
-      "heroImage": "/placeholder.svg",
+      "heroImage": "/src/assets/project-oakville-exterior.jpg",
       "gallery": [
-        "/placeholder.svg",
-        "/placeholder.svg"
+        "/src/assets/project-oakville-exterior.jpg",
+        "/src/assets/project-oakville-exterior.jpg"
       ],
       "challenge": "Severe paint failure from previous DIY attempts, with peeling, cracking, and exposed wood in multiple areas. Client needed weather-resistant solution before winter.",
       "solution": "Complete surface preparation including scraping, sanding, and wood repair. Applied premium weather-resistant coating system with proper primers and two finish coats.",
@@ -135,10 +135,10 @@
       "year": 2023,
       "duration": "1 week",
       "size": "25 cabinet doors + boxes",
-      "heroImage": "/placeholder.svg",
+      "heroImage": "/src/assets/project-luxury-kitchen.jpg",
       "gallery": [
-        "/placeholder.svg",
-        "/placeholder.svg"
+        "/src/assets/project-luxury-kitchen.jpg",
+        "/src/assets/project-luxury-kitchen.jpg"
       ],
       "challenge": "Client wanted to update their kitchen without the cost and disruption of full cabinet replacement. Required factory-quality finish with custom color.",
       "solution": "Professional spray finishing in our climate-controlled facility. Custom color matching to client's specification using premium conversion varnish.",

@@ -4,7 +4,7 @@
       "id": "john-martinez",
       "name": "John Martinez",
       "role": "Founder & CEO",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-john-martinez.jpg",
       "bio": "With over 20 years in construction and project management, John founded Ascent Group in 2009 with a vision to deliver exceptional craftsmanship across the GTA. His commitment to quality and customer satisfaction has built our reputation as a trusted contractor.",
       "expertise": ["Project Management", "Client Relations", "Business Strategy"],
       "certifications": ["Licensed Contractor", "OSHA Certified"]
@@ -13,7 +13,7 @@
       "id": "sarah-chen",
       "name": "Sarah Chen",
       "role": "Operations Manager",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-sarah-chen.jpg",
       "bio": "Sarah brings 15 years of operational excellence to Ascent Group. She ensures every project runs smoothly, on time, and within budget while maintaining our high standards of quality and safety.",
       "expertise": ["Operations Management", "Quality Control", "Team Coordination"],
       "certifications": ["PMP Certified", "Six Sigma Green Belt"]
@@ -22,7 +22,7 @@
       "id": "michael-thompson",
       "name": "Michael Thompson",
       "role": "Lead Painter",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-michael-thompson.jpg",
       "bio": "A master craftsman with 18 years of painting experience, Michael leads our painting division with precision and expertise. His attention to detail and knowledge of advanced techniques ensures flawless finishes.",
       "expertise": ["Interior Painting", "Exterior Coatings", "Color Consultation"],
       "certifications": ["Benjamin Moore Authorized", "Sherwin-Williams Certified"]
@@ -31,7 +31,7 @@
       "id": "david-kowalski",
       "name": "David Kowalski",
       "role": "Stucco & EIFS Specialist",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-david-kowalski.jpg",
       "bio": "David is our go-to expert for all stucco and EIFS installations. With 16 years specializing in exterior systems, he combines traditional techniques with modern materials for lasting results.",
       "expertise": ["EIFS Installation", "Stucco Repair", "Waterproofing"],
       "certifications": ["CertainTeed Certified", "EIFS Industry Accredited"]
@@ -40,7 +40,7 @@
       "id": "jennifer-lee",
       "name": "Jennifer Lee",
       "role": "Customer Success Manager",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-jennifer-lee.jpg",
       "bio": "Jennifer ensures every client has an exceptional experience from first contact to project completion. Her dedication to communication and satisfaction has earned us countless referrals.",
       "expertise": ["Customer Relations", "Project Coordination", "Quality Assurance"],
       "certifications": ["Customer Success Professional"]
@@ -49,7 +49,7 @@
       "id": "robert-garcia",
       "name": "Robert Garcia",
       "role": "Safety Coordinator",
-      "image": "/placeholder.svg",
+      "image": "/src/assets/team-robert-garcia.jpg",
       "bio": "Robert's primary focus is keeping our team and your property safe. With 12 years in construction safety, he implements and monitors protocols that exceed industry standards.",
       "expertise": ["Safety Management", "Risk Assessment", "Compliance"],
       "certifications": ["OSHA 30-Hour", "First Aid/CPR", "Fall Protection"]
