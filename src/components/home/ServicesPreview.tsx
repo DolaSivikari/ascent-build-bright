@@ -2,32 +2,36 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Paintbrush, Home, ClipboardList, ArrowRight, Sparkles } from "lucide-react";
+import { Paintbrush, Home, Building2, ParkingSquare, CheckCircle2, ArrowRight } from "lucide-react";
 
 const services = [
   {
     icon: Paintbrush,
     title: "Residential Painting",
-    description: "Interior and exterior painting with professional prep, premium coatings & color consultations.",
+    description: "Transform your home with expert interior and exterior painting. Premium materials, meticulous prep, and flawless finishes.",
     link: "/services/painting",
-    color: "from-blue-500/10 to-cyan-500/10",
-    iconColor: "text-blue-600",
+    features: ["Interior & Exterior", "Color Consultation", "Premium Finishes"]
+  },
+  {
+    icon: Building2,
+    title: "Commercial Painting",
+    description: "Professional painting for offices, retail, and industrial spaces. Minimal disruption, maximum results.",
+    link: "/services/commercial",
+    features: ["After-Hours Work", "Large-Scale Projects", "Fast Turnaround"]
   },
   {
     icon: Home,
-    title: "Stucco / EIFS",
-    description: "Complete EIFS systems with superior insulation, weatherproofing, and custom finishes.",
+    title: "Stucco & EIFS",
+    description: "Expert installation and repair of exterior insulation systems. Energy efficient, weather-resistant, beautiful.",
     link: "/services/stucco",
-    color: "from-orange-500/10 to-amber-500/10",
-    iconColor: "text-orange-600",
+    features: ["Complete Systems", "Waterproofing", "Custom Textures"]
   },
   {
-    icon: ClipboardList,
-    title: "Project Management",
-    description: "Full-service project coordination from planning through completion with dedicated support.",
-    link: "/services",
-    color: "from-purple-500/10 to-pink-500/10",
-    iconColor: "text-purple-600",
+    icon: ParkingSquare,
+    title: "Parking Garage Coating",
+    description: "Heavy-duty coatings for parking structures. Traffic coatings, line striping, and waterproofing solutions.",
+    link: "/services/parking-garage",
+    features: ["Traffic Coatings", "Line Striping", "Protection Systems"]
   },
 ];
 
@@ -53,76 +57,75 @@ const ServicesPreview = () => {
   return (
     <section 
       id="services-section" 
-      className="py-24 bg-background relative overflow-hidden" 
+      className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden" 
       aria-labelledby="services-heading"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)',
-          backgroundSize: '40px 40px',
-        }} />
-      </div>
+      {/* Subtle Background Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-30" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold text-primary uppercase tracking-wider">What We Do</span>
-          </div>
           <h2 id="services-heading" className="section-title mb-4 text-primary">
-            Our <span className="text-secondary">Services</span>
+            Our Specialized Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive construction solutions tailored to your residential needs
+            From residential homes to large-scale commercial projects, we deliver exceptional results across all markets
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
-            <Card
-              key={service.title}
-              className={`group relative p-8 border-2 border-border hover:border-primary/50 transition-all duration-500 overflow-hidden bg-gradient-to-br ${service.color} ${
-                isVisible ? 'animate-slide-up' : 'opacity-0'
-              }`}
-              style={{
-                animationDelay: `${index * 0.15}s`,
-              }}
-            >
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5 transition-all duration-500" />
-              
-              {/* Icon Container */}
-              <div className="relative mb-6">
-                <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl" aria-hidden="true">
-                  <service.icon className={`w-10 h-10 ${service.iconColor} group-hover:scale-110 transition-transform`} />
+            <Link key={service.title} to={service.link} className="group">
+              <Card
+                className={`h-full p-6 card-hover border-2 hover:border-primary/50 transition-all duration-300 ${
+                  isVisible ? 'animate-slide-up' : 'opacity-0'
+                }`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                }}
+              >
+                {/* Icon */}
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-primary/30">
+                  <service.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 bg-secondary rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 text-primary" />
+
+                {/* Title */}
+                <h3 className="text-xl font-heading font-bold mb-3 text-primary group-hover:text-secondary transition-colors duration-300">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-4">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Learn More Link */}
+                <div className="inline-flex items-center gap-2 font-semibold text-primary group-hover:text-secondary transition-colors text-sm">
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
-              </div>
-
-              <h3 className="text-2xl font-heading font-bold mb-4 text-primary group-hover:text-secondary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <Link to={service.link} className="group/link inline-flex items-center gap-2 font-semibold text-primary hover:text-secondary transition-colors">
-                <span>Learn more</span>
-                <ArrowRight className="w-4 h-4 group-hover/link:translate-x-2 transition-transform duration-300" />
-              </Link>
-
-              {/* Corner Accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
 
+        {/* Bottom CTA */}
         <div className="text-center">
+          <p className="text-muted-foreground mb-6">
+            Need a specialized service? <Link to="/services" className="text-primary hover:text-secondary font-semibold transition-colors">View all services</Link>
+          </p>
           <Link to="/estimate">
-            <Button className="btn-hero text-lg px-10 py-7 shadow-xl hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-300 group">
+            <Button className="btn-hero text-lg px-10 py-6 shadow-xl hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-300 group">
               Get a Free Estimate
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
