@@ -82,11 +82,39 @@ const Services = () => {
                     features: ["Traffic Coatings", "Line Striping", "Waterproofing"]
                   },
                   {
-                    title: "Custom Solutions",
+                    title: "Suite Buildouts & Renovations",
+                    icon: Home,
+                    description: "Complete interior construction and tenant improvements",
+                    link: "/services/suite-buildouts",
+                    features: ["Office Buildouts", "Retail Fit-Outs", "Medical Suites"]
+                  },
+                  {
+                    title: "Sealants & Caulking",
                     icon: Paintbrush,
-                    description: "Specialty finishes and unique project requirements",
-                    link: "/contact",
-                    features: ["Decorative Finishes", "Heritage Work", "Consulting"]
+                    description: "Professional weatherproofing and building envelope sealing",
+                    link: "/services/sealants",
+                    features: ["Waterproofing", "Air Sealing", "Joint Sealing"]
+                  },
+                  {
+                    title: "Masonry",
+                    icon: Home,
+                    description: "Block, brick, and stone construction and restoration",
+                    link: "/services/masonry",
+                    features: ["Structural Masonry", "Restoration", "Stone Work"]
+                  },
+                  {
+                    title: "Tile & Flooring",
+                    icon: Paintbrush,
+                    description: "Expert tile and flooring installation for all spaces",
+                    link: "/services/tile-flooring",
+                    features: ["Ceramic & Porcelain", "Natural Stone", "LVT/LVP"]
+                  },
+                  {
+                    title: "Metal Cladding & Panels",
+                    icon: Home,
+                    description: "Modern building facades with metal cladding systems",
+                    link: "/services/metal-cladding",
+                    features: ["ACM Panels", "Standing Seam", "Rainscreen"]
                   }
                 ].map((service, index) => (
                   <Link key={service.title} to={service.link}>

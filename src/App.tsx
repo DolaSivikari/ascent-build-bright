@@ -18,6 +18,11 @@ import StuccoEIFS from "./pages/service/StuccoEIFS";
 import CommercialPainting from "./pages/service/CommercialPainting";
 import ParkingGarage from "./pages/service/ParkingGarage";
 import CondoPainting from "./pages/service/CondoPainting";
+import SuiteBuildouts from "./pages/service/SuiteBuildouts";
+import Sealants from "./pages/service/Sealants";
+import Masonry from "./pages/service/Masonry";
+import TileFlooring from "./pages/service/TileFlooring";
+import MetalCladding from "./pages/service/MetalCladding";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -39,6 +44,11 @@ const App = () => (
           <Route path="/services/commercial" element={<CommercialPainting />} />
           <Route path="/services/parking-garage" element={<ParkingGarage />} />
           <Route path="/services/condo" element={<CondoPainting />} />
+          <Route path="/services/suite-buildouts" element={<SuiteBuildouts />} />
+          <Route path="/services/sealants" element={<Sealants />} />
+          <Route path="/services/masonry" element={<Masonry />} />
+          <Route path="/services/tile-flooring" element={<TileFlooring />} />
+          <Route path="/services/metal-cladding" element={<MetalCladding />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<CaseStudy />} />
           <Route path="/blog" element={<Blog />} />
