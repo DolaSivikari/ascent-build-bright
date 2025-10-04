@@ -53,21 +53,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Get IP address (fallback to unknown if not available)
-      let ipAddress = 'unknown';
-      try {
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        ipAddress = ipData.ip;
-      } catch (e) {
-        console.warn('Could not fetch IP address');
-      }
-
       const { error } = await supabase.functions.invoke('submit-contact', {
-        body: {
-          data,
-          ip: ipAddress,
-        },
+        body: { data },
       });
 
       if (error) throw error;

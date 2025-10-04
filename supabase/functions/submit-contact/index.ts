@@ -1,5 +1,11 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 
+const allowedOrigins = [
+  Deno.env.get('ALLOWED_ORIGIN') || 'https://wiksprbjwvifckfmlndh.lovableproject.com',
+  'http://localhost:5173',
+  'http://localhost:4173'
+];
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -13,6 +19,51 @@ interface ContactSubmission {
   message: string;
 }
 
+// Input validation schema
+const validateContactSubmission = (data: any): { valid: boolean; errors?: string[] } => {
+  const errors: string[] = [];
+  
+  if (!data.name || typeof data.name !== 'string' || data.name.trim().length === 0) {
+    errors.push('Name is required');
+  } else if (data.name.length > 100) {
+    errors.push('Name must be less than 100 characters');
+  }
+  
+  if (!data.email || typeof data.email !== 'string') {
+    errors.push('Email is required');
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errors.push('Invalid email format');
+  } else if (data.email.length > 255) {
+    errors.push('Email must be less than 255 characters');
+  }
+  
+  if (data.phone && (typeof data.phone !== 'string' || data.phone.length > 20)) {
+    errors.push('Phone must be less than 20 characters');
+  }
+  
+  if (data.subject && (typeof data.subject !== 'string' || data.subject.length > 200)) {
+    errors.push('Subject must be less than 200 characters');
+  }
+  
+  if (!data.message || typeof data.message !== 'string' || data.message.trim().length === 0) {
+    errors.push('Message is required');
+  } else if (data.message.length > 2000) {
+    errors.push('Message must be less than 2000 characters');
+  }
+  
+  return errors.length > 0 ? { valid: false, errors } : { valid: true };
+};
+
+// Extract real IP address from request
+const getRealIP = (req: Request): string => {
+  const forwardedFor = req.headers.get('x-forwarded-for');
+  if (forwardedFor) {
+    return forwardedFor.split(',')[0].trim();
+  }
+  const realIP = req.headers.get('x-real-ip');
+  return realIP || 'unknown';
+};
+
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -25,10 +76,24 @@ Deno.serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    const { data, ip } = await req.json() as { data: ContactSubmission; ip?: string };
+    const { data } = await req.json() as { data: ContactSubmission };
     const userAgent = req.headers.get('user-agent') || 'Unknown';
+    const ip = getRealIP(req);
 
     console.log('Processing contact submission from:', ip);
+
+    // Validate input
+    const validation = validateContactSubmission(data);
+    if (!validation.valid) {
+      console.warn('Validation failed:', validation.errors);
+      return new Response(
+        JSON.stringify({ error: 'Validation failed', details: validation.errors }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
 
     // Rate limiting check
     const windowMinutes = 60;

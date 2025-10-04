@@ -1,5 +1,11 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 
+const allowedOrigins = [
+  Deno.env.get('ALLOWED_ORIGIN') || 'https://wiksprbjwvifckfmlndh.lovableproject.com',
+  'http://localhost:5173',
+  'http://localhost:4173'
+];
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -27,6 +33,59 @@ interface EstimateSubmission {
   notes?: string;
 }
 
+// Input validation
+const validateEstimateSubmission = (data: any): { valid: boolean; errors?: string[] } => {
+  const errors: string[] = [];
+  
+  if (!data.name || typeof data.name !== 'string' || data.name.trim().length === 0) {
+    errors.push('Name is required');
+  } else if (data.name.length > 100) {
+    errors.push('Name must be less than 100 characters');
+  }
+  
+  if (!data.email || typeof data.email !== 'string') {
+    errors.push('Email is required');
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errors.push('Invalid email format');
+  } else if (data.email.length > 255) {
+    errors.push('Email must be less than 255 characters');
+  }
+  
+  if (!data.phone || typeof data.phone !== 'string' || data.phone.trim().length === 0) {
+    errors.push('Phone is required');
+  } else if (data.phone.length > 20) {
+    errors.push('Phone must be less than 20 characters');
+  }
+  
+  if (!data.service || typeof data.service !== 'string') {
+    errors.push('Service is required');
+  }
+  
+  if (typeof data.sqft !== 'number' || data.sqft <= 0) {
+    errors.push('Square footage must be a positive number');
+  }
+  
+  if (data.address && (typeof data.address !== 'string' || data.address.length > 500)) {
+    errors.push('Address must be less than 500 characters');
+  }
+  
+  if (data.notes && (typeof data.notes !== 'string' || data.notes.length > 2000)) {
+    errors.push('Notes must be less than 2000 characters');
+  }
+  
+  return errors.length > 0 ? { valid: false, errors } : { valid: true };
+};
+
+// Extract real IP address from request
+const getRealIP = (req: Request): string => {
+  const forwardedFor = req.headers.get('x-forwarded-for');
+  if (forwardedFor) {
+    return forwardedFor.split(',')[0].trim();
+  }
+  const realIP = req.headers.get('x-real-ip');
+  return realIP || 'unknown';
+};
+
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -39,10 +98,24 @@ Deno.serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    const { data, ip } = await req.json() as { data: EstimateSubmission; ip?: string };
+    const { data } = await req.json() as { data: EstimateSubmission };
     const userAgent = req.headers.get('user-agent') || 'Unknown';
+    const ip = getRealIP(req);
 
     console.log('Processing estimate request from:', ip);
+
+    // Validate input
+    const validation = validateEstimateSubmission(data);
+    if (!validation.valid) {
+      console.warn('Validation failed:', validation.errors);
+      return new Response(
+        JSON.stringify({ error: 'Validation failed', details: validation.errors }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
 
     // Rate limiting check
     const windowMinutes = 60;
