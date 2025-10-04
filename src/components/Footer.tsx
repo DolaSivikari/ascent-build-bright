@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import ascentLogo from "@/assets/ascent-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,15 +10,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary">A</span>
-              </div>
-              <div>
-                <div className="font-heading font-bold text-xl">Ascent Group</div>
-                <div className="text-sm opacity-80">Construction</div>
-              </div>
-            </div>
+            <Link to="/" className="inline-block mb-6 group">
+              <img 
+                src={ascentLogo} 
+                alt="Ascent Group Construction Logo" 
+                className="h-20 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
             <p className="text-sm opacity-90 mb-6">
               Serving homeowners across the GTA with trusted, professional painting and Stucco services. Licensed, insured, and locally proud.
             </p>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import ascentLogo from "@/assets/ascent-logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,21 +60,14 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group" aria-label="Ascent Group Construction Home">
-              <div className="relative">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg shadow-primary/30" aria-hidden="true">
-                  <span className="text-2xl font-bold text-primary-foreground">A</span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full animate-pulse" />
-              </div>
-              <div className="hidden md:block">
-                <div className="font-heading font-bold text-xl text-primary group-hover:text-secondary transition-colors">
-                  Ascent Group
-                </div>
-                <div className="text-xs text-muted-foreground tracking-wider uppercase">
-                  Construction
-                </div>
-              </div>
+            <Link to="/" className="flex items-center group" aria-label="Ascent Group Construction Home">
+              <img 
+                src={ascentLogo} 
+                alt="Ascent Group Construction Logo" 
+                className={`transition-all duration-300 ${
+                  isScrolled ? 'h-12 md:h-14' : 'h-14 md:h-16'
+                } w-auto object-contain group-hover:scale-105`}
+              />
             </Link>
 
             {/* Desktop Navigation */}
