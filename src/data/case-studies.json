@@ -13,7 +13,6 @@
       "gallery": [
         "/src/assets/project-modern-condo.jpg",
         "/src/assets/project-modern-condo.jpg",
-        "/src/assets/project-modern-condo.jpg",
         "/src/assets/project-modern-condo.jpg"
       ],
       "challenge": "The client wanted to transform their dated condo into a modern, bright living space while minimizing disruption to their busy schedule. The project required precise color matching and working around existing furniture.",
@@ -85,13 +84,54 @@
         "Warranty": "15-year manufacturer + workmanship"
       }
     },
+    "commercial-office-tower": {
+      "id": "commercial-office-tower",
+      "title": "Bay Street Office Tower Renovation",
+      "client": "Commercial Property Management",
+      "category": "Commercial Painting",
+      "location": "Toronto Financial District",
+      "year": 2024,
+      "duration": "6 weeks",
+      "size": "45,000 sq ft - 15 floors",
+      "heroImage": "/src/assets/project-commercial-stucco.jpg",
+      "gallery": [
+        "/src/assets/project-commercial-stucco.jpg",
+        "/src/assets/project-commercial-stucco.jpg"
+      ],
+      "challenge": "Complete interior refresh of occupied office building requiring after-hours work with zero business disruption. Tight deadline before new tenant move-in.",
+      "solution": "Implemented night shift scheduling (6 PM - 6 AM) with complete floor protection and odor-free low-VOC materials. Coordinated with building management for elevator access and security protocols.",
+      "results": [
+        "Zero business disruption - all work after hours",
+        "Completed 2 days ahead of schedule",
+        "No tenant complaints about odor or noise",
+        "Property value increased by $1.2M"
+      ],
+      "testimonial": {
+        "quote": "Ascent's professionalism and coordination were flawless. Our tenants didn't even know the work was happening.",
+        "author": "David C.",
+        "role": "Property Manager"
+      },
+      "services": [
+        "Commercial Interior Painting",
+        "After-Hours Scheduling",
+        "Low-VOC Materials",
+        "Floor Protection",
+        "Project Coordination"
+      ],
+      "specifications": {
+        "Paint": "Sherwin-Williams ProMar 200 Zero VOC",
+        "Schedule": "Night shifts 6 PM - 6 AM",
+        "Coverage": "15 floors, common areas + hallways",
+        "Timeline": "6 weeks (completed in 5.5)"
+      }
+    },
     "oakville-exterior-repaint": {
       "id": "oakville-exterior-repaint",
       "title": "Oakville Family Home Exterior",
       "client": "Johnson Family",
       "category": "Residential Painting",
       "location": "Oakville, ON",
-      "year": 2023,
+      "year": 2024,
       "duration": "10 days",
       "size": "4,000 sq ft exterior",
       "heroImage": "/src/assets/project-oakville-exterior.jpg",
@@ -126,13 +166,54 @@
         "Warranty": "10-year paint & labor"
       }
     },
+    "harbour-condos": {
+      "id": "harbour-condos",
+      "title": "Harbourfront Condo Complex - 120 Units",
+      "client": "Condo Property Management",
+      "category": "Condo Painting",
+      "location": "Toronto Harbourfront",
+      "year": 2024,
+      "duration": "4 months",
+      "size": "120 units + common areas",
+      "heroImage": "/src/assets/project-townhouse-interior.jpg",
+      "gallery": [
+        "/src/assets/project-townhouse-interior.jpg",
+        "/src/assets/project-townhouse-interior.jpg"
+      ],
+      "challenge": "Annual maintenance program requiring coordination with 120 unit owners, minimal disruption, and consistent quality across all units during tenant turnovers.",
+      "solution": "Implemented systematic scheduling with 3-day unit turnover process. Created standardized color palette and quality checklist. Dedicated team for common areas during off-peak hours.",
+      "results": [
+        "120 units completed on schedule",
+        "98% resident satisfaction rating",
+        "15% cost savings through volume efficiency",
+        "3-year contract extension secured"
+      ],
+      "testimonial": {
+        "quote": "Ascent's organization and consistency made managing this large project effortless. Quality was excellent across all 120 units.",
+        "author": "Patricia R.",
+        "role": "Condo Board President"
+      },
+      "services": [
+        "Unit Turnovers",
+        "Common Area Painting",
+        "Balcony Coatings",
+        "Tenant Coordination",
+        "Quality Control"
+      ],
+      "specifications": {
+        "Units": "120 residential units",
+        "Schedule": "Rolling 3-day per unit",
+        "Paint": "Benjamin Moore Regal Select",
+        "Warranty": "2-year workmanship"
+      }
+    },
     "luxury-kitchen-cabinets": {
       "id": "luxury-kitchen-cabinets",
       "title": "Luxury Kitchen Cabinet Refinish",
       "client": "Private Residence",
       "category": "Residential Painting",
       "location": "Toronto, ON",
-      "year": 2023,
+      "year": 2024,
       "duration": "1 week",
       "size": "25 cabinet doors + boxes",
       "heroImage": "/src/assets/project-luxury-kitchen.jpg",
@@ -165,6 +246,375 @@
         "Color": "Custom matched to sample",
         "Sheen": "Satin (30-35 gloss)",
         "Coats": "2 primer + 2 topcoat"
+      }
+    },
+    "square-one-parking-garage": {
+      "id": "square-one-parking-garage",
+      "title": "Square One Parking Structure",
+      "client": "Commercial Property Owner",
+      "category": "Parking Garage",
+      "location": "Mississauga, ON",
+      "year": 2024,
+      "duration": "3 weeks",
+      "size": "3 levels - 85,000 sq ft",
+      "heroImage": "/src/assets/stucco-detail.jpg",
+      "gallery": [
+        "/src/assets/stucco-detail.jpg",
+        "/src/assets/stucco-detail.jpg"
+      ],
+      "challenge": "Underground parking garage with severe concrete deterioration, active leaks, and faded line striping. Work required during operating hours with maintained access.",
+      "solution": "Phased approach working one level at a time. Applied epoxy coating system with waterproofing membrane. Completed all line striping with high-visibility traffic paint.",
+      "results": [
+        "Eliminated all active leaks",
+        "Extended structure life by 15-20 years",
+        "Improved lighting reflection by 40%",
+        "Zero disruption to daily operations"
+      ],
+      "testimonial": {
+        "quote": "The transformation is remarkable. Our parking structure looks brand new and the waterproofing has solved all our leak issues.",
+        "author": "Tom H.",
+        "role": "Facility Manager"
+      },
+      "services": [
+        "Epoxy Floor Coating",
+        "Waterproofing Membrane",
+        "Line Striping",
+        "Concrete Repair",
+        "Traffic Management"
+      ],
+      "specifications": {
+        "Coating": "High-build epoxy system",
+        "Area": "85,000 sq ft across 3 levels",
+        "Striping": "High-visibility traffic paint",
+        "Warranty": "7-year coating warranty"
+      }
+    },
+    "law-office-buildout": {
+      "id": "law-office-buildout",
+      "title": "Downtown Law Office Suite Buildout",
+      "client": "Legal Partnership",
+      "category": "Suite Buildouts",
+      "location": "Toronto, ON",
+      "year": 2024,
+      "duration": "6 weeks",
+      "size": "8,000 sq ft",
+      "heroImage": "/src/assets/painting-project.jpg",
+      "gallery": [
+        "/src/assets/painting-project.jpg",
+        "/src/assets/painting-project.jpg"
+      ],
+      "challenge": "Complete build-out of bare shell space into professional law office with 12 private offices, conference rooms, and reception. Tight deadline before lease commencement.",
+      "solution": "Comprehensive interior construction including framing, drywall, millwork, and finishing. Coordinated with MEP trades and installed custom built-ins for legal library.",
+      "results": [
+        "Completed 3 days ahead of schedule",
+        "100% compliance with building codes",
+        "Custom millwork perfectly matched design",
+        "Came in 5% under budget"
+      ],
+      "testimonial": {
+        "quote": "Ascent delivered a beautiful, functional office space on time and on budget. The quality of workmanship is exceptional.",
+        "author": "Mark S.",
+        "role": "Managing Partner"
+      },
+      "services": [
+        "Framing & Drywall",
+        "Custom Millwork",
+        "Interior Painting",
+        "Trim & Finishing",
+        "Project Coordination"
+      ],
+      "specifications": {
+        "Size": "8,000 sq ft professional office",
+        "Offices": "12 private + 3 conference rooms",
+        "Millwork": "Custom built-in library shelving",
+        "Timeline": "6 weeks (completed in 5.5)"
+      }
+    },
+    "medical-clinic-renovation": {
+      "id": "medical-clinic-renovation",
+      "title": "Medical Clinic Interior Renovation",
+      "client": "Medical Group Practice",
+      "category": "Suite Buildouts",
+      "location": "Mississauga, ON",
+      "year": 2024,
+      "duration": "5 weeks",
+      "size": "5,500 sq ft",
+      "heroImage": "/src/assets/hero-home.jpg",
+      "gallery": [
+        "/src/assets/hero-home.jpg",
+        "/src/assets/hero-home.jpg"
+      ],
+      "challenge": "Transform dated medical office into modern facility with 8 exam rooms, procedure room, lab, and accessible washrooms. Required compliance with healthcare regulations.",
+      "solution": "Complete renovation with antimicrobial finishes, specialized medical lighting, and ADA-compliant features. Coordinated with medical equipment installers and maintained partial operations during construction.",
+      "results": [
+        "100% ADA and healthcare code compliance",
+        "Antimicrobial surfaces throughout",
+        "50% of practice remained operational",
+        "Patient satisfaction scores increased 35%"
+      ],
+      "testimonial": {
+        "quote": "Ascent understood the unique requirements of a medical facility. The space is functional, beautiful, and fully compliant.",
+        "author": "Dr. Amanda K.",
+        "role": "Practice Owner"
+      },
+      "services": [
+        "Medical Office Fit-Out",
+        "ADA Compliance",
+        "Antimicrobial Finishes",
+        "Specialized Lighting",
+        "Phased Construction"
+      ],
+      "specifications": {
+        "Rooms": "8 exam + 1 procedure + lab",
+        "Finishes": "Antimicrobial paint & surfaces",
+        "Compliance": "Full ADA + healthcare codes",
+        "Timeline": "5 weeks with partial operations"
+      }
+    },
+    "condo-tower-sealants": {
+      "id": "condo-tower-sealants",
+      "title": "High-Rise Condo Building Envelope",
+      "client": "Condo Corporation",
+      "category": "Sealants & Caulking",
+      "location": "Toronto, ON",
+      "year": 2024,
+      "duration": "8 weeks",
+      "size": "28 stories - 350 windows",
+      "heroImage": "/src/assets/blog-stucco-eifs.jpg",
+      "gallery": [
+        "/src/assets/blog-stucco-eifs.jpg",
+        "/src/assets/blog-stucco-eifs.jpg"
+      ],
+      "challenge": "28-story residential tower experiencing water infiltration around windows. Required complete perimeter sealant replacement while building remained occupied.",
+      "solution": "Systematic floor-by-floor approach using swing stage access. Removed all failed sealant, prepared joints, and installed premium silicone system with proper backer rod.",
+      "results": [
+        "350 windows completely resealed",
+        "100% elimination of water infiltration",
+        "15-year sealant warranty provided",
+        "Zero resident complaints during work"
+      ],
+      "testimonial": {
+        "quote": "Professional rope access work with no disruption to residents. The water leak issues are completely resolved.",
+        "author": "George M.",
+        "role": "Condo Board Member"
+      },
+      "services": [
+        "Window Perimeter Sealing",
+        "Swing Stage Access",
+        "Sealant Removal",
+        "Joint Preparation",
+        "Premium Silicone Application"
+      ],
+      "specifications": {
+        "Sealant": "Dow Corning 795 structural silicone",
+        "Windows": "350 units across 28 floors",
+        "Access": "Swing stage rope access",
+        "Warranty": "15-year sealant warranty"
+      }
+    },
+    "commercial-plaza-masonry": {
+      "id": "commercial-plaza-masonry",
+      "title": "Oakville Commercial Plaza Brick Restoration",
+      "client": "Plaza Ownership Group",
+      "category": "Masonry",
+      "location": "Oakville, ON",
+      "year": 2024,
+      "duration": "4 weeks",
+      "size": "12,000 sq ft facade",
+      "heroImage": "/src/assets/blog-paint-finishes.jpg",
+      "gallery": [
+        "/src/assets/blog-paint-finishes.jpg",
+        "/src/assets/blog-paint-finishes.jpg"
+      ],
+      "challenge": "1970s commercial plaza with deteriorating mortar joints, spalling bricks, and water infiltration. Facade needed restoration while stores remained operational.",
+      "solution": "Complete tuck pointing of all joints, selective brick replacement, professional cleaning, and application of breathable water repellent sealer.",
+      "results": [
+        "Restored structural integrity",
+        "Eliminated all water infiltration",
+        "Enhanced curb appeal increased foot traffic 25%",
+        "10-year restoration warranty"
+      ],
+      "testimonial": {
+        "quote": "The plaza looks better than when it was new. Professional work with minimal impact on our retail tenants.",
+        "author": "Susan P.",
+        "role": "Property Owner"
+      },
+      "services": [
+        "Tuck Pointing",
+        "Brick Replacement",
+        "Masonry Cleaning",
+        "Water Repellent Sealing",
+        "Structural Repair"
+      ],
+      "specifications": {
+        "Area": "12,000 sq ft brick facade",
+        "Mortar": "Type N matching original",
+        "Bricks": "120 units replaced",
+        "Sealer": "Breathable siloxane system"
+      }
+    },
+    "hotel-lobby-tile": {
+      "id": "hotel-lobby-tile",
+      "title": "Boutique Hotel Lobby Flooring",
+      "client": "Boutique Hotel Group",
+      "category": "Tile & Flooring",
+      "location": "Toronto, ON",
+      "year": 2024,
+      "duration": "2 weeks",
+      "size": "3,500 sq ft",
+      "heroImage": "/src/assets/blog-spring-maintenance.jpg",
+      "gallery": [
+        "/src/assets/blog-spring-maintenance.jpg",
+        "/src/assets/blog-spring-maintenance.jpg"
+      ],
+      "challenge": "High-traffic hotel lobby required complete flooring replacement during brief closure window. Custom pattern design needed to match hotel's luxury aesthetic.",
+      "solution": "Precision installation of large-format porcelain with marble accent borders. Custom pattern layout designed and approved before installation. Waterproofing membrane for longevity.",
+      "results": [
+        "Completed during 2-week closure",
+        "Zero lippage on large format tiles",
+        "Custom pattern perfectly executed",
+        "Hotel reopened on schedule"
+      ],
+      "testimonial": {
+        "quote": "The lobby flooring is absolutely stunning. Ascent's attention to detail and precision is world-class.",
+        "author": "Richard T.",
+        "role": "Hotel General Manager"
+      },
+      "services": [
+        "Large Format Tile",
+        "Custom Pattern Layout",
+        "Marble Accent Installation",
+        "Waterproof Membrane",
+        "Precision Leveling"
+      ],
+      "specifications": {
+        "Tile": "24x48 porcelain + marble accents",
+        "Pattern": "Custom herringbone with borders",
+        "Area": "3,500 sq ft high-traffic",
+        "Warranty": "5-year installation warranty"
+      }
+    },
+    "office-tower-metal-cladding": {
+      "id": "office-tower-metal-cladding",
+      "title": "Modern Office Tower Facade",
+      "client": "Commercial Developer",
+      "category": "Metal Cladding",
+      "location": "Mississauga, ON",
+      "year": 2025,
+      "duration": "12 weeks",
+      "size": "12 stories - 45,000 sq ft",
+      "heroImage": "/src/assets/blog-roi-painting.jpg",
+      "gallery": [
+        "/src/assets/blog-roi-painting.jpg",
+        "/src/assets/blog-roi-painting.jpg"
+      ],
+      "challenge": "New construction requiring complete ACM panel facade installation on 12-story office building. Tight schedule with coordination of multiple trades.",
+      "solution": "Engineered rainscreen system with aluminum composite panels. Precision fabrication and installation with thermal bridging prevention. Coordinated with window installers and waterproofing team.",
+      "results": [
+        "45,000 sq ft facade completed on time",
+        "Energy efficiency exceeds code by 30%",
+        "Zero punch list items at final inspection",
+        "Building achieved LEED Gold certification"
+      ],
+      "testimonial": {
+        "quote": "Ascent's expertise in metal cladding systems made this complex project seamless. The building looks spectacular.",
+        "author": "James L.",
+        "role": "Project Manager"
+      },
+      "services": [
+        "ACM Panel Installation",
+        "Rainscreen System",
+        "Panel Fabrication",
+        "Structural Engineering",
+        "Waterproofing Integration"
+      ],
+      "specifications": {
+        "Panels": "Alucobond A2 FR core ACM",
+        "System": "Pressure-equalized rainscreen",
+        "Area": "45,000 sq ft - 12 stories",
+        "Warranty": "20-year finish + 10-year installation"
+      }
+    },
+    "retail-store-buildout": {
+      "id": "retail-store-buildout",
+      "title": "Retail Fashion Store Build-Out",
+      "client": "Fashion Retailer",
+      "category": "Suite Buildouts",
+      "location": "Yorkdale Mall, Toronto",
+      "year": 2024,
+      "duration": "4 weeks",
+      "size": "4,200 sq ft",
+      "heroImage": "/src/assets/team-work.jpg",
+      "gallery": [
+        "/src/assets/team-work.jpg",
+        "/src/assets/team-work.jpg"
+      ],
+      "challenge": "Fast-track retail buildout in premium mall location. Required custom millwork, display fixtures, and brand-aligned finishes with hard deadline for grand opening.",
+      "solution": "Accelerated schedule with extended hours. Custom fabrication of display fixtures and millwork. Coordinated with mall management for after-hours delivery and noise restrictions.",
+      "results": [
+        "Completed 2 days before grand opening",
+        "All custom millwork perfect fit",
+        "Brand standards exceeded",
+        "Store opened on schedule to strong sales"
+      ],
+      "testimonial": {
+        "quote": "Ascent made our impossible timeline possible. The store is beautiful and opened exactly when we needed it to.",
+        "author": "Michelle R.",
+        "role": "Regional Manager"
+      },
+      "services": [
+        "Fast-Track Construction",
+        "Custom Millwork",
+        "Display Fixture Installation",
+        "Brand-Standard Finishing",
+        "Mall Coordination"
+      ],
+      "specifications": {
+        "Size": "4,200 sq ft retail space",
+        "Millwork": "Custom display units + fixtures",
+        "Timeline": "4 weeks fast-track",
+        "Hours": "Extended shifts for deadline"
+      }
+    },
+    "warehouse-floor-coating": {
+      "id": "warehouse-floor-coating",
+      "title": "Distribution Center Floor Coatings",
+      "client": "Logistics Company",
+      "category": "Commercial Painting",
+      "location": "Brampton, ON",
+      "year": 2024,
+      "duration": "3 weeks",
+      "size": "125,000 sq ft",
+      "heroImage": "/src/assets/stucco-detail.jpg",
+      "gallery": [
+        "/src/assets/stucco-detail.jpg",
+        "/src/assets/stucco-detail.jpg"
+      ],
+      "challenge": "Active distribution center needed high-performance floor coating with minimal operational downtime. Heavy forklift traffic required industrial-grade system.",
+      "solution": "Phased installation working one zone at a time. Applied high-build epoxy system with rapid cure time. Completed all safety striping and aisle markings to OSHA standards.",
+      "results": [
+        "125,000 sq ft completed in 3 weeks",
+        "Operations maintained at 85% capacity",
+        "Floor ready for traffic in 24 hours per zone",
+        "Reduced maintenance costs by 60%"
+      ],
+      "testimonial": {
+        "quote": "Minimal disruption and maximum quality. The new floor system is holding up perfectly under our heavy forklift traffic.",
+        "author": "Carlos M.",
+        "role": "Operations Manager"
+      },
+      "services": [
+        "Industrial Epoxy Coating",
+        "Safety Line Striping",
+        "Concrete Preparation",
+        "Rapid Cure System",
+        "Phased Installation"
+      ],
+      "specifications": {
+        "Coating": "High-build epoxy 20-mil thickness",
+        "Area": "125,000 sq ft warehouse",
+        "Traffic": "Heavy forklift rated",
+        "Warranty": "10-year performance warranty"
       }
     }
   }
