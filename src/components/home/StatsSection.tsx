@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Card } from "@/components/ui/card";
+import { TrendingUp, Users, Award, Target } from "lucide-react";
 
 const stats = [
-  { label: "Projects Completed", value: 850, suffix: "+" },
-  { label: "Years Experience", value: 15, suffix: "+" },
-  { label: "Happy Clients", value: 780, suffix: "+" },
-  { label: "Safety Rating", value: 99, suffix: "%" },
+  { label: "Projects Completed", value: 850, suffix: "+", icon: TrendingUp },
+  { label: "Years Experience", value: 7, suffix: "+", icon: Award },
+  { label: "Happy Clients", value: 780, suffix: "+", icon: Users },
+  { label: "Safety Rating", value: 99, suffix: "%", icon: Target },
 ];
 
 const StatsSection = () => {
@@ -31,18 +33,49 @@ const StatsSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="py-20 bg-gradient-to-br from-primary to-slate-800"
+      className="py-24 bg-gradient-to-br from-primary via-primary/95 to-slate-900 relative overflow-hidden"
       aria-label="Company statistics"
     >
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 50px,
+            currentColor 50px,
+            currentColor 51px
+          )`,
+        }} />
+      </div>
+
+      {/* Floating Orbs */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <StatCounter
+            <Card
               key={stat.label}
-              {...stat}
-              isVisible={isVisible}
-              delay={index * 0.1}
-            />
+              className={`bg-primary-foreground/10 backdrop-blur-sm border-2 border-primary-foreground/20 hover:border-secondary/50 transition-all duration-500 p-8 text-center group hover:bg-primary-foreground/15 hover:scale-105 ${
+                isVisible ? 'animate-scale-in' : 'opacity-0'
+              }`}
+              style={{
+                animationDelay: `${index * 0.1}s`,
+              }}
+            >
+              <div className="mb-4 flex justify-center">
+                <div className="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center group-hover:bg-secondary/30 transition-colors group-hover:rotate-12 duration-500">
+                  <stat.icon className="w-8 h-8 text-secondary" />
+                </div>
+              </div>
+              <StatCounter
+                {...stat}
+                isVisible={isVisible}
+                delay={index * 0.1}
+              />
+            </Card>
           ))}
         </div>
       </div>
@@ -91,13 +124,15 @@ const StatCounter = ({
   }, [isVisible, value, delay]);
 
   return (
-    <div className="text-center text-primary-foreground">
-      <div className="text-5xl md:text-6xl font-bold font-heading mb-2 text-secondary">
+    <>
+      <div className="text-5xl md:text-6xl font-bold font-heading mb-2 text-secondary group-hover:scale-110 transition-transform duration-300">
         {count}
         {suffix}
       </div>
-      <div className="text-sm md:text-base opacity-90 font-medium">{label}</div>
-    </div>
+      <div className="text-sm md:text-base text-primary-foreground/90 font-medium leading-tight">
+        {label}
+      </div>
+    </>
   );
 };
 
