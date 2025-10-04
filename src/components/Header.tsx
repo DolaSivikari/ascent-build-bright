@@ -26,6 +26,7 @@ const Header = () => {
 
   return (
     <header
+      role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-[var(--shadow-soft)]"
@@ -34,8 +35,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+          <Link to="/" className="flex items-center gap-3 group" aria-label="Ascent Group Construction Home">
+            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform" aria-hidden="true">
               <span className="text-2xl font-bold text-primary-foreground">A</span>
             </div>
             <div className="hidden md:block">
@@ -44,7 +45,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -54,6 +55,7 @@ const Header = () => {
                     ? "text-primary"
                     : "text-foreground/80"
                 }`}
+                aria-current={location.pathname === link.to ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -76,14 +78,17 @@ const Header = () => {
           <button
             className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-border animate-slide-up">
-            <nav className="flex flex-col gap-4">
+          <div id="mobile-menu" className="lg:hidden py-6 border-t border-border animate-slide-up">
+            <nav className="flex flex-col gap-4" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}

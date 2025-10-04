@@ -28,7 +28,11 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary via-primary to-slate-800">
+    <section 
+      ref={heroRef} 
+      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary via-primary to-slate-800"
+      aria-label="Hero section"
+    >
       <div 
         className="absolute inset-0 opacity-30 parallax-layer"
         style={{
@@ -36,6 +40,8 @@ const HeroSection = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
+        role="img"
+        aria-label="Modern residential construction project showcasing quality craftsmanship"
       />
       
       <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />

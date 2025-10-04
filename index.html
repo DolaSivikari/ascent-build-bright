@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#18435A" />
     <title>Ascent Group Construction — Residential Painting & Stucco in Mississauga</title>
     <meta name="description" content="Ascent Group Construction delivers expert residential painting and Stucco/EIFS services across the GTA. Request a free estimate or view our portfolio." />
+    <meta name="keywords" content="residential painting, stucco, EIFS, construction, Mississauga, GTA, exterior painting, interior painting" />
     <meta name="author" content="Ascent Group Construction" />
     <link rel="canonical" href="https://www.ascentgroupconstruction.com" />
     
@@ -14,15 +16,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Ascent Group Construction — Residential Painting & Stucco in Mississauga" />
-    <meta property="og:description" content="GTA specialists in residential painting and Stucco/EIFS. Request a free estimate or view our portfolio." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.ascentgroupconstruction.com" />
+    <meta property="og:title" content="Ascent Group Construction — Residential Painting & Stucco in Mississauga" />
+    <meta property="og:description" content="GTA specialists in residential painting and Stucco/EIFS. Request a free estimate or view our portfolio." />
     <meta property="og:image" content="https://www.ascentgroupconstruction.com/og-image.jpg" />
+    <meta property="og:locale" content="en_CA" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ascent Group Construction — Residential Painting & Stucco" />
+    <meta name="twitter:title" content="Ascent Group Construction — Residential Painting & Stucco in Mississauga" />
     <meta name="twitter:description" content="GTA specialists in residential painting and Stucco/EIFS. Request a free estimate." />
     <meta name="twitter:image" content="https://www.ascentgroupconstruction.com/og-image.jpg" />
     
@@ -32,11 +35,10 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Ascent Group Construction",
-      "url": "https://www.ascentgroupconstruction.com",
-      "logo": "https://www.ascentgroupconstruction.com/logo.png",
       "image": "https://www.ascentgroupconstruction.com/og-image.jpg",
-      "description": "Professional residential painting and Stucco/EIFS services in Mississauga and the Greater Toronto Area",
+      "url": "https://www.ascentgroupconstruction.com",
       "telephone": "+1-905-555-0100",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Construction Way",
@@ -47,25 +49,58 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "43.5890",
-        "longitude": "-79.6441"
+        "latitude": 43.5890,
+        "longitude": -79.6441
       },
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-15:00",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/ascentgroupconstruction",
+        "https://www.linkedin.com/company/ascentgroupconstruction"
+      ],
       "areaServed": {
         "@type": "GeoCircle",
         "geoMidpoint": {
           "@type": "GeoCoordinates",
-          "latitude": "43.5890",
-          "longitude": "-79.6441"
+          "latitude": 43.5890,
+          "longitude": -79.6441
         },
         "geoRadius": "50000"
       },
-      "sameAs": [
-        "https://www.facebook.com/ascentgroupconstruction",
-        "https://www.linkedin.com/company/ascentgroupconstruction",
-        "https://www.instagram.com/ascentgroupconstruction"
-      ]
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Construction Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Painting",
+              "description": "Interior and exterior painting with professional prep and premium finishes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Stucco and EIFS Installation",
+              "description": "Complete Stucco/EIFS systems, repairs, and restoration"
+            }
+          }
+        ]
+      }
     }
     </script>
   </head>

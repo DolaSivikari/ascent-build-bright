@@ -85,8 +85,9 @@ const About = () => {
               <div>
                 <img
                   src={teamWork}
-                  alt="Ascent Group Construction team"
+                  alt="Ascent Group Construction team members collaborating on a residential painting project, showcasing our commitment to quality craftsmanship and teamwork"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
+                  loading="lazy"
                 />
               </div>
             </div>

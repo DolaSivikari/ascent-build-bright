@@ -93,8 +93,9 @@ const Projects = () => {
                   <div className="relative overflow-hidden h-64">
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} - ${project.category} project in ${project.location} - ${project.description}`}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-secondary text-primary font-semibold">

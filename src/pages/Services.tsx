@@ -72,8 +72,9 @@ const Services = () => {
               <div className="order-1 lg:order-2">
                 <img
                   src={paintingProject}
-                  alt="Professional residential painting project"
+                  alt="Professional residential exterior painting project showcasing premium finishes and expert craftsmanship"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -87,8 +88,9 @@ const Services = () => {
               <div>
                 <img
                   src={stuccoDetail}
-                  alt="Professional stucco and EIFS installation"
+                  alt="Professional stucco and EIFS installation detail showing high-quality exterior cladding system with superior insulation and weatherproofing"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
+                  loading="lazy"
                 />
               </div>
 

@@ -32,8 +32,9 @@ const ResidentialPainting = () => {
               <div>
                 <img
                   src={paintingProject}
-                  alt="Professional residential painting project"
+                  alt="Professional residential painting project showcasing interior and exterior painting with premium finishes, detailed surface prep, and expert color application"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full mb-8"
+                  loading="lazy"
                 />
                 
                 <Card className="p-6 bg-muted/30 border-2">

@@ -74,8 +74,9 @@ const StuccoEIFS = () => {
               <div>
                 <img
                   src={stuccoDetail}
-                  alt="Professional stucco and EIFS installation"
+                  alt="Professional stucco and EIFS installation detail showcasing complete system with insulation integration, moisture management, and premium textured finish"
                   className="rounded-2xl shadow-[var(--shadow-strong)] w-full mb-8"
+                  loading="lazy"
                 />
 
                 <Card className="p-6 mb-8 border-2">

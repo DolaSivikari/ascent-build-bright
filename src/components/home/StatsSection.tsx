@@ -29,7 +29,11 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-primary to-slate-800">
+    <section 
+      ref={sectionRef} 
+      className="py-20 bg-gradient-to-br from-primary to-slate-800"
+      aria-label="Company statistics"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

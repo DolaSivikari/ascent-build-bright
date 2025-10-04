@@ -26,10 +26,10 @@ const services = [
 
 const ServicesPreview = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background" aria-labelledby="services-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title mb-4 text-primary">Our Services</h2>
+          <h2 id="services-heading" className="section-title mb-4 text-primary">Our Services</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive construction solutions tailored to your residential needs
           </p>
@@ -46,7 +46,7 @@ const ServicesPreview = () => {
                 animation: 'slide-up 0.6s ease-out forwards',
               }}
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
                 <service.icon className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-heading font-bold mb-4 text-primary">
