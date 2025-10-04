@@ -3,9 +3,9 @@ import { Card } from "@/components/ui/card";
 import { TrendingUp, Users, Award, Target } from "lucide-react";
 
 const stats = [
-  { label: "Projects Completed", value: 850, suffix: "+", icon: TrendingUp },
-  { label: "Years Experience", value: 7, suffix: "+", icon: Award },
-  { label: "Happy Clients", value: 780, suffix: "+", icon: Users },
+  { label: "Projects Completed", value: 500, suffix: "+", icon: TrendingUp },
+  { label: "Years of Excellence", value: 16, suffix: "", icon: Award },
+  { label: "Happy Clients", value: 480, suffix: "+", icon: Users },
   { label: "Safety Rating", value: 99, suffix: "%", icon: Target },
 ];
 

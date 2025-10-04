@@ -5,12 +5,12 @@ import { Shield, Award, Users, Target, Clock, CheckCircle } from "lucide-react";
 const credentials = [
   {
     icon: Award,
-    title: "20+ Years Experience",
-    description: "Delivering excellence since 1999 with proven expertise"
+    title: "16 Years of Excellence",
+    description: "Delivering exceptional quality since 2009 with proven expertise"
   },
   {
     icon: Target,
-    title: "850+ Projects Completed",
+    title: "500+ Projects Completed",
     description: "Successful residential and commercial transformations"
   },
   {

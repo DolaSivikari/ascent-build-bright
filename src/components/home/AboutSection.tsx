@@ -27,7 +27,7 @@ const AboutSection = () => {
               Who We Are?
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Ascent Group Construction boasts over 20 years of experience in the construction industry, specializing in a wide array of full-service building envelope restoration services. We are the GTA's single source for total restoration, rehabilitation, and preservation.
+              Ascent Group Construction boasts over 15 years of experience in the construction industry, specializing in a wide array of full-service building envelope restoration services. We are the GTA's single source for total restoration, rehabilitation, and preservation.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We perform work on a range of projects from residential painting to commercial stucco/EIFS applications for commercial, industrial, institutional, high-rise and low-rise residential applications.

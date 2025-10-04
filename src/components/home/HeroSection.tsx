@@ -90,7 +90,7 @@ const HeroSection = () => {
             <div className="inline-block mb-6 px-5 py-2.5 bg-secondary/20 backdrop-blur-sm border border-secondary/30 rounded-full hover:bg-secondary/30 transition-all duration-300">
               <span className="text-secondary font-bold text-sm tracking-wider uppercase flex items-center gap-2">
                 <Award className="w-4 h-4" />
-                Experts Since 1999
+                Trusted Since 2009
               </span>
             </div>
             
@@ -165,8 +165,8 @@ const HeroSection = () => {
           <div className="mt-12 pt-8 border-t border-primary-foreground/20 animate-slide-up" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
             <p className="text-sm text-primary-foreground/70 mb-3 uppercase tracking-wider font-semibold">Trusted By</p>
             <div className="flex flex-wrap gap-6 items-center opacity-60">
-              <div className="px-4 py-2 border border-primary-foreground/30 rounded-lg text-sm font-medium">850+ Projects</div>
-              <div className="px-4 py-2 border border-primary-foreground/30 rounded-lg text-sm font-medium">7 Years Excellence</div>
+              <div className="px-4 py-2 border border-primary-foreground/30 rounded-lg text-sm font-medium">500+ Projects</div>
+              <div className="px-4 py-2 border border-primary-foreground/30 rounded-lg text-sm font-medium">16 Years Excellence</div>
               <div className="px-4 py-2 border border-primary-foreground/30 rounded-lg text-sm font-medium">99% Safety Rating</div>
             </div>
           </div>
