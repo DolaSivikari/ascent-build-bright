@@ -13,6 +13,7 @@ import { MapPin, Phone, Mail, Clock, Loader2 } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { checkRateLimit, getRemainingTime } from "@/lib/rate-limit";
 import { supabase } from "@/integrations/supabase/client";
+import InteractiveMap from "@/components/InteractiveMap";
 import {
   Form,
   FormControl,
@@ -290,17 +291,11 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Map Placeholder */}
+        {/* Interactive Map */}
         <section className="py-24 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl h-96 flex items-center justify-center border-2 border-dashed border-primary/30">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="w-16 h-16 mx-auto mb-4 text-primary" />
-                  <p className="text-lg font-medium">Interactive Map</p>
-                  <p className="text-sm">Serving Mississauga and the Greater Toronto Area</p>
-                </div>
-              </div>
+              <InteractiveMap />
             </div>
           </div>
         </section>
