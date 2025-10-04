@@ -92,8 +92,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
-                  Careers
+                <Link to="/blog" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                  Resources
                 </Link>
               </li>
               <li>

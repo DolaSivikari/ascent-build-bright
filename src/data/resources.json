@@ -1,0 +1,186 @@
+{
+  "resources": [
+    {
+      "id": "exterior-paint-guide",
+      "title": "Complete Guide to Exterior House Painting",
+      "category": "Guides",
+      "description": "Everything you need to know about preparing for and maintaining your exterior paint job.",
+      "type": "PDF Guide",
+      "downloadUrl": "#",
+      "featured": true,
+      "topics": [
+        "Surface preparation checklist",
+        "Paint selection guide",
+        "Seasonal timing recommendations",
+        "Maintenance schedule",
+        "Common problems and solutions"
+      ]
+    },
+    {
+      "id": "stucco-maintenance",
+      "title": "Stucco & EIFS Maintenance Guide",
+      "category": "Guides",
+      "description": "Professional tips for maintaining your stucco or EIFS exterior system.",
+      "type": "PDF Guide",
+      "downloadUrl": "#",
+      "featured": true,
+      "topics": [
+        "Inspection guidelines",
+        "Cleaning procedures",
+        "Crack repair basics",
+        "Moisture prevention",
+        "When to call a professional"
+      ]
+    },
+    {
+      "id": "color-selection-workbook",
+      "title": "Color Selection Workbook",
+      "category": "Tools",
+      "description": "Step-by-step workbook to help you choose the perfect colors for your home.",
+      "type": "Interactive PDF",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Color psychology basics",
+        "Room-by-room recommendations",
+        "Lighting considerations",
+        "Trim and accent selection",
+        "Visualization techniques"
+      ]
+    },
+    {
+      "id": "project-prep-checklist",
+      "title": "Homeowner's Project Prep Checklist",
+      "category": "Checklists",
+      "description": "Prepare your home for a painting or stucco project with this comprehensive checklist.",
+      "type": "PDF Checklist",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Room preparation",
+        "Furniture and belongings",
+        "Contractor access",
+        "Timeline planning",
+        "Final walkthrough items"
+      ]
+    },
+    {
+      "id": "seasonal-maintenance",
+      "title": "Seasonal Home Exterior Maintenance",
+      "category": "Maintenance",
+      "description": "Monthly maintenance tasks to keep your home's exterior in top condition year-round.",
+      "type": "PDF Calendar",
+      "downloadUrl": "#",
+      "featured": true,
+      "topics": [
+        "Spring preparation",
+        "Summer care",
+        "Fall weatherization",
+        "Winter protection",
+        "Monthly inspection points"
+      ]
+    },
+    {
+      "id": "warranty-care-guide",
+      "title": "Warranty Care & Coverage Guide",
+      "category": "Warranty",
+      "description": "Understand your warranty coverage and how to maintain it for maximum protection.",
+      "type": "PDF Guide",
+      "downloadUrl": "#",
+      "featured": false,
+      "topics": [
+        "Warranty coverage details",
+        "Maintenance requirements",
+        "Claim procedures",
+        "Common exclusions",
+        "Extended coverage options"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "category": "General",
+      "questions": [
+        {
+          "question": "How long have you been in business?",
+          "answer": "Ascent Group Construction has been serving the GTA since 2009, with over 15 years of experience delivering quality painting and stucco/EIFS services."
+        },
+        {
+          "question": "Are you licensed and insured?",
+          "answer": "Yes, we are fully licensed contractors with comprehensive liability insurance and WSIB coverage. We provide proof of insurance with every estimate."
+        },
+        {
+          "question": "Do you offer warranties?",
+          "answer": "Yes! We provide workmanship warranties on all projects, typically 2-5 years depending on the scope. We also offer manufacturer warranties on materials used."
+        },
+        {
+          "question": "What areas do you serve?",
+          "answer": "We serve the entire Greater Toronto Area (GTA) including Toronto, Mississauga, Oakville, Burlington, Brampton, and surrounding communities."
+        }
+      ]
+    },
+    {
+      "category": "Pricing & Estimates",
+      "questions": [
+        {
+          "question": "How do you calculate estimates?",
+          "answer": "We provide detailed estimates based on square footage, surface condition, materials selected, and project complexity. Use our online estimator for instant ranges, or schedule a free on-site consultation for precise pricing."
+        },
+        {
+          "question": "Do you offer free estimates?",
+          "answer": "Yes! We provide free, no-obligation estimates for all services. We'll visit your property, assess the scope, and provide a detailed written quote."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept cash, checks, all major credit cards, and e-transfer. Payment schedules are outlined in your contract, typically with a deposit and final payment upon completion."
+        },
+        {
+          "question": "Can I get financing?",
+          "answer": "Yes, we work with financing partners to offer flexible payment plans for qualified customers. Ask about financing options during your estimate."
+        }
+      ]
+    },
+    {
+      "category": "Project Process",
+      "questions": [
+        {
+          "question": "How long will my project take?",
+          "answer": "Timeline varies by project size: small interior jobs take 2-5 days, full house interiors 5-10 days, and exteriors 7-14 days weather permitting. We provide specific timelines in your estimate."
+        },
+        {
+          "question": "Will you protect my furniture and belongings?",
+          "answer": "Absolutely! We carefully cover all furniture, floors, and fixtures with drop cloths and plastic sheeting. We can also help move lighter items if needed."
+        },
+        {
+          "question": "Can I stay in my home during the work?",
+          "answer": "Yes, most clients stay home during interior projects. We work room-by-room to minimize disruption and ensure you always have access to essential areas."
+        },
+        {
+          "question": "What if weather delays my exterior project?",
+          "answer": "We monitor weather closely and adjust schedules as needed. Your timeline includes weather contingencies, and we communicate any changes immediately."
+        }
+      ]
+    },
+    {
+      "category": "Materials & Quality",
+      "questions": [
+        {
+          "question": "What paint brands do you use?",
+          "answer": "We use premium brands including Benjamin Moore, Sherwin-Williams, and Behr. We select products based on your specific needs, climate conditions, and budget."
+        },
+        {
+          "question": "Do you offer eco-friendly options?",
+          "answer": "Yes! We offer low-VOC and zero-VOC paints, water-based products, and sustainable materials. Ask about our green options during your consultation."
+        },
+        {
+          "question": "How do you ensure quality?",
+          "answer": "Quality starts with thorough surface prep and continues through careful application. We conduct multiple quality checks and a final walkthrough with you before considering the job complete."
+        },
+        {
+          "question": "Can you match my existing color?",
+          "answer": "Yes, we use advanced color matching technology to perfectly match any existing color from a sample. We can also provide digital mockups of new color schemes."
+        }
+      ]
+    }
+  ]
+}
