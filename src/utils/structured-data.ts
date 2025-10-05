@@ -1,5 +1,31 @@
 // Structured data schemas for SEO
 
+export const generateArticleSchema = (post: any, url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": post.image,
+  "datePublished": post.date,
+  "dateModified": post.date,
+  "author": {
+    "@type": "Organization",
+    "name": "Ascent Group Construction"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ascent Group Construction",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ascent-build-bright.lovable.app/src/assets/ascent-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  }
+});
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",

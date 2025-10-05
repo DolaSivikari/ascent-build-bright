@@ -1,12 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
+import { Calendar, Clock, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ShareMenu from "@/components/blog/ShareMenu";
+import ReadingProgress from "@/components/blog/ReadingProgress";
+import Breadcrumbs from "@/components/blog/Breadcrumbs";
+import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import OptimizedImage from "@/components/OptimizedImage";
 import blogData from "@/data/blog-posts.json";
+import { generateArticleSchema } from "@/utils/structured-data";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -74,27 +78,47 @@ const BlogPost = () => {
     .filter(p => p.id !== post.id && p.category === post.category)
     .slice(0, 3);
 
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const articleSchema = generateArticleSchema(post, currentUrl);
+
   return (
     <div className="min-h-screen">
       <SEO 
         title={post.title}
         description={post.excerpt}
         keywords={`${post.category}, ${post.title.toLowerCase()}`}
+        structuredData={articleSchema}
+        image={post.image}
       />
+      <ReadingProgress />
       <Header />
       
       <main>
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary to-primary/80 text-white py-20">
-          <div className="container mx-auto px-4">
-            <Link to="/blog" className="inline-flex items-center gap-2 mb-6 hover:gap-3 transition-all">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Blog
-            </Link>
-            
+        {/* Hero Section with Full-Bleed Image */}
+        <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <OptimizedImage
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
+          
+          <div className="container mx-auto px-4 h-full relative z-10 flex flex-col justify-end pb-12">
             <div className="max-w-4xl">
+              <Breadcrumbs
+                items={[
+                  { label: "Home", href: "/" },
+                  { label: "Blog", href: "/blog" },
+                  { label: post.category, href: `/blog?category=${encodeURIComponent(post.category)}` },
+                  { label: post.title },
+                ]}
+              />
+              
               <Badge className="mb-4 bg-secondary text-primary">{post.category}</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
                 {post.title}
               </h1>
               
@@ -116,19 +140,6 @@ const BlogPost = () => {
           </div>
         </section>
 
-        {/* Featured Image */}
-        <section className="container mx-auto px-4 -mt-12 relative z-10 mb-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="aspect-video overflow-hidden rounded-lg shadow-2xl">
-              <OptimizedImage
-                src={post.image}
-                alt={post.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* Content */}
         <article className="container mx-auto px-4 pb-16">
           <div className="max-w-4xl mx-auto">
@@ -141,10 +152,7 @@ const BlogPost = () => {
             <div className="mt-12 pt-8 border-t">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold">Share this article</h3>
-                <Button variant="outline" size="sm">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share
-                </Button>
+                <ShareMenu title={post.title} url={currentUrl} />
               </div>
             </div>
 
