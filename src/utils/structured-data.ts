@@ -71,33 +71,6 @@ export const serviceSchema = (name: string, description: string) => ({
   }
 });
 
-export const articleSchema = (
-  title: string,
-  description: string,
-  image: string,
-  datePublished: string,
-  dateModified: string
-) => ({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "image": image,
-  "datePublished": datePublished,
-  "dateModified": dateModified,
-  "author": {
-    "@type": "Organization",
-    "name": "Ascent Group Construction"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Ascent Group Construction",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.ascentgroupconstruction.com/og-image.jpg"
-    }
-  }
-});
 
 export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
   "@context": "https://schema.org",
