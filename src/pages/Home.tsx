@@ -5,7 +5,6 @@ import SkipToContent from "@/components/SkipToContent";
 import HeroSection from "@/components/home/HeroSection";
 import TrustBadges from "@/components/home/TrustBadges";
 import CredentialsSection from "@/components/home/CredentialsSection";
-import StatsSection from "@/components/home/StatsSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyAscent from "@/components/home/WhyAscent";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -27,7 +26,6 @@ const Home = () => {
         <HeroSection />
         <TrustBadges />
         <CredentialsSection />
-        <StatsSection />
         <ServicesPreview />
         <WhyAscent />
         <TestimonialsSection />

@@ -129,6 +129,25 @@ const CredentialsSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Client Logo Carousel */}
+        <div className="mt-20">
+          <p className="text-center text-sm text-muted-foreground uppercase tracking-wider font-semibold mb-8">
+            Trusted by Leading Organizations
+          </p>
+          <div className="relative overflow-hidden">
+            <div className="flex gap-12 items-center justify-center animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused]">
+              {[...Array(12)].map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-32 h-16 bg-muted/50 rounded-lg flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity border border-border"
+                >
+                  <span className="text-xs text-muted-foreground font-medium">Client {i + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -11,7 +11,15 @@
       "afterImage": "/src/assets/project-modern-condo.jpg",
       "shortDescription": "Complete interior painting refresh for a 2,500 sq ft luxury condo",
       "services": ["Interior Painting", "Trim & Baseboards", "Ceiling Work"],
-      "featured": true
+      "featured": true,
+      "tags": ["Residential", "GTA", "Renovation"],
+      "timeline": "3 weeks",
+      "costBand": "$15K - $25K",
+      "testimonial": {
+        "quote": "The team transformed our condo beyond our expectations. Professional, clean, and on time!",
+        "author": "Sarah M.",
+        "role": "Homeowner"
+      }
     },
     {
       "id": "heritage-home-stucco",
@@ -24,7 +32,10 @@
       "afterImage": "/src/assets/project-heritage-stucco.jpg",
       "shortDescription": "Historic home exterior restoration with modern EIFS system",
       "services": ["EIFS Installation", "Waterproofing", "Custom Textures"],
-      "featured": true
+      "featured": true,
+      "tags": ["Residential", "GTA", "Renovation"],
+      "timeline": "6 weeks",
+      "costBand": "$50K - $75K"
     },
     {
       "id": "commercial-office-tower",
@@ -37,7 +48,10 @@
       "afterImage": "/src/assets/project-commercial-stucco.jpg",
       "shortDescription": "15-floor office building interior refresh - 45,000 sq ft",
       "services": ["Commercial Interior", "After-Hours Work", "Minimal Disruption"],
-      "featured": true
+      "featured": true,
+      "tags": ["Commercial", "GTA"],
+      "timeline": "12 weeks",
+      "costBand": "$150K - $200K"
     },
     {
       "id": "oakville-exterior-repaint",
@@ -50,7 +64,10 @@
       "afterImage": "/src/assets/project-oakville-exterior.jpg",
       "shortDescription": "Full exterior repaint with weather-resistant premium coatings",
       "services": ["Exterior Painting", "Surface Prep", "Trim Restoration"],
-      "featured": true
+      "featured": true,
+      "tags": ["Residential", "GTA"],
+      "timeline": "4 weeks",
+      "costBand": "$20K - $35K"
     },
     {
       "id": "harbour-condos",
@@ -63,7 +80,10 @@
       "afterImage": "/src/assets/project-townhouse-interior.jpg",
       "shortDescription": "Annual maintenance program - common areas and unit turnovers",
       "services": ["Common Area Painting", "Unit Turnovers", "Balcony Coatings"],
-      "featured": true
+      "featured": true,
+      "tags": ["Residential", "Commercial", "GTA"],
+      "timeline": "Ongoing",
+      "costBand": "$200K+/year"
     },
     {
       "id": "luxury-kitchen-cabinets",
@@ -76,7 +96,10 @@
       "afterImage": "/src/assets/project-luxury-kitchen.jpg",
       "shortDescription": "High-end kitchen cabinet spray painting transformation",
       "services": ["Cabinet Painting", "Custom Color Match", "Premium Finish"],
-      "featured": true
+      "featured": true,
+      "tags": ["Residential", "GTA", "Renovation"],
+      "timeline": "2 weeks",
+      "costBand": "$8K - $15K"
     },
     {
       "id": "square-one-parking-garage",
@@ -89,7 +112,10 @@
       "afterImage": "/src/assets/stucco-detail.jpg",
       "shortDescription": "3-level underground parking - epoxy coatings and line striping",
       "services": ["Epoxy Coating", "Line Striping", "Waterproofing"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA"],
+      "timeline": "8 weeks",
+      "costBand": "$75K - $100K"
     },
     {
       "id": "law-office-buildout",
@@ -102,7 +128,10 @@
       "afterImage": "/src/assets/painting-project.jpg",
       "shortDescription": "8,000 sq ft professional office - complete interior construction",
       "services": ["Framing & Drywall", "Painting", "Millwork", "Finishing"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA", "Renovation"],
+      "timeline": "10 weeks",
+      "costBand": "$120K - $150K"
     },
     {
       "id": "medical-clinic-renovation",
@@ -115,7 +144,10 @@
       "afterImage": "/src/assets/hero-home.jpg",
       "shortDescription": "5,500 sq ft medical office fit-out with exam rooms and reception",
       "services": ["Space Planning", "Construction", "ADA Compliance", "Finishing"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA", "Renovation"],
+      "timeline": "12 weeks",
+      "costBand": "$100K - $140K"
     },
     {
       "id": "condo-tower-sealants",
@@ -128,7 +160,10 @@
       "afterImage": "/src/assets/blog-stucco-eifs.jpg",
       "shortDescription": "28-story residential tower - window perimeter sealing replacement",
       "services": ["Window Sealing", "Expansion Joints", "Waterproofing"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA"],
+      "timeline": "16 weeks",
+      "costBand": "$200K+"
     },
     {
       "id": "commercial-plaza-masonry",
@@ -141,7 +176,10 @@
       "afterImage": "/src/assets/blog-paint-finishes.jpg",
       "shortDescription": "Historic brick facade tuck pointing and restoration - 12,000 sq ft",
       "services": ["Tuck Pointing", "Brick Replacement", "Stone Cleaning"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA", "Renovation"],
+      "timeline": "8 weeks",
+      "costBand": "$60K - $85K"
     },
     {
       "id": "hotel-lobby-tile",
@@ -154,7 +192,10 @@
       "afterImage": "/src/assets/blog-spring-maintenance.jpg",
       "shortDescription": "3,500 sq ft luxury lobby - porcelain tile and marble accents",
       "services": ["Porcelain Tile", "Marble Installation", "Custom Patterns"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA", "Renovation"],
+      "timeline": "6 weeks",
+      "costBand": "$45K - $60K"
     },
     {
       "id": "office-tower-metal-cladding",
@@ -167,7 +208,10 @@
       "afterImage": "/src/assets/blog-roi-painting.jpg",
       "shortDescription": "12-story commercial building - ACM panel facade installation",
       "services": ["ACM Panels", "Rainscreen System", "Standing Seam Details"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA"],
+      "timeline": "20 weeks",
+      "costBand": "$300K+"
     },
     {
       "id": "retail-store-buildout",
@@ -180,7 +224,10 @@
       "afterImage": "/src/assets/team-work.jpg",
       "shortDescription": "4,200 sq ft high-end retail space - complete tenant improvement",
       "services": ["Custom Millwork", "Display Fixtures", "Finishing", "Fast Track"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA", "Renovation"],
+      "timeline": "6 weeks",
+      "costBand": "$80K - $110K"
     },
     {
       "id": "warehouse-floor-coating",
@@ -193,7 +240,10 @@
       "afterImage": "/src/assets/stucco-detail.jpg",
       "shortDescription": "125,000 sq ft warehouse - epoxy floor coatings and safety markings",
       "services": ["Epoxy Flooring", "Safety Striping", "High-Traffic Coating"],
-      "featured": false
+      "featured": false,
+      "tags": ["Commercial", "GTA"],
+      "timeline": "14 weeks",
+      "costBand": "$250K+"
     }
   ]
 }
