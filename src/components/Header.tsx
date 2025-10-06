@@ -62,8 +62,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group mr-8" aria-label="Ascent Group Construction Home">
-              <img 
+            <Link to="/" className="flex items-center gap-3 group mr-8">
+              <img
                 src={ascentLogo} 
                 alt="Ascent Group Construction Logo" 
                 className={`transition-all duration-300 ${
@@ -124,7 +124,7 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-3 hover:bg-muted rounded-xl transition-all duration-300 relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="lg:hidden touch-target p-2 hover:bg-muted rounded-xl transition-all duration-300 relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
@@ -151,12 +151,12 @@ const Header = () => {
               isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <nav className="py-6 border-t border-border space-y-2" aria-label="Mobile navigation">
+            <nav className="py-6 border-t border-border space-y-4" aria-label="Mobile navigation">
               {navLinks.map((link, index) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`block px-4 py-3 font-semibold rounded-lg transition-all duration-300 ${
+                  className={`block px-4 py-4 font-semibold rounded-lg transition-all duration-300 ${
                     location.pathname === link.to
                       ? "bg-primary/10 text-primary"
                       : "text-foreground/80 hover:bg-muted hover:text-primary"

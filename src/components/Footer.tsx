@@ -20,12 +20,12 @@ const Footer = () => {
             <p className="text-sm opacity-90 mb-6">
               Serving homeowners across the GTA with trusted, professional painting and Stucco services. Licensed, insured, and locally proud.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 touch-group">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
+                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -34,7 +34,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
+                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -43,7 +43,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
+                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -55,22 +55,22 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Residential Painting
                 </Link>
               </li>
               <li>
-                <Link to="/services/stucco" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/services/stucco" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Stucco / EIFS
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   All Services
                 </Link>
               </li>
               <li>
-                <Link to="/estimate" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/estimate" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Get an Estimate
                 </Link>
               </li>
@@ -81,27 +81,27 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/about" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/projects" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/blog" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/resources" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Resources
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/contact" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   Contact
                 </Link>
               </li>
@@ -120,13 +120,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0 opacity-80" />
-                <a href="tel:+19055550100" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <a href="tel:+19055550100" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   (905) 555-0100
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0 opacity-80" />
-                <a href="mailto:info@ascentgroup.ca" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <a href="mailto:info@ascentgroup.ca" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   info@ascentgroup.ca
                 </a>
               </li>
@@ -139,13 +139,13 @@ const Footer = () => {
             © {currentYear} Ascent Group Construction. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-sm opacity-80 hover:opacity-100 hover:text-secondary transition-all">
+            <Link to="/privacy" className="text-sm opacity-80 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-sm opacity-80 hover:opacity-100 hover:text-secondary transition-all">
+            <Link to="/terms" className="text-sm opacity-80 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
               Terms of Use
             </Link>
-            <Link to="/accessibility" className="text-sm opacity-80 hover:opacity-100 hover:text-secondary transition-all">
+            <Link to="/accessibility" className="text-sm opacity-80 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
               Accessibility
             </Link>
           </div>

@@ -27,8 +27,11 @@ const CTASection = () => {
             </Link>
 
             <a href="tel:+19055550100">
-              <Button className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold text-lg px-10 py-6 rounded-xl transition-all hover:scale-105">
-                <Phone className="w-5 h-5 mr-2" />
+              <Button 
+                className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold text-lg px-10 py-6 rounded-xl transition-all hover:scale-105"
+                aria-label="Call us at (905) 555-0100"
+              >
+                <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
                 (905) 555-0100
               </Button>
             </a>

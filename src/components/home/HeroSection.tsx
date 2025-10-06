@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Shield, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroPoster from "/assets/hero-poster.jpg";
 
 // Detect user preference for reduced motion
 const prefersReducedMotion = () => 
@@ -14,6 +15,7 @@ const isMobile = () =>
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [counters, setCounters] = useState({ projects: 0, years: 0, coverage: 0 });
@@ -74,7 +76,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Poster Image - Always loaded */}
       <img
-        src="/assets/hero-poster.jpg"
+        src={heroPoster}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
@@ -93,6 +95,13 @@ const HeroSection = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="none"
+          poster={heroPoster}
+          onError={() => {
+            if (import.meta.env.DEV) {
+              console.warn('Video failed to load, using poster fallback');
+            }
+            setVideoError(true);
+          }}
         >
           <source src="/assets/hero-drone.webm" type="video/webm" />
           <source src="/assets/hero-drone.mp4" type="video/mp4" />

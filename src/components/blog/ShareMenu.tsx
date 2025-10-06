@@ -61,7 +61,7 @@ const ShareMenu = ({ title, url }: ShareMenuProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="default" className="touch-target">
           <Share2 className="w-4 h-4 mr-2" />
           Share
         </Button>

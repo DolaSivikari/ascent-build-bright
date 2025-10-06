@@ -89,7 +89,6 @@ const CertificationBadges = () => {
                 onClick={() => setSelectedCert(cert)}
                 className="group relative p-6 bg-background rounded-xl border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
-                aria-label={`View ${cert.fullName} certification details`}
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">

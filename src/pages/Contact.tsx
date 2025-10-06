@@ -310,20 +310,24 @@ const Contact = () => {
                   <Button
                     onClick={() => setShowMap(true)}
                     className="btn-hero"
+                    aria-expanded="false"
+                    aria-controls="interactive-map-container"
                   >
-                    <Map className="w-5 h-5 mr-2" />
+                    <Map className="w-5 h-5 mr-2" aria-hidden="true" />
                     View Map
                   </Button>
                 </Card>
               ) : (
-                <Suspense fallback={
-                  <Card className="p-12 text-center">
-                    <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-                    <p className="text-muted-foreground">Loading map...</p>
-                  </Card>
-                }>
-                  <InteractiveMap />
-                </Suspense>
+                <div id="interactive-map-container" role="region" aria-label="Office location map">
+                  <Suspense fallback={
+                    <Card className="p-12 text-center">
+                      <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
+                      <p className="text-muted-foreground">Loading map...</p>
+                    </Card>
+                  }>
+                    <InteractiveMap />
+                  </Suspense>
+                </div>
               )}
             </div>
           </div>
