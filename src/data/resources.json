@@ -6,7 +6,7 @@
       "category": "Guides",
       "description": "Everything you need to know about preparing for and maintaining your exterior paint job.",
       "type": "PDF Guide",
-      "downloadUrl": "#",
+      "downloadUrl": "/assets/resources/exterior-paint-guide.pdf",
       "featured": true,
       "topics": [
         "Surface preparation checklist",
@@ -22,7 +22,7 @@
       "category": "Guides",
       "description": "Professional tips for maintaining your stucco or EIFS exterior system.",
       "type": "PDF Guide",
-      "downloadUrl": "#",
+      "downloadUrl": "/assets/resources/stucco-maintenance.pdf",
       "featured": true,
       "topics": [
         "Inspection guidelines",
@@ -70,7 +70,7 @@
       "category": "Maintenance",
       "description": "Monthly maintenance tasks to keep your home's exterior in top condition year-round.",
       "type": "PDF Calendar",
-      "downloadUrl": "#",
+      "downloadUrl": "/assets/resources/seasonal-maintenance.pdf",
       "featured": true,
       "topics": [
         "Spring preparation",
@@ -102,7 +102,7 @@
       "category": "Planning",
       "description": "Step-by-step guide to planning your painting or renovation project from start to finish.",
       "type": "PDF Guide",
-      "downloadUrl": "#",
+      "downloadUrl": "/assets/resources/project-planning-guide.pdf",
       "featured": true,
       "topics": [
         "Budget planning worksheet",

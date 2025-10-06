@@ -35,6 +35,17 @@ const Resources = () => {
   const featuredResources = resourcesData.resources.filter(r => r.featured).slice(0, 4);
   const categories = ["All", ...Array.from(new Set(resourcesData.resources.map(r => r.category)))];
 
+  const handleDownload = (resource: { id: string; title: string; downloadUrl: string }) => {
+    // Check if real PDF exists
+    if (resource.downloadUrl && resource.downloadUrl !== "#") {
+      // Trigger actual download
+      window.open(resource.downloadUrl, '_blank');
+    } else {
+      // Show modal for resources without PDFs
+      setSelectedResource({ id: resource.id, title: resource.title });
+    }
+  };
+
   const certifications = [
     {
       name: "WSIB Compliant",
@@ -122,7 +133,7 @@ const Resources = () => {
                   </div>
                   <Button 
                     className="w-full"
-                    onClick={() => setSelectedResource({ id: resource.id, title: resource.title })}
+                    onClick={() => handleDownload(resource)}
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Download Guide
@@ -244,7 +255,7 @@ const Resources = () => {
                             variant="outline" 
                             className="w-full" 
                             size="sm"
-                            onClick={() => setSelectedResource({ id: resource.id, title: resource.title })}
+                            onClick={() => handleDownload(resource)}
                           >
                             <Download className="w-3 h-3 mr-2" />
                             Download
