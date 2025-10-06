@@ -204,6 +204,7 @@ export type Database = {
           project_type: string
           selected_materials: string[] | null
           substrate: string
+          user_id: string | null
           user_identifier: string
           user_weights: Json | null
         }
@@ -216,6 +217,7 @@ export type Database = {
           project_type: string
           selected_materials?: string[] | null
           substrate: string
+          user_id?: string | null
           user_identifier: string
           user_weights?: Json | null
         }
@@ -228,6 +230,7 @@ export type Database = {
           project_type?: string
           selected_materials?: string[] | null
           substrate?: string
+          user_id?: string | null
           user_identifier?: string
           user_weights?: Json | null
         }
@@ -420,17 +423,6 @@ export type Database = {
         }
         Relationships: []
       }
-      dashboard_stats: {
-        Row: {
-          active_materials: number | null
-          active_subscribers: number | null
-          contacts_last_30_days: number | null
-          estimates_last_30_days: number | null
-          packages_last_7_days: number | null
-          total_packages: number | null
-        }
-        Relationships: []
-      }
     }
     Functions: {
       create_admin_user: {
@@ -439,6 +431,10 @@ export type Database = {
           admin_name?: string
           admin_password: string
         }
+        Returns: Json
+      }
+      get_dashboard_stats: {
+        Args: Record<PropertyKey, never>
         Returns: Json
       }
       grant_admin_role: {
@@ -451,10 +447,6 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
-      }
-      refresh_dashboard_stats: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
       }
     }
     Enums: {
