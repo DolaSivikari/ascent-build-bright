@@ -1,76 +1,89 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import OurProcess from "./pages/OurProcess";
-import Projects from "./pages/Projects";
-import CaseStudy from "./pages/CaseStudy";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Resources from "./pages/Resources";
-import Estimate from "./pages/Estimate";
-import Contact from "./pages/Contact";
-import ResidentialPainting from "./pages/service/ResidentialPainting";
-import StuccoEIFS from "./pages/service/StuccoEIFS";
-import CommercialPainting from "./pages/service/CommercialPainting";
-import ParkingGarage from "./pages/service/ParkingGarage";
-import CondoPainting from "./pages/service/CondoPainting";
-import SuiteBuildouts from "./pages/service/SuiteBuildouts";
-import Sealants from "./pages/service/Sealants";
-import Masonry from "./pages/service/Masonry";
-import TileFlooring from "./pages/service/TileFlooring";
-import MetalCladding from "./pages/service/MetalCladding";
-import Homeowners from "./pages/audience/Homeowners";
-import PropertyManagers from "./pages/audience/PropertyManagers";
-import CommercialClients from "./pages/audience/CommercialClients";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/admin/Login";
-import Dashboard from "./pages/admin/Dashboard";
+import LoadingFallback from "@/components/LoadingFallback";
+
+// Only run PerformanceMonitor in development
+const PerformanceMonitor = import.meta.env.DEV
+  ? lazy(() => import("@/components/PerformanceMonitor"))
+  : null;
+
+// Route-based code splitting - lazy load all pages
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const OurProcess = lazy(() => import("./pages/OurProcess"));
+const Projects = lazy(() => import("./pages/Projects"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Resources = lazy(() => import("./pages/Resources"));
+const Estimate = lazy(() => import("./pages/Estimate"));
+const Contact = lazy(() => import("./pages/Contact"));
+const ResidentialPainting = lazy(() => import("./pages/service/ResidentialPainting"));
+const StuccoEIFS = lazy(() => import("./pages/service/StuccoEIFS"));
+const CommercialPainting = lazy(() => import("./pages/service/CommercialPainting"));
+const ParkingGarage = lazy(() => import("./pages/service/ParkingGarage"));
+const CondoPainting = lazy(() => import("./pages/service/CondoPainting"));
+const SuiteBuildouts = lazy(() => import("./pages/service/SuiteBuildouts"));
+const Sealants = lazy(() => import("./pages/service/Sealants"));
+const Masonry = lazy(() => import("./pages/service/Masonry"));
+const TileFlooring = lazy(() => import("./pages/service/TileFlooring"));
+const MetalCladding = lazy(() => import("./pages/service/MetalCladding"));
+const Homeowners = lazy(() => import("./pages/audience/Homeowners"));
+const PropertyManagers = lazy(() => import("./pages/audience/PropertyManagers"));
+const CommercialClients = lazy(() => import("./pages/audience/CommercialClients"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Login = lazy(() => import("./pages/admin/Login"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <PerformanceMonitor />
+      {PerformanceMonitor && (
+        <Suspense fallback={null}>
+          <PerformanceMonitor />
+        </Suspense>
+      )}
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/our-process" element={<OurProcess />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/painting" element={<ResidentialPainting />} />
-          <Route path="/services/stucco" element={<StuccoEIFS />} />
-          <Route path="/services/commercial" element={<CommercialPainting />} />
-          <Route path="/services/parking-garage" element={<ParkingGarage />} />
-          <Route path="/services/condo" element={<CondoPainting />} />
-          <Route path="/services/suite-buildouts" element={<SuiteBuildouts />} />
-          <Route path="/services/sealants" element={<Sealants />} />
-          <Route path="/services/masonry" element={<Masonry />} />
-          <Route path="/services/tile-flooring" element={<TileFlooring />} />
-          <Route path="/services/metal-cladding" element={<MetalCladding />} />
-          <Route path="/for/homeowners" element={<Homeowners />} />
-          <Route path="/for/property-managers" element={<PropertyManagers />} />
-          <Route path="/for/commercial" element={<CommercialClients />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<CaseStudy />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/estimate" element={<Estimate />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/our-process" element={<OurProcess />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/painting" element={<ResidentialPainting />} />
+            <Route path="/services/stucco" element={<StuccoEIFS />} />
+            <Route path="/services/commercial" element={<CommercialPainting />} />
+            <Route path="/services/parking-garage" element={<ParkingGarage />} />
+            <Route path="/services/condo" element={<CondoPainting />} />
+            <Route path="/services/suite-buildouts" element={<SuiteBuildouts />} />
+            <Route path="/services/sealants" element={<Sealants />} />
+            <Route path="/services/masonry" element={<Masonry />} />
+            <Route path="/services/tile-flooring" element={<TileFlooring />} />
+            <Route path="/services/metal-cladding" element={<MetalCladding />} />
+            <Route path="/for/homeowners" element={<Homeowners />} />
+            <Route path="/for/property-managers" element={<PropertyManagers />} />
+            <Route path="/for/commercial" element={<CommercialClients />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<CaseStudy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/estimate" element={<Estimate />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

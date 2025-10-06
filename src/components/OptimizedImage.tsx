@@ -1,6 +1,6 @@
 import { ImgHTMLAttributes, useState, useEffect, useRef } from 'react';
 
-interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface OptimizedImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'srcSet'> {
   src: string;
   alt: string;
   width?: number;
@@ -8,6 +8,11 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   priority?: boolean;
   className?: string;
   sizes?: string;
+  // Support for next-gen formats
+  avifSrc?: string;
+  webpSrc?: string;
+  avifSrcSet?: string;
+  webpSrcSet?: string;
 }
 
 const OptimizedImage = ({ 
@@ -18,11 +23,15 @@ const OptimizedImage = ({
   priority = false,
   className = "",
   sizes,
+  avifSrc,
+  webpSrc,
+  avifSrcSet,
+  webpSrcSet,
   ...props 
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -55,23 +64,61 @@ const OptimizedImage = ({
     return `${baseSrc} 1x, ${baseSrc} 2x`;
   };
 
+  // If next-gen formats provided, use picture element
+  if ((avifSrc || webpSrc) && isInView) {
+    return (
+      <picture ref={imgRef}>
+        {avifSrc && (
+          <source
+            type="image/avif"
+            srcSet={avifSrcSet || avifSrc}
+            sizes={sizes}
+          />
+        )}
+        {webpSrc && (
+          <source
+            type="image/webp"
+            srcSet={webpSrcSet || webpSrc}
+            sizes={sizes}
+          />
+        )}
+        <img
+          src={src}
+          srcSet={generateSrcSet(src)}
+          alt={alt}
+          width={width}
+          height={height}
+          sizes={sizes}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+          onLoad={() => setIsLoaded(true)}
+          aria-hidden={alt === '' ? 'true' : undefined}
+          role={alt === '' ? 'presentation' : undefined}
+          {...props}
+        />
+      </picture>
+    );
+  }
+
   return (
-    <img
-      ref={imgRef}
-      src={isInView ? src : undefined}
-      srcSet={isInView ? generateSrcSet(src) : undefined}
-      alt={alt}
-      width={width}
-      height={height}
-      sizes={sizes}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-      className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-      onLoad={() => setIsLoaded(true)}
-      aria-hidden={alt === '' ? 'true' : undefined}
-      role={alt === '' ? 'presentation' : undefined}
-      {...props}
-    />
+    <div ref={imgRef}>
+      <img
+        src={isInView ? src : undefined}
+        srcSet={isInView ? generateSrcSet(src) : undefined}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={sizes}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+        onLoad={() => setIsLoaded(true)}
+        aria-hidden={alt === '' ? 'true' : undefined}
+        role={alt === '' ? 'presentation' : undefined}
+        {...props}
+      />
+    </div>
   );
 };
 

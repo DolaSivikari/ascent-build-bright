@@ -3,13 +3,32 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Shield, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Detect user preference for reduced motion
+const prefersReducedMotion = () => 
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Detect mobile device
+const isMobile = () => 
+  /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [counters, setCounters] = useState({ projects: 0, years: 0, coverage: 0 });
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Only load video on desktop without reduced motion preference
+    // Defer loading until after initial render
+    if (!isMobile() && !prefersReducedMotion()) {
+      const timer = setTimeout(() => {
+        setShouldLoadVideo(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
@@ -53,19 +72,32 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-      {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/assets/hero-poster.jpg"
+      {/* Poster Image - Always loaded */}
+      <img
+        src="/assets/hero-poster.jpg"
+        alt=""
         className="absolute inset-0 w-full h-full object-cover"
-        preload="metadata"
-      >
-        <source src="/assets/hero-drone.webm" type="video/webm" />
-        <source src="/assets/hero-drone.mp4" type="video/mp4" />
-      </video>
+        loading="eager"
+        fetchPriority="high"
+        width={1920}
+        height={1080}
+      />
+      
+      {/* Video Background - Lazy loaded on desktop only */}
+      {shouldLoadVideo && (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          preload="none"
+        >
+          <source src="/assets/hero-drone.webm" type="video/webm" />
+          <source src="/assets/hero-drone.mp4" type="video/mp4" />
+        </video>
+      )}
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-[hsl(var(--deep-blue))]/90" />

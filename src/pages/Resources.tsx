@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import PaintCalculator from "@/components/PaintCalculator";
-import CertificationModal from "@/components/CertificationModal";
+
+// Lazy load heavy components
+const PaintCalculator = lazy(() => import("@/components/PaintCalculator"));
+const CertificationModal = lazy(() => import("@/components/CertificationModal"));
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

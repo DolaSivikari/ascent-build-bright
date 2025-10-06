@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Header from "@/components/Header";
@@ -9,11 +9,10 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock, Loader2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Loader2, Map } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { checkRateLimit, getRemainingTime } from "@/lib/rate-limit";
 import { supabase } from "@/integrations/supabase/client";
-import InteractiveMap from "@/components/InteractiveMap";
 import {
   Form,
   FormControl,
@@ -23,9 +22,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+// Lazy load map - only loads when user clicks "View Map"
+const InteractiveMap = lazy(() => import("@/components/InteractiveMap"));
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -291,11 +294,37 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Interactive Map */}
+        {/* Interactive Map - Lazy loaded */}
         <section className="py-24 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <InteractiveMap />
+              {!showMap ? (
+                <Card className="p-12 text-center">
+                  <Map className="w-16 h-16 text-primary mx-auto mb-4" />
+                  <h3 className="text-2xl font-heading font-bold mb-2 text-primary">
+                    Our Location
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    View our office location on the interactive map
+                  </p>
+                  <Button
+                    onClick={() => setShowMap(true)}
+                    className="btn-hero"
+                  >
+                    <Map className="w-5 h-5 mr-2" />
+                    View Map
+                  </Button>
+                </Card>
+              ) : (
+                <Suspense fallback={
+                  <Card className="p-12 text-center">
+                    <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
+                    <p className="text-muted-foreground">Loading map...</p>
+                  </Card>
+                }>
+                  <InteractiveMap />
+                </Suspense>
+              )}
             </div>
           </div>
         </section>

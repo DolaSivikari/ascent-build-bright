@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ProjectCard from "@/components/projects/ProjectCard";
-import ProjectModal from "@/components/projects/ProjectModal";
+import { Loader2 } from "lucide-react";
+
+// Lazy load modal
+const ProjectModal = lazy(() => import("@/components/projects/ProjectModal"));
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import projectsData from "@/data/projects-expanded.json";
@@ -144,11 +147,17 @@ const Projects = () => {
 
       {/* Project Modal */}
       {selectedProject && (
-        <ProjectModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          project={selectedProject}
-        />
+        <Suspense fallback={
+          <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center">
+            <Loader2 className="w-12 h-12 animate-spin text-primary" />
+          </div>
+        }>
+          <ProjectModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            project={selectedProject}
+          />
+        </Suspense>
       )}
 
       <Footer />
