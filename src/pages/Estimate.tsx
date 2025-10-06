@@ -108,8 +108,10 @@ const Estimate = () => {
   };
 
   const handleNext = async () => {
-    console.log(`[EstimatorWizard] handleNext - Current Step: ${currentStep}`);
-    console.log(`[EstimatorWizard] Form Data:`, formData);
+    if (import.meta.env.DEV) {
+      console.log(`[EstimatorWizard] handleNext - Current Step: ${currentStep}`);
+      console.log(`[EstimatorWizard] Form Data:`, formData);
+    }
     
     setFormError(null);
     
@@ -118,7 +120,9 @@ const Estimate = () => {
     if (currentStep === 3) {
       setIsCalculating(true);
       try {
-        console.log(`[EstimatorWizard] Calculating estimate...`);
+        if (import.meta.env.DEV) {
+          console.log(`[EstimatorWizard] Calculating estimate...`);
+        }
         
         // Calculate estimate before showing step 4
         const input: EstimateInput = {
@@ -138,7 +142,9 @@ const Estimate = () => {
         };
         
         const result = calculateEstimate(input);
-        console.log(`[EstimatorWizard] Estimate Result:`, result);
+        if (import.meta.env.DEV) {
+          console.log(`[EstimatorWizard] Estimate Result:`, result);
+        }
         setEstimate(result);
       } catch (error) {
         console.error(`[EstimatorWizard] Calculation Error:`, error);
@@ -156,7 +162,9 @@ const Estimate = () => {
     }
 
     setCurrentStep((prev) => Math.min(prev + 1, 5));
-    console.log(`[EstimatorWizard] Advanced to Step: ${currentStep + 1}`);
+    if (import.meta.env.DEV) {
+      console.log(`[EstimatorWizard] Advanced to Step: ${currentStep + 1}`);
+    }
   };
 
   const handleBack = () => {

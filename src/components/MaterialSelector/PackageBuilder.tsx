@@ -77,7 +77,9 @@ export default function PackageBuilder({
       setPackageName('');
       setNotes('');
     } catch (error) {
-      console.error('Error saving package:', error);
+      if (import.meta.env.DEV) {
+        console.error('Error saving package:', error);
+      }
       toast({
         title: 'Error',
         description: 'Failed to save package. Please try again.',
