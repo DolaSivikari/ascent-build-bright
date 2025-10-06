@@ -1,14 +1,24 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.7.1";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
+// Whitelist-based CORS for enhanced security
+const allowedOrigins = [
+  Deno.env.get("ALLOWED_ORIGIN"),
+  "http://localhost:5173",
+  "http://localhost:4173",
+].filter(Boolean);
+
+const corsHeaders = (origin: string | null) => ({
+  "Access-Control-Allow-Origin": origin && allowedOrigins.includes(origin) ? origin : allowedOrigins[0] || "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+});
 
 serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const headers = corsHeaders(origin);
+
   if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+    return new Response("ok", { headers });
   }
 
   try {
@@ -17,7 +27,7 @@ serve(async (req) => {
     if (!email || !email.includes('@')) {
       return new Response(
         JSON.stringify({ error: "Invalid email address" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        { status: 400, headers: { ...headers, "Content-Type": "application/json" } }
       );
     }
 
@@ -36,7 +46,7 @@ serve(async (req) => {
     if (existing) {
       return new Response(
         JSON.stringify({ message: "Already subscribed" }),
-        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        { status: 200, headers: { ...headers, "Content-Type": "application/json" } }
       );
     }
 
@@ -55,13 +65,15 @@ serve(async (req) => {
 
     return new Response(
       JSON.stringify({ message: "Successfully subscribed" }),
-      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      { status: 200, headers: { ...headers, "Content-Type": "application/json" } }
     );
   } catch (error) {
     console.error('Newsletter subscription error:', error);
+    const origin = req.headers.get("origin");
+    const headers = corsHeaders(origin);
     return new Response(
       JSON.stringify({ error: error instanceof Error ? error.message : 'Unknown error' }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      { status: 500, headers: { ...headers, "Content-Type": "application/json" } }
     );
   }
 });
