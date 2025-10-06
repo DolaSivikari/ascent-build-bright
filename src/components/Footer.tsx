@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import ascentLogo from "@/assets/ascent-logo.png";
+import ascentLogo from "@/assets/ascent-logo-optimized.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,6 +14,8 @@ const Footer = () => {
               <img 
                 src={ascentLogo} 
                 alt="Ascent Group Construction Logo" 
+                width="128"
+                height="192"
                 className="h-20 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"
               />
             </Link>

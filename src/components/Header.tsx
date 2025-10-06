@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import ascentLogo from "@/assets/ascent-logo.png";
+import ascentLogo from "@/assets/ascent-logo-optimized.webp";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,7 +65,9 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3 group mr-8" aria-label="Ascent Group Construction - Home">
               <img
                 src={ascentLogo} 
-                alt="Ascent Group Construction Logo" 
+                alt="Ascent Group Construction Logo"
+                width="128"
+                height="192"
                 className={`transition-all duration-300 ${
                   isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
                 } w-auto object-contain group-hover:scale-105`}
