@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import PaintCalculator from "@/components/PaintCalculator";
 import CertificationModal from "@/components/CertificationModal";
+import ResourceRequestModal from "@/components/ResourceRequestModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,11 @@ const Resources = () => {
     name: string;
     description: string;
     verificationUrl?: string;
+  } | null>(null);
+
+  const [selectedResource, setSelectedResource] = useState<{
+    id: string;
+    title: string;
   } | null>(null);
 
   const featuredResources = resourcesData.resources.filter(r => r.featured).slice(0, 4);
@@ -114,7 +120,10 @@ const Resources = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button className="w-full">
+                  <Button 
+                    className="w-full"
+                    onClick={() => setSelectedResource({ id: resource.id, title: resource.title })}
+                  >
                     <Download className="w-4 h-4 mr-2" />
                     Download Guide
                   </Button>
@@ -231,7 +240,12 @@ const Resources = () => {
                           <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                             {resource.description}
                           </p>
-                          <Button variant="outline" className="w-full" size="sm">
+                          <Button 
+                            variant="outline" 
+                            className="w-full" 
+                            size="sm"
+                            onClick={() => setSelectedResource({ id: resource.id, title: resource.title })}
+                          >
                             <Download className="w-3 h-3 mr-2" />
                             Download
                           </Button>
@@ -353,6 +367,16 @@ const Resources = () => {
           isOpen={!!selectedCert}
           onClose={() => setSelectedCert(null)}
           certification={selectedCert}
+        />
+      )}
+
+      {/* Resource Request Modal */}
+      {selectedResource && (
+        <ResourceRequestModal
+          isOpen={!!selectedResource}
+          onClose={() => setSelectedResource(null)}
+          resourceTitle={selectedResource.title}
+          resourceId={selectedResource.id}
         />
       )}
     </div>
