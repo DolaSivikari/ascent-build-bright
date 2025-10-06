@@ -11,6 +11,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 import ClientLogoCarousel from "@/components/home/ClientLogoCarousel";
 import CertificationBadges from "@/components/home/CertificationBadges";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
 import { organizationSchema } from "@/utils/structured-data";
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
         <CredentialsSection />
         <CertificationBadges />
         <ServicesPreview />
+        <FeaturedProjects />
         <WhyAscent />
         <TestimonialsSection />
         <CTASection />
