@@ -205,7 +205,7 @@ export type Database = {
           selected_materials: string[] | null
           substrate: string
           user_id: string | null
-          user_identifier: string
+          user_identifier: string | null
           user_weights: Json | null
         }
         Insert: {
@@ -218,7 +218,7 @@ export type Database = {
           selected_materials?: string[] | null
           substrate: string
           user_id?: string | null
-          user_identifier: string
+          user_identifier?: string | null
           user_weights?: Json | null
         }
         Update: {
@@ -231,7 +231,7 @@ export type Database = {
           selected_materials?: string[] | null
           substrate?: string
           user_id?: string | null
-          user_identifier?: string
+          user_identifier?: string | null
           user_weights?: Json | null
         }
         Relationships: []
@@ -412,17 +412,7 @@ export type Database = {
       }
     }
     Views: {
-      admin_users_view: {
-        Row: {
-          created_at: string | null
-          email: string | null
-          full_name: string | null
-          id: string | null
-          roles: Database["public"]["Enums"]["app_role"][] | null
-          updated_at: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       can_access_admin_view: {
@@ -440,12 +430,12 @@ export type Database = {
       get_admin_users: {
         Args: Record<PropertyKey, never>
         Returns: {
-          created_at: string | null
-          email: string | null
-          full_name: string | null
-          id: string | null
-          roles: Database["public"]["Enums"]["app_role"][] | null
-          updated_at: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          roles: string[]
+          updated_at: string
         }[]
       }
       get_dashboard_stats: {
