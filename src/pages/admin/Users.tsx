@@ -43,10 +43,10 @@ export default function AdminUsers() {
   const { data: users = [], isLoading } = useQuery({
     queryKey: ['admin-users'],
     queryFn: async () => {
+      // Use security definer function instead of direct view access
+      // This enforces admin-only access at the database level
       const { data, error } = await supabase
-        .from('admin_users_view')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .rpc('get_admin_users');
       
       if (error) throw error;
       return data as AdminUser[];

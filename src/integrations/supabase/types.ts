@@ -437,6 +437,17 @@ export type Database = {
         }
         Returns: Json
       }
+      get_admin_users: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string | null
+          roles: Database["public"]["Enums"]["app_role"][] | null
+          updated_at: string | null
+        }[]
+      }
       get_dashboard_stats: {
         Args: Record<PropertyKey, never>
         Returns: Json
