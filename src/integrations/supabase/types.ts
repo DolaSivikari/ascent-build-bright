@@ -425,6 +425,10 @@ export type Database = {
       }
     }
     Functions: {
+      can_access_admin_view: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
       create_admin_user: {
         Args: {
           admin_email: string
