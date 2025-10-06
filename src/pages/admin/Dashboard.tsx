@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import SEO from '@/components/SEO';
-import { LogOut, Mail, FileText } from 'lucide-react';
+import { LogOut, Mail, FileText, Database, Users } from 'lucide-react';
 
 interface ContactSubmission {
   id: string;
@@ -123,10 +123,24 @@ export default function Dashboard() {
         <header className="border-b bg-background/95 backdrop-blur">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-            <Button onClick={handleLogout} variant="outline" size="sm">
-              <LogOut className="w-4 h-4 mr-2" />
-              Logout
-            </Button>
+            <div className="flex gap-2">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/admin/materials">
+                  <Database className="w-4 h-4 mr-2" />
+                  Materials
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="sm">
+                <Link to="/admin/users">
+                  <Users className="w-4 h-4 mr-2" />
+                  Users
+                </Link>
+              </Button>
+              <Button onClick={handleLogout} variant="outline" size="sm">
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
+            </div>
           </div>
         </header>
 

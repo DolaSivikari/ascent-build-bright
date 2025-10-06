@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          ip_address: unknown | null
+          new_values: Json | null
+          old_values: Json | null
+          resource_id: string | null
+          resource_type: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          new_values?: Json | null
+          old_values?: Json | null
+          resource_id?: string | null
+          resource_type: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          new_values?: Json | null
+          old_values?: Json | null
+          resource_id?: string | null
+          resource_type?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
@@ -155,6 +194,120 @@ export type Database = {
         }
         Relationships: []
       }
+      material_packages: {
+        Row: {
+          climate_tags: string[] | null
+          created_at: string
+          id: string
+          notes: string | null
+          package_name: string | null
+          project_type: string
+          selected_materials: string[] | null
+          substrate: string
+          user_identifier: string
+          user_weights: Json | null
+        }
+        Insert: {
+          climate_tags?: string[] | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          package_name?: string | null
+          project_type: string
+          selected_materials?: string[] | null
+          substrate: string
+          user_identifier: string
+          user_weights?: Json | null
+        }
+        Update: {
+          climate_tags?: string[] | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          package_name?: string | null
+          project_type?: string
+          selected_materials?: string[] | null
+          substrate?: string
+          user_identifier?: string
+          user_weights?: Json | null
+        }
+        Relationships: []
+      }
+      materials: {
+        Row: {
+          brand: string
+          category: string
+          cost_index: number
+          created_at: string
+          datasheet_url: string | null
+          durability_years: number
+          finish_options: string[] | null
+          id: string
+          images: string[] | null
+          is_active: boolean | null
+          maintenance_level: string
+          moisture_resistance: string | null
+          r_value: number | null
+          recycled_content_pct: number | null
+          salt_tolerance: string | null
+          suitable_substrates: string[]
+          tags: string[] | null
+          title: string
+          updated_at: string
+          uv_resistance: string | null
+          voc_level: string | null
+          warranty_years: number | null
+        }
+        Insert: {
+          brand: string
+          category: string
+          cost_index: number
+          created_at?: string
+          datasheet_url?: string | null
+          durability_years: number
+          finish_options?: string[] | null
+          id?: string
+          images?: string[] | null
+          is_active?: boolean | null
+          maintenance_level: string
+          moisture_resistance?: string | null
+          r_value?: number | null
+          recycled_content_pct?: number | null
+          salt_tolerance?: string | null
+          suitable_substrates?: string[]
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+          uv_resistance?: string | null
+          voc_level?: string | null
+          warranty_years?: number | null
+        }
+        Update: {
+          brand?: string
+          category?: string
+          cost_index?: number
+          created_at?: string
+          datasheet_url?: string | null
+          durability_years?: number
+          finish_options?: string[] | null
+          id?: string
+          images?: string[] | null
+          is_active?: boolean | null
+          maintenance_level?: string
+          moisture_resistance?: string | null
+          r_value?: number | null
+          recycled_content_pct?: number | null
+          salt_tolerance?: string | null
+          suitable_substrates?: string[]
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+          uv_resistance?: string | null
+          voc_level?: string | null
+          warranty_years?: number | null
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           created_at: string
@@ -162,6 +315,7 @@ export type Database = {
           id: string
           is_active: boolean
           subscribed_at: string
+          unsubscribe_token: string | null
         }
         Insert: {
           created_at?: string
@@ -169,6 +323,7 @@ export type Database = {
           id?: string
           is_active?: boolean
           subscribed_at?: string
+          unsubscribe_token?: string | null
         }
         Update: {
           created_at?: string
@@ -176,6 +331,34 @@ export type Database = {
           id?: string
           is_active?: boolean
           subscribed_at?: string
+          unsubscribe_token?: string | null
+        }
+        Relationships: []
+      }
+      password_reset_tokens: {
+        Row: {
+          created_at: string
+          expires_at: string
+          id: string
+          token_hash: string
+          used_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at: string
+          id?: string
+          token_hash: string
+          used_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string
+          id?: string
+          token_hash?: string
+          used_at?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -226,7 +409,28 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      admin_users_view: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string | null
+          roles: Database["public"]["Enums"]["app_role"][] | null
+          updated_at: string | null
+        }
+        Relationships: []
+      }
+      dashboard_stats: {
+        Row: {
+          active_materials: number | null
+          active_subscribers: number | null
+          contacts_last_30_days: number | null
+          estimates_last_30_days: number | null
+          packages_last_7_days: number | null
+          total_packages: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {
@@ -235,6 +439,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      refresh_dashboard_stats: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
       }
     }
     Enums: {
