@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
               <div className="pt-4 border-t border-border space-y-3">
                 <div className="flex items-center gap-4">
                   <Avatar className="h-12 w-12 bg-primary text-primary-foreground">
-                    <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                    <AvatarFallback className="bg-primary text-primary-foreground">{testimonial.initials}</AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
                     <div className="font-semibold text-primary">{testimonial.name}</div>

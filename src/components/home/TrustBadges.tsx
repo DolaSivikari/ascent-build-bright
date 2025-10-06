@@ -46,7 +46,7 @@ const TrustBadges = () => {
               <div className="text-lg font-semibold mb-1">
                 {badge.label}
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-contrast-muted">
                 {badge.description}
               </p>
             </div>

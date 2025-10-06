@@ -50,10 +50,10 @@ const ClientLogoCarousel = () => {
                   role="img"
                   aria-label={`${client.name} logo`}
                 >
-                  <span className="text-sm font-bold text-foreground/80 group-hover:text-primary transition-colors text-center px-2">
+                  <span className="text-sm font-bold text-contrast-primary group-hover:text-primary transition-colors text-center px-2">
                     {client.name}
                   </span>
-                  <span className="text-xs text-muted-foreground mt-1">
+                  <span className="text-xs text-contrast-muted mt-1">
                     {client.industry}
                   </span>
                 </div>
@@ -70,10 +70,10 @@ const ClientLogoCarousel = () => {
                   key={`second-${index}`}
                   className="flex-shrink-0 w-40 h-24 bg-background rounded-lg flex flex-col items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 border border-border hover:border-primary/30 hover:shadow-md group"
                 >
-                  <span className="text-sm font-bold text-foreground/80 group-hover:text-primary transition-colors text-center px-2">
+                  <span className="text-sm font-bold text-contrast-primary group-hover:text-primary transition-colors text-center px-2">
                     {client.name}
                   </span>
-                  <span className="text-xs text-muted-foreground mt-1">
+                  <span className="text-xs text-contrast-muted mt-1">
                     {client.industry}
                   </span>
                 </div>
