@@ -22,12 +22,14 @@ interface PackageBuilderProps {
   shortlist: ScoredMaterial[];
   onRemove: (materialId: string) => void;
   criteria: UserCriteria;
+  isDemoMode?: boolean;
 }
 
 export default function PackageBuilder({
   shortlist,
   onRemove,
   criteria,
+  isDemoMode = false,
 }: PackageBuilderProps) {
   const [packageName, setPackageName] = useState('');
   const [notes, setNotes] = useState('');
@@ -120,9 +122,17 @@ export default function PackageBuilder({
 
       <SheetContent className="w-full sm:max-w-lg overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>Material Package Builder</SheetTitle>
+          <div className="flex items-center gap-2">
+            <SheetTitle>Material Package Builder</SheetTitle>
+            {isDemoMode && (
+              <Badge variant="secondary" className="text-xs">Demo</Badge>
+            )}
+          </div>
           <SheetDescription>
-            Create a package from your shortlist (max 3 materials)
+            {isDemoMode 
+              ? 'Demo package with pre-selected materials for testing'
+              : 'Create a package from your shortlist (max 3 materials)'
+            }
           </SheetDescription>
         </SheetHeader>
 
@@ -132,7 +142,12 @@ export default function PackageBuilder({
             <div className="text-center py-8 text-muted-foreground">
               <Package className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p>No materials in your shortlist yet.</p>
-              <p className="text-sm mt-1">Add up to 3 materials to compare and package.</p>
+              <p className="text-sm mt-1">
+                {isDemoMode 
+                  ? 'Demo mode activated - add ?demo=true to URL to see sample materials'
+                  : 'Add up to 3 materials to compare and package.'
+                }
+              </p>
             </div>
           ) : (
             <div className="space-y-3">

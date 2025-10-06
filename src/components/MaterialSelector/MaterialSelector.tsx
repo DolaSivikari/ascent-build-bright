@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useMaterials } from '@/hooks/useMaterials';
 import { UserCriteria, DEFAULT_WEIGHTS, ScoredMaterial } from '@/types/materials';
 import { scoreMaterials, filterMaterials } from '@/utils/materialScoring';
@@ -7,11 +7,16 @@ import MaterialCard from './MaterialCard';
 import PackageBuilder from './PackageBuilder';
 import RecommendationSection from './RecommendationSection';
 import { Input } from '@/components/ui/input';
-import { Search, Loader2 } from 'lucide-react';
+import { Search, Loader2, FlaskConical, X } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function MaterialSelector() {
   const { data: materials, isLoading } = useMaterials();
+  
+  // Check for demo mode via URL parameter
+  const [isDemoMode, setIsDemoMode] = useState(false);
   
   const [criteria, setCriteria] = useState<UserCriteria>({
     projectType: 'residential',
@@ -52,6 +57,30 @@ export default function MaterialSelector() {
     setShortlist(shortlist.filter(m => m.id !== materialId));
   };
 
+  // Demo mode initialization
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const demoParam = params.get('demo');
+    
+    if (demoParam === 'true' && materials && materials.length > 0) {
+      setIsDemoMode(true);
+      
+      // Auto-populate shortlist with first 2-3 scored materials
+      const demoMaterials = scoreMaterials(materials.slice(0, 10), criteria).slice(0, 3);
+      setShortlist(demoMaterials);
+    }
+  }, [materials]);
+
+  const handleClearDemoData = () => {
+    setShortlist([]);
+    setIsDemoMode(false);
+    
+    // Remove demo parameter from URL
+    const url = new URL(window.location.href);
+    url.searchParams.delete('demo');
+    window.history.replaceState({}, '', url.toString());
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
@@ -63,6 +92,32 @@ export default function MaterialSelector() {
 
   return (
     <div className="w-full">
+      {/* Demo Mode Indicator */}
+      {isDemoMode && (
+        <div className="mb-4 flex items-center justify-between p-4 bg-primary/5 border border-primary/20 rounded-lg">
+          <div className="flex items-center gap-2">
+            <FlaskConical className="w-5 h-5 text-primary" />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold">Demo Mode Active</span>
+                <Badge variant="secondary" className="text-xs">Testing</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1">
+                Shortlist pre-populated with sample materials for testing
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleClearDemoData}
+          >
+            <X className="w-4 h-4 mr-2" />
+            Clear Demo Data
+          </Button>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
@@ -93,6 +148,7 @@ export default function MaterialSelector() {
               shortlist={shortlist}
               onRemove={handleRemoveFromShortlist}
               criteria={criteria}
+              isDemoMode={isDemoMode}
             />
           </div>
 
