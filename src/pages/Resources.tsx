@@ -5,11 +5,11 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import PaintCalculator from "@/components/PaintCalculator";
 import CertificationModal from "@/components/CertificationModal";
-import ResourceRequestModal from "@/components/ResourceRequestModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, FileText, CheckCircle2, Calculator, PlayCircle, Shield } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 import {
   Accordion,
   AccordionContent,
@@ -40,9 +40,21 @@ const Resources = () => {
     if (resource.downloadUrl && resource.downloadUrl !== "#") {
       // Trigger actual download
       window.open(resource.downloadUrl, '_blank');
+      toast({
+        title: "Download Started",
+        description: `${resource.title} is downloading now.`,
+      });
     } else {
-      // Show modal for resources without PDFs
-      setSelectedResource({ id: resource.id, title: resource.title });
+      // Show toast for resources without PDFs
+      toast({
+        title: "Resource Available Upon Request",
+        description: "Contact us to receive this resource. We'll send it to you within 24 hours.",
+        action: (
+          <Link to="/contact">
+            <Button variant="outline" size="sm">Contact Us</Button>
+          </Link>
+        ),
+      });
     }
   };
 
@@ -378,16 +390,6 @@ const Resources = () => {
           isOpen={!!selectedCert}
           onClose={() => setSelectedCert(null)}
           certification={selectedCert}
-        />
-      )}
-
-      {/* Resource Request Modal */}
-      {selectedResource && (
-        <ResourceRequestModal
-          isOpen={!!selectedResource}
-          onClose={() => setSelectedResource(null)}
-          resourceTitle={selectedResource.title}
-          resourceId={selectedResource.id}
         />
       )}
     </div>
