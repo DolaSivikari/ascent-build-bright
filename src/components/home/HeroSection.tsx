@@ -59,8 +59,9 @@ const HeroSection = () => {
         muted
         loop
         playsInline
-        poster="/placeholder.svg"
+        poster="/assets/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
+        preload="metadata"
       >
         <source src="/assets/hero-drone.webm" type="video/webm" />
         <source src="/assets/hero-drone.mp4" type="video/mp4" />
