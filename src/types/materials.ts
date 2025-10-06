@@ -1,4 +1,4 @@
-export type MaterialCategory = 'paint' | 'eifs' | 'cladding' | 'sealant' | 'coating' | 'primer';
+export type MaterialCategory = 'paint' | 'eifs' | 'cladding' | 'sealant' | 'coating' | 'primer' | 'scaffolding';
 export type MaintenanceLevel = 'low' | 'medium' | 'high';
 export type ResistanceLevel = 'low' | 'medium' | 'high';
 export type VOCLevel = 'low' | 'standard' | 'high';

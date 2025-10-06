@@ -30,7 +30,9 @@ const CATEGORIES = [
   { value: 'eifs', label: 'EIFS' },
   { value: 'coating', label: 'Coating' },
   { value: 'sealant', label: 'Sealant' },
+  { value: 'cladding', label: 'Cladding' },
   { value: 'primer', label: 'Primer' },
+  { value: 'scaffolding', label: 'Scaffolding' },
 ];
 
 export default function FiltersPanel({ 
