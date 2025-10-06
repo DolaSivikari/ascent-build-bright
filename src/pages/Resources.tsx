@@ -191,13 +191,21 @@ const Resources = () => {
               </Card>
             </div>
 
-            {/* Coming Soon - Material Selector */}
+            {/* Material Selector Tool */}
             <div className="max-w-3xl mx-auto mt-8">
-              <Card className="border-dashed border-2">
-                <CardContent className="p-6 text-center">
-                  <p className="text-muted-foreground">
-                    <strong>Coming Soon:</strong> Interactive Material Selector Tool
-                  </p>
+              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
+                <CardContent className="p-8">
+                  <div className="text-center space-y-4">
+                    <h3 className="text-2xl font-bold">Interactive Material Selector</h3>
+                    <p className="text-muted-foreground">
+                      Find the perfect materials for your project based on performance, durability, cost, and climate
+                    </p>
+                    <Link to="/resources/material-selector">
+                      <Button size="lg" variant="default">
+                        Launch Material Selector
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             </div>

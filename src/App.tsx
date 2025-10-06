@@ -41,6 +41,7 @@ const CommercialClients = lazy(() => import("./pages/audience/CommercialClients"
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/admin/Login"));
 const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const MaterialSelector = lazy(() => import("./pages/MaterialSelector"));
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/material-selector" element={<MaterialSelector />} />
             <Route path="/estimate" element={<Estimate />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<Login />} />
