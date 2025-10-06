@@ -89,12 +89,13 @@ const CertificationBadges = () => {
                 onClick={() => setSelectedCert(cert)}
                 className="group relative p-6 bg-background rounded-xl border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                aria-label={`${cert.name} - ${cert.category} - View ${cert.fullName} certification details`}
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
-                    <cert.icon className="w-8 h-8 text-secondary" />
+                    <cert.icon className="w-8 h-8 text-secondary" aria-hidden="true" />
                   </div>
-                  <div className="text-center">
+                  <div className="text-center" aria-hidden="true">
                     <div className="font-bold text-sm text-primary group-hover:text-primary/80 transition-colors">
                       {cert.name}
                     </div>
@@ -105,7 +106,7 @@ const CertificationBadges = () => {
                 </div>
                 
                 {/* Hover Indicator */}
-                <div className="absolute top-2 right-2 w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-2 right-2 w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <span className="text-primary text-xs font-bold">i</span>
                 </div>
               </button>

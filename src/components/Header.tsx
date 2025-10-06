@@ -62,7 +62,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group mr-8">
+            <Link to="/" className="flex items-center gap-3 group mr-8" aria-label="Ascent Group Construction - Home">
               <img
                 src={ascentLogo} 
                 alt="Ascent Group Construction Logo" 
@@ -70,7 +70,7 @@ const Header = () => {
                   isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'
                 } w-auto object-contain group-hover:scale-105`}
               />
-              <div className="hidden md:block">
+              <div className="hidden md:block" aria-hidden="true">
                 <div className="font-heading font-bold text-xl text-primary group-hover:text-secondary transition-colors">
                   Ascent Group
                 </div>
