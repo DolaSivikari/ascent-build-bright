@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import blogData from "@/data/blog-posts.json";
+import blogData from "@/data/blog-posts-complete.json";
 import { generateArticleSchema } from "@/utils/structured-data";
 
 const BlogPost = () => {
@@ -74,9 +74,20 @@ const BlogPost = () => {
       .join('');
   };
 
+  // Improved related articles logic: same category, then by date
   const relatedPosts = blogData.posts
     .filter(p => p.id !== post.id && p.category === post.category)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
+  
+  // If not enough same-category posts, add recent posts from other categories
+  if (relatedPosts.length < 3) {
+    const otherPosts = blogData.posts
+      .filter(p => p.id !== post.id && p.category !== post.category)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 3 - relatedPosts.length);
+    relatedPosts.push(...otherPosts);
+  }
 
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const articleSchema = generateArticleSchema(post, currentUrl);

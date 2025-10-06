@@ -8,7 +8,7 @@ import NewsletterSection from "@/components/blog/NewsletterSection";
 import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import blogData from "@/data/blog-posts-expanded.json";
+import blogData from "@/data/blog-posts-complete.json";
 
 const Blog = () => {
   const [filter, setFilter] = useState<string>("all");
@@ -17,11 +17,17 @@ const Blog = () => {
   
   const categories = ["all", ...Array.from(new Set(blogData.posts.map(p => p.category)))];
   
+  // Sort posts by date (newest first)
+  const sortedPosts = [...blogData.posts].sort((a, b) => 
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  
   const filteredPosts = filter === "all" 
-    ? blogData.posts 
-    : blogData.posts.filter(p => p.category === filter);
+    ? sortedPosts 
+    : sortedPosts.filter(p => p.category === filter);
 
-  const featuredPosts = blogData.posts.filter(p => p.featured);
+  // Limit featured posts to top 3
+  const featuredPosts = sortedPosts.filter(p => p.featured).slice(0, 3);
 
   const loadMore = () => {
     setVisiblePosts(prev => Math.min(prev + 6, filteredPosts.length));
