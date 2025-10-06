@@ -49,15 +49,22 @@ export default function PackageBuilder({
 
     setIsSaving(true);
     try {
-      const userIdentifier = localStorage.getItem('material_selector_user_id') || 
-        `anon-${Date.now()}`;
+      // Get authenticated user
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
       
-      if (!localStorage.getItem('material_selector_user_id')) {
-        localStorage.setItem('material_selector_user_id', userIdentifier);
+      if (authError || !user) {
+        toast({
+          title: 'Authentication required',
+          description: 'Please log in to save material packages.',
+          variant: 'destructive',
+        });
+        navigate('/admin/login');
+        return;
       }
 
       const { error } = await supabase.from('material_packages' as any).insert({
-        user_identifier: userIdentifier,
+        user_id: user.id,
+        user_identifier: user.email || `user-${user.id.substring(0, 8)}`, // Keep for backward compatibility
         project_type: criteria.projectType,
         substrate: criteria.substrate[0] || 'mixed',
         climate_tags: criteria.climateTags,

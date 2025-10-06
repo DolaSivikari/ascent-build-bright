@@ -38,19 +38,24 @@ export function useMaterials() {
   });
 }
 
-export function useMaterialPackages(userIdentifier: string) {
+export function useMaterialPackages() {
   return useQuery({
-    queryKey: ['material-packages', userIdentifier],
+    queryKey: ['material-packages'],
     queryFn: async () => {
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError || !user) {
+        throw new Error('Must be authenticated to view packages');
+      }
+
       const { data, error } = await supabase
         .from('material_packages' as any)
         .select('*')
-        .eq('user_identifier', userIdentifier)
+        .eq('user_id', user.id)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
       return data;
     },
-    enabled: !!userIdentifier,
   });
 }
