@@ -22,6 +22,8 @@ const Estimate = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [estimate, setEstimate] = useState<EstimateResult | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     // Step 1
@@ -105,31 +107,56 @@ const Estimate = () => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
+    console.log(`[EstimatorWizard] handleNext - Current Step: ${currentStep}`);
+    console.log(`[EstimatorWizard] Form Data:`, formData);
+    
+    setFormError(null);
+    
     if (!validateStep(currentStep)) return;
 
     if (currentStep === 3) {
-      // Calculate estimate before showing step 4
-      const input: EstimateInput = {
-        service: formData.service as "residential_painting" | "stucco_eifs",
-        sqft: parseInt(formData.sqft),
-        stories: formData.stories as "1" | "2" | "3_plus",
-        prepComplexity: formData.prepComplexity as any,
-        finishQuality: formData.finishQuality as any,
-        region: formData.region as any,
-        addOns: {
-          scaffolding: formData.scaffolding as any,
-          colorConsultation: formData.colorConsultation,
-          rushScheduling: formData.rushScheduling,
-          warrantyExtension: formData.warrantyExtension,
-          siteCleanup: formData.siteCleanup,
-        },
-      };
-      const result = calculateEstimate(input);
-      setEstimate(result);
+      setIsCalculating(true);
+      try {
+        console.log(`[EstimatorWizard] Calculating estimate...`);
+        
+        // Calculate estimate before showing step 4
+        const input: EstimateInput = {
+          service: formData.service as "residential_painting" | "stucco_eifs",
+          sqft: parseInt(formData.sqft) || 0,
+          stories: formData.stories as "1" | "2" | "3_plus",
+          prepComplexity: formData.prepComplexity as any,
+          finishQuality: formData.finishQuality as any,
+          region: (formData.region || "gta_default") as any,
+          addOns: {
+            scaffolding: formData.scaffolding ? (formData.scaffolding as any) : undefined,
+            colorConsultation: formData.colorConsultation,
+            rushScheduling: formData.rushScheduling,
+            warrantyExtension: formData.warrantyExtension,
+            siteCleanup: formData.siteCleanup,
+          },
+        };
+        
+        const result = calculateEstimate(input);
+        console.log(`[EstimatorWizard] Estimate Result:`, result);
+        setEstimate(result);
+      } catch (error) {
+        console.error(`[EstimatorWizard] Calculation Error:`, error);
+        setFormError("Unable to calculate estimate. Please check your inputs and try again.");
+        toast({
+          title: "Calculation Error",
+          description: "Unable to calculate estimate. Please check your inputs and try again.",
+          variant: "destructive",
+        });
+        setIsCalculating(false);
+        return;
+      } finally {
+        setIsCalculating(false);
+      }
     }
 
     setCurrentStep((prev) => Math.min(prev + 1, 5));
+    console.log(`[EstimatorWizard] Advanced to Step: ${currentStep + 1}`);
   };
 
   const handleBack = () => {
@@ -318,6 +345,13 @@ const Estimate = () => {
             )}
             {currentStep === 5 && <EstimatorStep5 data={formData} onChange={handleChange} />}
 
+            {formError && (
+              <div role="alert" className="bg-destructive/10 border border-destructive text-destructive px-4 py-3 rounded-lg mt-6">
+                <p className="font-semibold">Error</p>
+                <p className="text-sm">{formError}</p>
+              </div>
+            )}
+
             <div className="flex justify-between mt-8 pt-6 border-t border-border">
               <Button
                 variant="outline"
@@ -330,8 +364,8 @@ const Estimate = () => {
               </Button>
 
               {currentStep < 5 ? (
-                <Button onClick={handleNext} className="btn-hero px-8">
-                  Next
+                <Button onClick={handleNext} className="btn-hero px-8" disabled={isCalculating}>
+                  {isCalculating ? "Calculating..." : "Next"}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               ) : (

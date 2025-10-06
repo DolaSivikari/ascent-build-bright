@@ -43,7 +43,6 @@ const EstimatorStep3 = ({ data, sqft, onChange }: Step3Props) => {
               <SelectValue placeholder="Select scaffolding level" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">No scaffolding needed</SelectItem>
               <SelectItem value="low">Low Level ($400-$800)</SelectItem>
               <SelectItem value="mid">Mid Level ($800-$1,200)</SelectItem>
               <SelectItem value="high">High Level ($1,200-$2,500)</SelectItem>

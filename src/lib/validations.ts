@@ -57,7 +57,7 @@ export const estimatorFormSchema = z.object({
   }),
   
   // Step 2
-  prepComplexity: z.enum(["minimal", "moderate", "extensive"], {
+  prepComplexity: z.enum(["none", "standard", "heavy", "structural_repair_required"], {
     errorMap: () => ({ message: "Please select prep complexity" }),
   }),
   finishQuality: z.enum(["standard", "premium", "luxury"], {
@@ -66,7 +66,7 @@ export const estimatorFormSchema = z.object({
   region: z.string().min(1, { message: "Please select a region" }),
   
   // Step 3
-  scaffolding: z.enum(["none", "minimal", "moderate", "extensive"]).optional(),
+  scaffolding: z.enum(["low", "mid", "high"]).optional(),
   colorConsultation: z.boolean(),
   rushScheduling: z.boolean(),
   warrantyExtension: z.boolean(),
