@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { Star, MapPin } from "lucide-react";
+import { Star, MapPin, Calendar, ExternalLink } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -8,27 +9,33 @@ const testimonials = [
     role: "Homeowner",
     location: "Toronto, ON",
     project: "Condo Interior Painting",
+    projectLink: "/projects/modern-downtown-condo",
     quote: "Ascent Group exceeded all expectations. Their attention to detail and professionalism made the entire process stress-free. The transformation is stunning!",
     rating: 5,
-    initials: "SM"
+    initials: "SM",
+    date: "October 2024"
   },
   {
     name: "Robert & Linda K.",
     role: "Heritage Homeowners",
     location: "Mississauga, ON",
     project: "EIFS Restoration",
+    projectLink: "/projects/heritage-home-eifs",
     quote: "They perfectly balanced preserving our home's character with modern performance. The craftsmanship is outstanding.",
     rating: 5,
-    initials: "RK"
+    initials: "RK",
+    date: "September 2024"
   },
   {
     name: "Michael Johnson",
     role: "Homeowner",
     location: "Oakville, ON",
     project: "Exterior Repaint",
+    projectLink: "/projects/oakville-family-home",
     quote: "After our DIY disaster, Ascent Group rescued our home. Their expertise and quality are unmatched. Completed before winter!",
     rating: 5,
-    initials: "MJ"
+    initials: "MJ",
+    date: "August 2024"
   },
 ];
 
@@ -62,20 +69,35 @@ const TestimonialsSection = () => {
               <p className="text-foreground mb-6 italic leading-relaxed">
                 "{testimonial.quote}"
               </p>
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <Avatar className="h-12 w-12 bg-primary text-primary-foreground">
-                  <AvatarFallback>{testimonial.initials}</AvatarFallback>
-                </Avatar>
-                <div className="flex-1">
-                  <div className="font-semibold text-primary">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                    <MapPin className="w-3 h-3" />
-                    <span>{testimonial.location}</span>
-                    <span className="mx-1">•</span>
-                    <span>{testimonial.project}</span>
+              <div className="pt-4 border-t border-border space-y-3">
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-12 w-12 bg-primary text-primary-foreground">
+                    <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                  </Avatar>
+                  <div className="flex-1">
+                    <div className="font-semibold text-primary">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                   </div>
                 </div>
+                
+                <div className="space-y-1.5 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3" />
+                    <span>{testimonial.location}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="w-3 h-3" />
+                    <span>{testimonial.date}</span>
+                  </div>
+                </div>
+
+                <Link
+                  to={testimonial.projectLink}
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-medium transition-colors"
+                >
+                  View Project
+                  <ExternalLink className="w-3 h-3" />
+                </Link>
               </div>
             </Card>
           ))}

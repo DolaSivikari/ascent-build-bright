@@ -9,6 +9,8 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyAscent from "@/components/home/WhyAscent";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
+import ClientLogoCarousel from "@/components/home/ClientLogoCarousel";
+import CertificationBadges from "@/components/home/CertificationBadges";
 import { organizationSchema } from "@/utils/structured-data";
 
 const Home = () => {
@@ -25,7 +27,9 @@ const Home = () => {
       <main id="main-content" role="main">
         <HeroSection />
         <TrustBadges />
+        <ClientLogoCarousel />
         <CredentialsSection />
+        <CertificationBadges />
         <ServicesPreview />
         <WhyAscent />
         <TestimonialsSection />
