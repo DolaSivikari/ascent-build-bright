@@ -22,6 +22,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -35,6 +36,28 @@ export default function Login() {
     setIsLoading(true);
 
     try {
+      if (isSignUp) {
+        // Sign up new user
+        const { data, error } = await supabase.auth.signUp({
+          email: values.email,
+          password: values.password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/admin/dashboard`,
+          }
+        });
+
+        if (error) throw error;
+
+        toast({
+          title: 'Account created!',
+          description: 'Your account has been created. An admin needs to grant you access. Please contact your administrator with this email: ' + values.email,
+        });
+        
+        setIsSignUp(false);
+        return;
+      }
+
+      // Sign in existing user
       const { data, error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
@@ -52,7 +75,7 @@ export default function Login() {
         await supabase.auth.signOut();
         toast({
           title: 'Access Denied',
-          description: 'You do not have permission to access the admin area.',
+          description: 'You do not have permission to access the admin area. Please contact an administrator to grant you access.',
           variant: 'destructive',
         });
         return;
@@ -65,10 +88,10 @@ export default function Login() {
 
       navigate('/admin/dashboard');
     } catch (error: any) {
-      console.error('Login error:', error);
+      console.error('Auth error:', error);
       toast({
         title: 'Error',
-        description: error.message || 'Failed to log in. Please check your credentials.',
+        description: error.message || `Failed to ${isSignUp ? 'sign up' : 'log in'}. Please check your credentials.`,
         variant: 'destructive',
       });
     } finally {
@@ -85,9 +108,12 @@ export default function Login() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5 p-4">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle className="text-2xl">Admin Login</CardTitle>
+            <CardTitle className="text-2xl">{isSignUp ? 'Create Admin Account' : 'Admin Login'}</CardTitle>
             <CardDescription>
-              Access the Ascent Group Construction admin dashboard
+              {isSignUp 
+                ? 'Create a new account - admin privileges will need to be granted separately' 
+                : 'Access the Ascent Group Construction admin dashboard'
+              }
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -136,8 +162,19 @@ export default function Login() {
                   className="w-full" 
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Logging in...' : 'Log In'}
+                  {isLoading ? (isSignUp ? 'Creating Account...' : 'Logging in...') : (isSignUp ? 'Create Account' : 'Log In')}
                 </Button>
+
+                <div className="text-center mt-4">
+                  <Button
+                    type="button"
+                    variant="link"
+                    onClick={() => setIsSignUp(!isSignUp)}
+                    className="text-sm"
+                  >
+                    {isSignUp ? 'Already have an account? Log in' : 'Need an account? Sign up'}
+                  </Button>
+                </div>
               </form>
             </Form>
           </CardContent>
