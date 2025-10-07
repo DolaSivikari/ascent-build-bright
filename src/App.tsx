@@ -21,6 +21,9 @@ const Services = lazy(() => import("./pages/Services"));
 const OurProcess = lazy(() => import("./pages/OurProcess"));
 const Projects = lazy(() => import("./pages/Projects"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Sustainability = lazy(() => import("./pages/Sustainability"));
+const Careers = lazy(() => import("./pages/Careers"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -98,6 +101,9 @@ const App = () => {
                 <Route path="/for/commercial" element={<CommercialClients />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:id" element={<CaseStudy />} />
+                <Route path="/sustainability" element={<Sustainability />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/resources" element={<Resources />} />

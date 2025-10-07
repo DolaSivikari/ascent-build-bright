@@ -166,9 +166,12 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 18%;
 
-    /* Charcoal #2E2E2E - Primary brand color */
-    --primary: 0 0% 18%;
-    --primary-foreground: 0 0% 100%;
+    /* Navy Blue #001F3F - Primary brand color */
+    --primary: 210 100% 12%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 210 100% 20%;
+    --primary-glow: 210 100% 25%;
+    --charcoal: 0 0% 18%;
 
     /* Safety Yellow #FFD500 - Secondary/accent color */
   --secondary: 48 100% 50%;
@@ -198,7 +201,7 @@ All colors MUST be HSL.
     /* New construction brand tokens */
     --charcoal: 0 0% 18%;
     --safety-yellow: 48 100% 50%;
-    --deep-blue: 210 29% 24%;
+    --deep-blue: 210 100% 16%;
     --accent-orange: 24 100% 50%;
     
     /* Gradients */
@@ -213,38 +216,42 @@ All colors MUST be HSL.
     --shadow-glow: 0 0 40px rgba(255, 213, 0, 0.4);
     
     /* Transitions */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 210 20% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 14%;
+    --card: 210 20% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 14%;
+    --popover: 210 20% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 18%;
+    --primary: 210 100% 88%;
+    --primary-foreground: 210 100% 12%;
+    --primary-hover: 210 100% 80%;
+    --primary-glow: 210 100% 75%;
 
     --secondary: 48 100% 50%;
     --secondary-foreground: 0 0% 18%;
 
-    --muted: 0 0% 20%;
+    --muted: 210 20% 20%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 24 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 18%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 40%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 48 100% 50%;
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 210 100% 85%;
+    --deep-blue: 210 100% 35%;
+    --safety-yellow: 48 100% 50%;
   }
 }
 

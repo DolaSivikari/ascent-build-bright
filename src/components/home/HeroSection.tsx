@@ -6,11 +6,19 @@ import heroPoster from "/assets/hero-poster.jpg";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const statsRef = useRef<HTMLDivElement>(null);
-  const [counters, setCounters] = useState({ projects: 0, years: 0, coverage: 0 });
+  const [counters, setCounters] = useState({ projects: 0, years: 0, coverage: 0, satisfaction: 0 });
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Parallax scroll effect
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -19,7 +27,7 @@ const HeroSection = () => {
         if (entry.isIntersecting) {
           // Animate counters
           const duration = 1600;
-          const targets = { projects: 500, years: 16, coverage: 60 };
+          const targets = { projects: 500, years: 16, coverage: 60, satisfaction: 98 };
           const steps = 60;
           let step = 0;
 
@@ -31,6 +39,7 @@ const HeroSection = () => {
               projects: Math.floor(targets.projects * progress),
               years: Math.floor(targets.years * progress),
               coverage: Math.floor(targets.coverage * progress),
+              satisfaction: Math.floor(targets.satisfaction * progress),
             });
 
             if (step >= steps) {
@@ -54,15 +63,17 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-      {/* Poster Image - Always loaded */}
-      <img
-        src={heroPoster}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-        width={1920}
-        height={1080}
-      />
+      {/* Poster Image with Parallax - Always loaded */}
+      <div className="absolute inset-0" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+        <img
+          src={heroPoster}
+          alt=""
+          className="w-full h-[120%] object-cover"
+          loading="eager"
+          width={1920}
+          height={1080}
+        />
+      </div>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-[hsl(var(--deep-blue))]/90" />
@@ -197,6 +208,12 @@ const HeroSection = () => {
                 {counters.coverage}km
               </div>
               <div className="text-sm text-white/90 font-medium">GTA Coverage</div>
+            </div>
+            <div className="text-center min-w-[120px]" role="listitem">
+              <div className="text-4xl md:text-5xl font-heading font-extrabold text-secondary mb-1">
+                {counters.satisfaction}%
+              </div>
+              <div className="text-sm text-white/90 font-medium">Client Satisfaction</div>
             </div>
           </div>
         </div>

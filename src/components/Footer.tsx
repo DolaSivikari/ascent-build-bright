@@ -18,7 +18,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm opacity-90 mb-6">
-              Serving homeowners across the GTA with trusted, professional painting and Stucco services. Licensed, insured, and locally proud.
+              Expert residential & commercial construction services across Toronto and the Greater Toronto Area. Licensed, insured, and locally proud.
             </p>
             <div className="flex gap-4 touch-group">
               <a
@@ -114,8 +114,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 opacity-80" />
                 <span className="text-sm opacity-90">
-                  123 Construction Way<br />
-                  Mississauga, ON L5B 1M5
+                  Toronto, Ontario<br />
+                  Serving the GTA
                 </span>
               </li>
               <li className="flex items-center gap-3">

@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Moon, Sun } from "lucide-react";
 import ascentLogo from "@/assets/ascent-logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,14 +31,35 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
-    { to: "/our-process", label: "Our Process" },
     { to: "/services", label: "Services" },
     { to: "/projects", label: "Projects" },
-    { to: "/blog", label: "Blog" },
-    { to: "/resources", label: "Resources" },
+    { to: "/case-studies", label: "Case Studies" },
+    { to: "/sustainability", label: "Sustainability" },
+    { to: "/careers", label: "Careers" },
+    { to: "/blog", label: "Insights" },
     { to: "/contact", label: "Contact" },
   ];
 
@@ -80,8 +102,8 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+            {/* Desktop Navigation & Dark Mode */}
+            <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
@@ -100,6 +122,15 @@ const Header = () => {
                 </Link>
               ))}
             </nav>
+
+            {/* Dark Mode Toggle - Desktop */}
+            <button
+              onClick={toggleDarkMode}
+              className="hidden lg:flex p-2 rounded-md hover:bg-accent/10 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
@@ -121,6 +152,15 @@ const Header = () => {
                 </Button>
               </Link>
             </div>
+
+            {/* Dark Mode Toggle - Mobile */}
+            <button
+              onClick={toggleDarkMode}
+              className="lg:hidden p-2 rounded-md hover:bg-accent/10 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
 
             {/* Mobile Menu Button */}
             <button
