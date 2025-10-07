@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingFallback from "@/components/LoadingFallback";
 import SkipToContent from "@/components/SkipToContent";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import SplashScreen from "@/components/SplashScreen";
+import SplashOverlay from "@/components/SplashOverlay";
 
 // Only run PerformanceMonitor in development
 const PerformanceMonitor = import.meta.env.DEV
@@ -53,21 +53,19 @@ const MaterialSelector = lazy(() => import("./pages/MaterialSelector"));
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(() => {
-    // Check if splash has been shown in this session
-    const hasSeenSplash = sessionStorage.getItem('splash-seen');
-    return !hasSeenSplash;
-  });
-
   const handleSplashComplete = () => {
-    sessionStorage.setItem('splash-seen', 'true');
-    setShowSplash(false);
+    console.log('Splash animation completed');
   };
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      <SplashOverlay 
+        waitImages={['/assets/hero-poster.jpg']} 
+        onlyFirstVisit={true} 
+        maxWait={3500}
+        onFinish={handleSplashComplete}
+      />
         
         {PerformanceMonitor && (
           <Suspense fallback={null}>

@@ -10,6 +10,7 @@ Modern, responsive website for Ascent Group Construction featuring:
 - **High Performance** - Lazy-loaded images, code splitting, optimized bundle
 - **Secure Forms** - Zod validation, rate limiting, Lovable Cloud backend
 - **Interactive Design** - Parallax effects, smooth animations, modern UI
+- **Enhanced Splash Overlay** - GSAP animations with asset preloading and skip option
 
 ## 🚀 Quick Start
 
@@ -24,10 +25,12 @@ Visit `http://localhost:8080`
 
 - `src/components/SEO.tsx` - Dynamic meta tags for each page
 - `src/components/OptimizedImage.tsx` - Image optimization with lazy loading
+- `src/components/SplashOverlay.tsx` - GSAP-powered entrance animation
 - `src/lib/validations.ts` - Form validation schemas
 - `src/pages/` - All page components with SEO
 - `DEPLOYMENT.md` - Full deployment guide
 - `SECURITY_AUDIT.md` - Security & accessibility audit
+- `README.splash-overlay.md` - Splash overlay configuration guide
 
 ## 🎨 Tech Stack
 
