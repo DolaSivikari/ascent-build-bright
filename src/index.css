@@ -2,6 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Splash Screen Animations */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--deep-blue)) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease-out;
+}
+
+.splash-overlay--fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash__inner {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash__logo {
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  animation: logo-pop 0.6s ease-out forwards;
+  filter: brightness(0) invert(1);
+}
+
+.splash__tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 16px;
+  opacity: 0;
+  animation: text-fade 0.6s 0.6s ease-out forwards;
+  text-transform: uppercase;
+}
+
+.splash__shapes {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.shape {
+  display: block;
+  background: hsl(var(--secondary));
+  opacity: 0;
+}
+
+/* Rectangle */
+.shape--rect {
+  width: 48px;
+  height: 14px;
+  border-radius: 2px;
+  animation: shape-slide 0.5s 1.2s ease-out forwards;
+}
+
+/* Circle */
+.shape--circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  animation: shape-scale 0.5s 1.35s ease-out forwards;
+}
+
+/* Line */
+.shape--line {
+  width: 10px;
+  height: 48px;
+  border-radius: 2px;
+  animation: shape-slide 0.5s 1.5s ease-out forwards;
+}
+
+/* Splash Keyframes */
+@keyframes logo-pop {
+  0% { 
+    transform: scale(0.7); 
+    opacity: 0; 
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes text-fade {
+  from { 
+    opacity: 0; 
+    transform: translateY(12px); 
+  }
+  to { 
+    opacity: 0.95; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes shape-slide {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes shape-scale {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.3); 
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
