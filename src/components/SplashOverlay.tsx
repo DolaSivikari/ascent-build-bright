@@ -23,7 +23,9 @@ const SplashOverlay = ({
     try {
       if (onlyFirstVisit && typeof window !== 'undefined') {
         const seen = localStorage.getItem('ascent_splash_seen_v1');
-        if (seen) return;
+        // Debug mode: check for force-show parameter
+        const forceShow = new URLSearchParams(window.location.search).get('debug-splash') === 'true';
+        if (seen && !forceShow) return;
       }
     } catch (e) {
       // ignore storage errors

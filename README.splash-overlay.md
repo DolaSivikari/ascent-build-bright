@@ -98,6 +98,32 @@ localStorage.setItem('ascent_splash_seen_v1', '1');
 
 ## Testing
 
+### Quick Test (Automated Script)
+
+```bash
+# Install Playwright browsers (first time only)
+npx playwright install chromium
+
+# Test local development server
+bash scripts/test-splash.sh local
+
+# Test production site
+bash scripts/test-splash.sh production
+```
+
+### Manual Testing
+
+1. **Force show splash (even if already seen):**
+   - Visit: `http://localhost:5173/?debug-splash=true`
+   - Or production: `https://ascent-build-bright.lovable.app/?debug-splash=true`
+
+2. **Clear localStorage and test:**
+   ```javascript
+   // In browser console
+   localStorage.removeItem('ascent_splash_seen_v1');
+   location.reload();
+   ```
+
 ### Run Unit Tests
 
 ```bash
@@ -107,8 +133,22 @@ npm test SplashOverlay.test.tsx
 ### Run E2E Tests
 
 ```bash
+# Run all splash tests
 npx playwright test tests/e2e/splash.spec.ts
+
+# Run debug tests (force-show mode)
+npx playwright test tests/e2e/splash-debug.spec.ts --headed
+
+# View test report
+npx playwright show-report
 ```
+
+### Test Artifacts
+
+After running tests, check:
+- `test-results/*.png` - Screenshots at each test step
+- `test-results/index.html` - HTML report with full details
+- Console logs captured during test execution
 
 ### Manual Testing Checklist
 
@@ -120,16 +160,7 @@ npx playwright test tests/e2e/splash.spec.ts
 - [ ] Main content is visible after splash completes
 - [ ] No console errors during animation
 - [ ] Smooth animation on both desktop and mobile
-
-### Reset for Testing
-
-To force splash to show again:
-
-```javascript
-// In browser console
-localStorage.removeItem('ascent_splash_seen_v1');
-// Then refresh page
-```
+- [ ] Debug mode works (`?debug-splash=true`)
 
 ## Accessibility
 
@@ -213,10 +244,30 @@ localStorage.setItem('ascent_splash_seen_v2', '1');
 
 ### Splash Doesn't Appear
 
-1. Check localStorage: `localStorage.getItem('ascent_splash_seen_v1')`
-2. Verify `onlyFirstVisit` prop setting
-3. Check console for errors
-4. Ensure component is mounted in App.tsx
+1. **Check if already seen:**
+   ```javascript
+   // In browser console
+   localStorage.getItem('ascent_splash_seen_v1')
+   // If returns "1", splash has been seen
+   ```
+
+2. **Force show with debug parameter:**
+   - Add `?debug-splash=true` to URL
+   - Example: `http://localhost:5173/?debug-splash=true`
+
+3. **Clear localStorage and refresh:**
+   ```javascript
+   localStorage.removeItem('ascent_splash_seen_v1');
+   location.reload();
+   ```
+
+4. **Check for errors:**
+   - Open browser DevTools (F12)
+   - Check Console tab for GSAP or component errors
+   - Check Network tab for failed asset loads
+
+5. Verify `onlyFirstVisit` prop setting
+6. Ensure component is mounted in App.tsx
 
 ### Splash Stuck/Not Hiding
 
@@ -227,10 +278,26 @@ localStorage.setItem('ascent_splash_seen_v2', '1');
 
 ### Animation Not Smooth
 
-1. Check for conflicting CSS animations
-2. Verify GSAP is properly installed: `npm list gsap`
-3. Test on different browsers
-4. Check for performance issues in browser DevTools
+1. **Verify GSAP is installed:**
+   ```bash
+   npm list gsap
+   # Should show: gsap@3.13.0 or similar
+   ```
+
+2. **Check bundle includes GSAP:**
+   ```bash
+   npm run build
+   # Search build output for "gsap"
+   ```
+
+3. **Run debug test:**
+   ```bash
+   npx playwright test tests/e2e/splash-debug.spec.ts --headed
+   ```
+
+4. Check for conflicting CSS animations
+5. Test on different browsers
+6. Check for performance issues in browser DevTools
 
 ### Skip Button Not Working
 

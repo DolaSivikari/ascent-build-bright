@@ -1,0 +1,50 @@
+name: Test Splash Overlay
+
+on:
+  push:
+    paths:
+      - 'src/components/SplashOverlay.tsx'
+      - 'tests/e2e/splash*.spec.ts'
+      - '.github/workflows/test-splash.yml'
+  pull_request:
+    paths:
+      - 'src/components/SplashOverlay.tsx'
+      - 'tests/e2e/splash*.spec.ts'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+      
+      - name: Run splash E2E tests
+        run: npx playwright test tests/e2e/splash.spec.ts
+      
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 30
+      
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: splash-screenshots
+          path: test-results/*.png
+          retention-days: 30
