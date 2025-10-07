@@ -23,3 +23,12 @@ verify_jwt = true
 
 [functions.services-crud]
 verify_jwt = true
+
+[functions.articles-public]
+verify_jwt = false
+
+[functions.projects-public]
+verify_jwt = false
+
+[functions.services-public]
+verify_jwt = false

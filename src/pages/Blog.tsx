@@ -8,30 +8,33 @@ import NewsletterSection from "@/components/blog/NewsletterSection";
 import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import blogData from "@/data/blog-posts-complete.json";
+import { useArticles } from "@/hooks/useArticles";
+import { Loader2 } from "lucide-react";
 
 const Blog = () => {
   const [filter, setFilter] = useState<string>("all");
-  const [visiblePosts, setVisiblePosts] = React.useState(6);
+  const [page, setPage] = useState(1);
   const [animatedCards, setAnimatedCards] = React.useState<Set<number>>(new Set());
   
-  const categories = ["all", ...Array.from(new Set(blogData.posts.map(p => p.category)))];
-  
-  // Sort posts by date (newest first)
-  const sortedPosts = [...blogData.posts].sort((a, b) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-  
-  const filteredPosts = filter === "all" 
-    ? sortedPosts 
-    : sortedPosts.filter(p => p.category === filter);
+  // Fetch articles from API
+  const { data, isLoading, error } = useArticles({
+    page,
+    limit: 50,
+    category: filter === "all" ? undefined : filter,
+  });
 
+  const articles = data?.articles || [];
+  
+  // Get unique categories
+  const categories = ["all", ...Array.from(new Set(articles.map(a => a.category)))];
+  
   // Limit featured posts to top 3
-  const featuredPosts = sortedPosts.filter(p => p.featured).slice(0, 3);
+  const featuredPosts = articles.filter(a => a.featured).slice(0, 3);
 
-  const loadMore = () => {
-    setVisiblePosts(prev => Math.min(prev + 6, filteredPosts.length));
-  };
+  // Apply client-side filtering for now
+  const filteredPosts = filter === "all" 
+    ? articles 
+    : articles.filter(a => a.category === filter);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,6 +55,25 @@ const Blog = () => {
 
     return () => observer.disconnect();
   }, [filteredPosts]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Error Loading Articles</h2>
+          <p className="text-muted-foreground">Please try again later</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
@@ -97,15 +119,31 @@ const Blog = () => {
           <section className="container mx-auto px-4 py-16 border-b">
             <h2 className="text-3xl font-heading font-bold mb-8">Featured Articles</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {featuredPosts.map((post, index) => (
-                <div
-                  key={post.id}
-                  className="blog-card-animate transition-all duration-600 opacity-100"
-                  data-index={index}
-                >
-                  <BlogCard post={post} />
-                </div>
-              ))}
+              {featuredPosts.map((article, index) => {
+                const post = {
+                  id: article.id,
+                  title: article.title,
+                  slug: article.slug,
+                  author: article.author,
+                  date: article.published_at,
+                  category: article.category,
+                  excerpt: article.excerpt,
+                  featured: article.featured,
+                  image: article.featured_image_url || '',
+                  readTime: article.read_time || '5 min read',
+                  content: article.content,
+                };
+                
+                return (
+                  <div
+                    key={article.id}
+                    className="blog-card-animate transition-all duration-600 opacity-100"
+                    data-index={index}
+                  >
+                    <BlogCard post={post} />
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}
@@ -125,11 +163,25 @@ const Blog = () => {
 
             <TabsContent value={filter} className="mt-0">
               {filteredPosts.length > 0 ? (
-                <>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPosts.slice(0, visiblePosts).map((post, index) => (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredPosts.map((article, index) => {
+                    const post = {
+                      id: article.id,
+                      title: article.title,
+                      slug: article.slug,
+                      author: article.author,
+                      date: article.published_at,
+                      category: article.category,
+                      excerpt: article.excerpt,
+                      featured: article.featured,
+                      image: article.featured_image_url || '',
+                      readTime: article.read_time || '5 min read',
+                      content: article.content,
+                    };
+                    
+                    return (
                       <div
-                        key={post.id}
+                        key={article.id}
                         className={`blog-card-animate transition-all duration-600 ${
                           animatedCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
@@ -138,22 +190,9 @@ const Blog = () => {
                       >
                         <BlogCard post={post} />
                       </div>
-                    ))}
-                  </div>
-                  
-                  {visiblePosts < filteredPosts.length && (
-                    <div className="text-center mt-12">
-                      <Button
-                        onClick={loadMore}
-                        size="lg"
-                        variant="outline"
-                        className="hover:bg-secondary hover:text-primary hover:border-secondary transition-all"
-                      >
-                        Load More Articles
-                      </Button>
-                    </div>
-                  )}
-                </>
+                    );
+                  })}
+                </div>
               ) : (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground">No articles found in this category.</p>
