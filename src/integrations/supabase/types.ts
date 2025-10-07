@@ -14,6 +14,122 @@ export type Database = {
   }
   public: {
     Tables: {
+      article_versions: {
+        Row: {
+          article_id: string
+          body: string
+          change_summary: string | null
+          changed_by: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          snapshot: Json | null
+          title: string
+          version_number: number
+        }
+        Insert: {
+          article_id: string
+          body: string
+          change_summary?: string | null
+          changed_by?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          snapshot?: Json | null
+          title: string
+          version_number: number
+        }
+        Update: {
+          article_id?: string
+          body?: string
+          change_summary?: string | null
+          changed_by?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          snapshot?: Json | null
+          title?: string
+          version_number?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_versions_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "articles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "article_versions_changed_by_fkey"
+            columns: ["changed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      articles: {
+        Row: {
+          author_id: string | null
+          body: string
+          category: string | null
+          created_at: string
+          excerpt: string | null
+          featured_image_url: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          published_at: string | null
+          slug: string
+          status: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          body: string
+          category?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published_at?: string | null
+          slug: string
+          status?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          body?: string
+          category?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published_at?: string | null
+          slug?: string
+          status?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "articles_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       audit_logs: {
         Row: {
           action: string
@@ -311,6 +427,65 @@ export type Database = {
         }
         Relationships: []
       }
+      media: {
+        Row: {
+          alt_text: string | null
+          caption: string | null
+          created_at: string
+          file_size: number
+          filename: string
+          height: number | null
+          id: string
+          mime_type: string
+          original_filename: string
+          storage_path: string
+          updated_at: string
+          uploaded_by: string | null
+          url: string
+          width: number | null
+        }
+        Insert: {
+          alt_text?: string | null
+          caption?: string | null
+          created_at?: string
+          file_size: number
+          filename: string
+          height?: number | null
+          id?: string
+          mime_type: string
+          original_filename: string
+          storage_path: string
+          updated_at?: string
+          uploaded_by?: string | null
+          url: string
+          width?: number | null
+        }
+        Update: {
+          alt_text?: string | null
+          caption?: string | null
+          created_at?: string
+          file_size?: number
+          filename?: string
+          height?: number | null
+          id?: string
+          mime_type?: string
+          original_filename?: string
+          storage_path?: string
+          updated_at?: string
+          uploaded_by?: string | null
+          url?: string
+          width?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "media_uploaded_by_fkey"
+            columns: ["uploaded_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       newsletter_subscribers: {
         Row: {
           created_at: string
@@ -386,6 +561,183 @@ export type Database = {
           full_name?: string | null
           id?: string
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          after_image_url: string | null
+          before_image_url: string | null
+          budget_range: string | null
+          category: string | null
+          challenges: string | null
+          client_name: string | null
+          created_at: string
+          description: string
+          duration_months: number | null
+          featured: boolean | null
+          gallery: Json | null
+          id: string
+          images: Json | null
+          location: string | null
+          materials_used: string[] | null
+          meta_description: string | null
+          meta_title: string | null
+          project_type: string | null
+          results: string | null
+          services_provided: string[] | null
+          slug: string
+          solutions: string | null
+          square_footage: number | null
+          status: string
+          tags: string[] | null
+          testimonial_author: string | null
+          testimonial_text: string | null
+          title: string
+          updated_at: string
+          year: number | null
+        }
+        Insert: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          budget_range?: string | null
+          category?: string | null
+          challenges?: string | null
+          client_name?: string | null
+          created_at?: string
+          description: string
+          duration_months?: number | null
+          featured?: boolean | null
+          gallery?: Json | null
+          id?: string
+          images?: Json | null
+          location?: string | null
+          materials_used?: string[] | null
+          meta_description?: string | null
+          meta_title?: string | null
+          project_type?: string | null
+          results?: string | null
+          services_provided?: string[] | null
+          slug: string
+          solutions?: string | null
+          square_footage?: number | null
+          status?: string
+          tags?: string[] | null
+          testimonial_author?: string | null
+          testimonial_text?: string | null
+          title: string
+          updated_at?: string
+          year?: number | null
+        }
+        Update: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          budget_range?: string | null
+          category?: string | null
+          challenges?: string | null
+          client_name?: string | null
+          created_at?: string
+          description?: string
+          duration_months?: number | null
+          featured?: boolean | null
+          gallery?: Json | null
+          id?: string
+          images?: Json | null
+          location?: string | null
+          materials_used?: string[] | null
+          meta_description?: string | null
+          meta_title?: string | null
+          project_type?: string | null
+          results?: string | null
+          services_provided?: string[] | null
+          slug?: string
+          solutions?: string | null
+          square_footage?: number | null
+          status?: string
+          tags?: string[] | null
+          testimonial_author?: string | null
+          testimonial_text?: string | null
+          title?: string
+          updated_at?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          benefits: Json | null
+          created_at: string
+          cta_link: string | null
+          cta_text: string | null
+          description: string
+          display_order: number | null
+          faq: Json | null
+          featured_image_url: string | null
+          features: Json | null
+          icon_name: string | null
+          id: string
+          is_active: boolean | null
+          meta_description: string | null
+          meta_title: string | null
+          overview: string | null
+          pricing_info: string | null
+          process_steps: Json | null
+          related_projects: string[] | null
+          related_services: string[] | null
+          slug: string
+          subtitle: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          benefits?: Json | null
+          created_at?: string
+          cta_link?: string | null
+          cta_text?: string | null
+          description: string
+          display_order?: number | null
+          faq?: Json | null
+          featured_image_url?: string | null
+          features?: Json | null
+          icon_name?: string | null
+          id?: string
+          is_active?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
+          overview?: string | null
+          pricing_info?: string | null
+          process_steps?: Json | null
+          related_projects?: string[] | null
+          related_services?: string[] | null
+          slug: string
+          subtitle?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          benefits?: Json | null
+          created_at?: string
+          cta_link?: string | null
+          cta_text?: string | null
+          description?: string
+          display_order?: number | null
+          faq?: Json | null
+          featured_image_url?: string | null
+          features?: Json | null
+          icon_name?: string | null
+          id?: string
+          is_active?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
+          overview?: string | null
+          pricing_info?: string | null
+          process_steps?: Json | null
+          related_projects?: string[] | null
+          related_services?: string[] | null
+          slug?: string
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }

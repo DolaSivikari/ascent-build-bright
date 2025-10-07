@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Clock, User, Loader2 } from "lucide-react";
+import DOMPurify from 'dompurify';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -192,7 +193,13 @@ const BlogPost = () => {
           <div className="max-w-4xl mx-auto">
             <div 
               className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
+              dangerouslySetInnerHTML={{ 
+                __html: DOMPurify.sanitize(formatContent(post.content), {
+                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
+                  ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class'],
+                  ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+                })
+              }}
             />
 
             {/* Share Section */}
