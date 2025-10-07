@@ -42,7 +42,7 @@ export default function Login() {
           email: values.email,
           password: values.password,
           options: {
-            emailRedirectTo: `${window.location.origin}/admin/dashboard`,
+            emailRedirectTo: `${window.location.origin}/admin`,
           }
         });
 
@@ -86,7 +86,7 @@ export default function Login() {
         description: 'Logged in successfully.',
       });
 
-      navigate('/admin/dashboard');
+      navigate('/admin');
     } catch (error: any) {
       console.error('Auth error:', error);
       toast({

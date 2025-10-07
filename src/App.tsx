@@ -44,6 +44,7 @@ const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminMaterials = lazy(() => import("./pages/admin/Materials"));
 const AdminUsers = lazy(() => import("./pages/admin/Users"));
+const AdminTest = lazy(() => import("./pages/admin/AdminTest"));
 const Articles = lazy(() => import("./pages/admin/Articles"));
 const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
 const MaterialSelector = lazy(() => import("./pages/MaterialSelector"));
@@ -91,6 +92,7 @@ const App = () => (
             <Route path="/estimate" element={<Estimate />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/test" element={<AdminTest />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="articles" element={<Articles />} />
