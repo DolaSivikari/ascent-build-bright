@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import BlogCard from "@/components/blog/BlogCard";
 import NewsletterSection from "@/components/blog/NewsletterSection";
-import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useArticles } from "@/hooks/useArticles";
@@ -16,7 +15,7 @@ const Blog = () => {
   const [page, setPage] = useState(1);
   const [animatedCards, setAnimatedCards] = React.useState<Set<number>>(new Set());
   
-  // Fetch articles from API
+  // Fetch articles from Supabase
   const { data, isLoading, error } = useArticles({
     page,
     limit: 50,
@@ -31,7 +30,7 @@ const Blog = () => {
   // Limit featured posts to top 3
   const featuredPosts = articles.filter(a => a.featured).slice(0, 3);
 
-  // Apply client-side filtering for now
+  // Apply client-side filtering
   const filteredPosts = filter === "all" 
     ? articles 
     : articles.filter(a => a.category === filter);
@@ -78,23 +77,15 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Blog & Resources"
-        description="Expert insights on painting, stucco, EIFS, and construction best practices. Tips, guides, and industry knowledge from Ascent Group Construction."
-        keywords="construction blog, painting tips, stucco guides, EIFS maintenance, property management, construction industry news"
+        title="Construction Insights & Industry News | Ascent Group Blog"
+        description="Expert insights on construction management, sustainable building, technology trends, safety best practices, and industry regulations from LEED-certified professionals."
+        keywords="construction blog, construction management insights, LEED certification, BIM coordination, construction safety, building regulations"
       />
       <Header />
       
       <main>
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-24 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <OptimizedImage
-              src="/src/assets/team-work.jpg"
-              alt="Construction team at work"
-              className="w-full h-full object-cover"
-              priority
-            />
-          </div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90" />
           
           <div className="container mx-auto px-4 relative z-10">
@@ -103,7 +94,7 @@ const Blog = () => {
                 Industry Insights & Expertise
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8">
-                Stay informed with expert guidance on construction, painting, and property maintenance from the professionals at Ascent Group.
+                Expert perspectives on construction management, technology, sustainability, and best practices from our team of LEED-certified professionals.
               </p>
               <a href="#newsletter">
                 <Button size="lg" className="bg-secondary text-primary hover:bg-secondary/90 hover:scale-105 transition-all">

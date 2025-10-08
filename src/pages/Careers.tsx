@@ -13,47 +13,52 @@ import { Users, Heart, TrendingUp, Award, Briefcase, MapPin, Clock, Upload } fro
 
 const jobListings = [
   {
-    title: "Site Supervisor",
+    title: "Project Manager - Commercial Construction",
+    department: "Construction",
     location: "Toronto, ON",
     type: "Full-time",
-    description: "Lead construction teams on residential and commercial projects across the GTA. 5+ years experience required.",
+    description: "Lead commercial construction projects from preconstruction through closeout. Manage budgets, schedules, and trade coordination.",
     posted: "2 days ago"
   },
   {
-    title: "Project Manager",
+    title: "Site Superintendent",
+    department: "Construction",
     location: "Mississauga, ON",
     type: "Full-time",
-    description: "Oversee multiple construction projects from planning to completion. Strong leadership and budgeting skills essential.",
+    description: "Oversee daily job site operations, ensure quality and safety compliance, coordinate trades and subcontractors.",
+    posted: "5 days ago"
+  },
+  {
+    title: "VDC Coordinator (BIM)",
+    department: "Engineering",
+    location: "Toronto, ON",
+    type: "Full-time",
+    description: "Manage BIM coordination, clash detection, and digital workflows using Autodesk Construction Cloud.",
     posted: "1 week ago"
   },
   {
     title: "Estimator",
+    department: "Preconstruction",
     location: "Toronto, ON",
     type: "Full-time",
-    description: "Prepare detailed cost estimates for construction projects. Experience with residential and commercial bidding required.",
+    description: "Prepare accurate cost estimates, quantity take-offs, and support bid preparation for commercial projects.",
     posted: "3 days ago"
   },
   {
-    title: "Carpenter - Journeyman",
-    location: "GTA-wide",
-    type: "Full-time",
-    description: "Skilled carpenter for framing, finishing, and custom work. Valid Red Seal certification preferred.",
-    posted: "1 day ago"
-  },
-  {
-    title: "Safety Coordinator",
+    title: "Construction Intern (Co-op)",
+    department: "Construction",
     location: "Toronto, ON",
-    type: "Full-time",
-    description: "Ensure compliance with safety regulations across all job sites. NCSO certification required.",
-    posted: "5 days ago"
+    type: "Internship",
+    description: "Gain hands-on experience in construction management and site coordination. 4-8 month placement.",
+    posted: "1 day ago"
   }
 ];
 
 const benefits = [
-  { icon: Heart, title: "Health & Wellness", description: "Comprehensive medical, dental, and vision coverage" },
-  { icon: TrendingUp, title: "RRSP Matching", description: "Up to 5% employer matching for retirement savings" },
-  { icon: Award, title: "Training & Development", description: "Ongoing professional development and certification support" },
-  { icon: Users, title: "Team Culture", description: "Collaborative environment with company events and team building" }
+  { icon: Award, title: "Competitive Compensation", description: "Industry-leading salaries, performance bonuses, and profit-sharing" },
+  { icon: Heart, title: "Comprehensive Benefits", description: "Extended health, dental, vision, life insurance, and RRSP matching" },
+  { icon: TrendingUp, title: "Professional Development", description: "Tuition reimbursement, LEED/PMP/Gold Seal certification support" },
+  { icon: Users, title: "Collaborative Culture", description: "Team-focused environment with mentorship opportunities" }
 ];
 
 const Careers = () => {
