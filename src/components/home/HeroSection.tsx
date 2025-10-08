@@ -109,46 +109,46 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1
-            className={`font-heading font-extrabold text-white mb-6 transition-all duration-1000 delay-100 ${
+            className={`font-heading font-extrabold text-white mb-6 transition-all duration-600 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
-              fontSize: "clamp(2rem, 5vw, 4rem)",
-              lineHeight: "1.1",
-              letterSpacing: "-0.02em",
-              textShadow: "0 6px 20px rgba(0,0,0,0.6)",
+              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              lineHeight: "1.2",
+              letterSpacing: "-0.01em",
+              textShadow: "0 4px 12px rgba(0,0,0,0.5)",
             }}
           >
-            Building Toronto's Future,
+            Building Toronto's Future
             <br />
-            <span className="text-secondary">One Project at a Time</span>
+            <span className="text-secondary">Affordably, One Project at a Time</span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className={`max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-8 transition-all duration-1000 delay-200 ${
+            className={`max-w-2xl mx-auto text-base md:text-lg text-white/95 mb-8 transition-all duration-600 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
               fontFamily: "var(--font-body)",
             }}
           >
-            Residential and commercial construction delivered with precision, transparency, and local expertise across the GTA
+            Quality residential and commercial construction across the GTA. From small renovations to full builds—honest pricing, WSIB-certified crews, and free quotes in 24 hours.
           </p>
 
           {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 transition-all duration-1000 delay-300 ${
+            className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 transition-all duration-600 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             <Button
               asChild
               size="lg"
-              className="bg-secondary text-primary hover:bg-secondary/90 font-bold text-base px-8 py-6 rounded-md transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,213,0,0.4)]"
+              className="bg-secondary text-primary hover:bg-secondary/90 font-bold text-base px-8 py-6 rounded-lg shadow-lg transition-all duration-200 hover:scale-105"
             >
               <Link to="/estimate">
-                Get a Free Quote
+                Get Free Quote in 24hrs
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -156,21 +156,21 @@ const HeroSection = () => {
               asChild
               size="lg"
               variant="outline"
-              className="bg-transparent border-2 border-white/20 text-white hover:bg-white/10 font-bold text-base px-8 py-6 rounded-md transition-all duration-200 hover:scale-105"
+              className="bg-white/5 border-2 border-white/30 text-white hover:bg-white/15 font-semibold text-base px-8 py-6 rounded-lg backdrop-blur-sm transition-all duration-200"
             >
-              <Link to="/projects">Explore Projects</Link>
+              <a href="tel:+14165550100">(416) 555-0100</a>
             </Button>
           </div>
 
           {/* Trust Indicators */}
           <div
-            className={`flex flex-wrap justify-center gap-6 mb-10 text-white/90 transition-all duration-1000 delay-400 ${
+            className={`flex flex-wrap justify-center gap-6 mb-10 text-white/95 transition-all duration-600 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">905-555-0100</span>
+              <Shield className="w-4 h-4 text-secondary" />
+              <span className="text-sm font-medium">WSIB Certified</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-secondary" />
@@ -178,7 +178,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">Serving GTA</span>
+              <span className="text-sm font-medium">Serving All GTA</span>
             </div>
           </div>
 
