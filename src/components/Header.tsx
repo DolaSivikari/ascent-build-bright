@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Moon, Sun } from "lucide-react";
 import ascentLogo from "@/assets/ascent-logo.png";
+import { trackEvent } from "@/lib/analytics";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -136,6 +137,7 @@ const Header = () => {
             <div className="hidden lg:flex items-center gap-4">
             <a
                 href="tel:+14165550100"
+                onClick={() => trackEvent('phone_click', { location: 'header' })}
                 className="flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-primary transition-all duration-300 group"
               >
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">

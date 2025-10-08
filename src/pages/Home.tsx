@@ -1,8 +1,13 @@
+import { lazy, Suspense } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import SkipToContent from "@/components/SkipToContent";
-import HeroSection from "@/components/home/HeroSection";
+
+// Conditionally load hero based on env variable
+const HeroSection = import.meta.env.VITE_AB_TEST_ENABLED === 'true' 
+  ? lazy(() => import('@/components/home/HeroVariantTest'))
+  : lazy(() => import('@/components/home/HeroSection'));
 import TrustBadges from "@/components/home/TrustBadges";
 import PackagesSection from "@/components/home/PackagesSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
@@ -25,7 +30,9 @@ const Home = () => {
       <SkipToContent />
       <Header />
       <main id="main-content" role="main">
-        <HeroSection />
+        <Suspense fallback={<div className="h-screen bg-primary" />}>
+          <HeroSection />
+        </Suspense>
         <TrustBadges />
         <PackagesSection />
         <ServicesPreview />

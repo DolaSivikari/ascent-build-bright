@@ -663,6 +663,54 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_submissions: {
+        Row: {
+          address: string | null
+          created_at: string | null
+          email: string | null
+          id: string
+          ip_address: string | null
+          message: string | null
+          name: string
+          package: string | null
+          phone: string
+          photo_urls: string[] | null
+          source_variant: string | null
+          user_agent: string | null
+          utm: Json | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          ip_address?: string | null
+          message?: string | null
+          name: string
+          package?: string | null
+          phone: string
+          photo_urls?: string[] | null
+          source_variant?: string | null
+          user_agent?: string | null
+          utm?: Json | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          ip_address?: string | null
+          message?: string | null
+          name?: string
+          package?: string | null
+          phone?: string
+          photo_urls?: string[] | null
+          source_variant?: string | null
+          user_agent?: string | null
+          utm?: Json | null
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           benefits: Json | null

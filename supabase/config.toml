@@ -1,5 +1,8 @@
 project_id = "wiksprbjwvifckfmlndh"
 
+[functions.notify-quote]
+verify_jwt = false
+
 [functions.submit-contact]
 verify_jwt = false
 
