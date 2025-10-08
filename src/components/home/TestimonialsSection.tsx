@@ -5,37 +5,37 @@ import { Link } from "react-router-dom";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Homeowner",
+    name: "David Thompson",
+    role: "Facilities Director",
     location: "Toronto, ON",
-    project: "Condo Interior Painting",
-    projectLink: "/projects/modern-downtown-condo",
-    quote: "Ascent Group exceeded all expectations. Their attention to detail and professionalism made the entire process stress-free. The transformation is stunning!",
+    project: "Office Tower Renovation",
+    projectLink: "/projects",
+    quote: "Ascent Group delivered our $15M office renovation on time and under budget. Their use of Procore for real-time updates kept stakeholders informed every step of the way. Exceptional construction management.",
     rating: 5,
-    initials: "SM",
-    date: "October 2024"
+    initials: "DT",
+    date: "November 2024"
   },
   {
-    name: "Robert & Linda K.",
-    role: "Heritage Homeowners",
+    name: "Sarah Chen, P.Eng.",
+    role: "Project Manager",
     location: "Mississauga, ON",
-    project: "EIFS Restoration",
-    projectLink: "/projects/heritage-home-eifs",
-    quote: "They perfectly balanced preserving our home's character with modern performance. The craftsmanship is outstanding.",
+    project: "Healthcare Facility Expansion",
+    projectLink: "/projects",
+    quote: "Their VDC team's BIM coordination eliminated costly rework. Ascent's collaborative approach and technical expertise made this complex institutional project a success.",
     rating: 5,
-    initials: "RK",
+    initials: "SC",
     date: "September 2024"
   },
   {
-    name: "Michael Johnson",
-    role: "Homeowner",
+    name: "Michael Rodriguez",
+    role: "Property Owner",
     location: "Oakville, ON",
-    project: "Exterior Repaint",
-    projectLink: "/projects/oakville-family-home",
-    quote: "After our DIY disaster, Ascent Group rescued our home. Their expertise and quality are unmatched. Completed before winter!",
+    project: "Commercial Buildout",
+    projectLink: "/projects",
+    quote: "From preconstruction budgeting to final handover, Ascent Group demonstrated professionalism and quality. Their COR-certified safety record and LEED expertise were invaluable.",
     rating: 5,
-    initials: "MJ",
-    date: "August 2024"
+    initials: "MR",
+    date: "October 2024"
   },
 ];
 

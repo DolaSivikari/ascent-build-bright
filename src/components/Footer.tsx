@@ -18,7 +18,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm opacity-90 mb-6">
-              Expert residential & commercial construction services across Toronto and the Greater Toronto Area. Licensed, insured, and locally proud.
+              Construction management and design-build services across Toronto and the GTA. COR-certified, LEED-accredited, delivering excellence since 2009.
             </p>
             <div className="flex gap-4 touch-group">
               <a
@@ -55,23 +55,23 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
-                  Residential Painting
+                <Link to="/services#construction-management" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                  Construction Management
                 </Link>
               </li>
               <li>
-                <Link to="/services/stucco" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
-                  Stucco / EIFS
+                <Link to="/services#design-build" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                  Design-Build
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
+                <Link to="/services#preconstruction" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                  Preconstruction
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
                   All Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/estimate" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
-                  Get an Estimate
                 </Link>
               </li>
             </ul>

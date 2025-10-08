@@ -13,16 +13,16 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Ready to Start Your Project?
+            Ready to Build Your Vision?
           </h2>
           <p className="text-lg text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
-            Get your free quote in 24 hours. No hidden fees, no pressure—just honest pricing and expert advice for your GTA project.
+            Request a consultation for your construction project. From preconstruction planning to final handover, we deliver excellence with transparency and expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/estimate">
               <Button className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-lg px-10 py-6 rounded-lg shadow-lg hover:scale-105 transition-all">
-                Get Free Quote—24hr Response
+                Request Consultation
               </Button>
             </Link>
 
@@ -38,7 +38,7 @@ const CTASection = () => {
           </div>
 
           <p className="text-primary-foreground/80 mt-8 text-sm font-medium">
-            Proudly serving Toronto and the entire GTA • WSIB Certified • No-fee payment plans available
+            Serving Toronto and the GTA • COR Certified • LEED Accredited Professionals • Zero Lost-Time Incidents
           </p>
         </div>
       </div>
