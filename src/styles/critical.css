@@ -1,22 +1,22 @@
 /* Critical CSS for above-the-fold content */
 /* Inlined in index.html for faster initial render */
 
-/* Base variables needed immediately */
+/* Base variables - Modern warm palette */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 18%;
-  --primary: 0 0% 18%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 48 100% 50%;
-  --secondary-foreground: 0 0% 18%;
-  --radius: 0.375rem;
+  --background: 37 33% 98%;
+  --foreground: 0 0% 12%;
+  --primary: 162 37% 26%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 27 65% 66%;
+  --secondary-foreground: 0 0% 12%;
+  --radius: 1rem;
 }
 
 .dark {
-  --background: 0 0% 10%;
+  --background: 162 20% 8%;
   --foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 18%;
+  --primary: 162 37% 82%;
+  --primary-foreground: 162 37% 12%;
 }
 
 /* Critical layout */
@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: Inter, system-ui, sans-serif;
+  font-family: 'Work Sans', Inter, system-ui, sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   -webkit-font-smoothing: antialiased;
@@ -57,9 +57,9 @@ header {
 .hero-text {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  font-family: Montserrat, system-ui, sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: Outfit, Montserrat, system-ui, sans-serif;
 }
 
 /* Skip to content link */

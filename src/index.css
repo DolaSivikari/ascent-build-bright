@@ -157,101 +157,99 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 18%;
+    /* Modern, Warm Palette - Premium Home Service Brand */
+    --background: 37 33% 98%; /* #F9F8F6 warm off-white */
+    --foreground: 0 0% 12%; /* #1E1E1E deep charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: 0 0% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 0 0% 12%;
 
-    /* Navy Blue #001F3F - Primary brand color */
-    --primary: 210 100% 12%;
+    /* Sage Green #295F4E - Primary brand color (warm, modern, trustworthy) */
+    --primary: 162 37% 26%; /* #295F4E sage green */
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 210 100% 20%;
-    --primary-glow: 210 100% 25%;
-    --charcoal: 0 0% 18%;
+    --primary-hover: 162 37% 34%; /* Lighter sage on hover */
+    --primary-glow: 162 37% 42%; /* Softer glow */
 
-    /* Safety Yellow #FFD500 - Secondary/accent color */
-  --secondary: 48 100% 50%;
-  --secondary-foreground: 0 0% 18%;
+    /* Terracotta #E1A16E - Secondary/accent color (warm, inviting) */
+    --secondary: 27 65% 66%; /* #E1A16E terracotta-orange */
+    --secondary-foreground: 0 0% 12%;
   
-  /* Accessible color variants for WCAG AA compliance */
-  --safety-yellow-accessible: 48 100% 35%; /* Darker yellow for white backgrounds - 4.8:1 contrast */
-  --accent-orange-dark: 24 100% 40%; /* Accessible orange - 5.2:1 contrast */
-  --text-on-yellow: 0 0% 18%; /* Charcoal on yellow - 6.8:1 contrast */
+    /* Muted tones - cream and soft neutrals */
+    --muted: 37 20% 94%; /* Soft cream */
+    --muted-foreground: 0 0% 35%;
 
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 35%; /* Updated for WCAG AA contrast - was 45% */
-
-    /* Accent Orange #FF6600 */
-    --accent: 24 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - complementary warm tone */
+    --accent: 162 37% 88%; /* Light sage for accents */
+    --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 18%;
+    --border: 37 15% 88%; /* Warm border */
+    --input: 37 15% 88%;
+    --ring: 162 37% 26%; /* Sage ring */
 
-    --radius: 0.375rem;
+    --radius: 1rem; /* More rounded - modern feel */
 
-    /* New construction brand tokens */
-    --charcoal: 0 0% 18%;
-    --safety-yellow: 48 100% 50%;
-    --deep-blue: 210 100% 16%;
-    --accent-orange: 24 100% 50%;
+    /* Brand tokens - warm, modern service brand */
+    --sage-green: 162 37% 26%;
+    --sage-light: 162 37% 88%;
+    --terracotta: 27 65% 66%;
+    --warm-cream: 37 33% 98%;
+    --deep-charcoal: 0 0% 12%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 18%) 0%, hsl(210 29% 24%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(48 100% 60%) 100%);
-    --gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+    /* Gradients - soft, warm transitions */
+    --gradient-hero: linear-gradient(135deg, hsl(162 37% 26%) 0%, hsl(162 37% 34%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(27 65% 66%) 0%, hsl(27 65% 74%) 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(41,95,78,0.8) 0%, rgba(41,95,78,0.5) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(37 33% 98%) 0%, hsl(0 0% 100%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(46, 46, 46, 0.08);
-    --shadow-medium: 0 4px 16px rgba(46, 46, 46, 0.12);
-    --shadow-strong: 0 8px 32px rgba(46, 46, 46, 0.16);
-    --shadow-glow: 0 0 40px rgba(255, 213, 0, 0.4);
+    /* Shadows - soft, natural depth */
+    --shadow-soft: 0 2px 12px hsla(162, 37%, 26%, 0.08);
+    --shadow-medium: 0 6px 24px hsla(162, 37%, 26%, 0.12);
+    --shadow-strong: 0 12px 40px hsla(162, 37%, 26%, 0.16);
+    --shadow-glow: 0 4px 24px hsla(27, 65%, 66%, 0.3);
     
-    /* Transitions */
-    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Transitions - smooth, friendly motion */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 210 20% 8%;
+    --background: 162 20% 8%; /* Dark sage base */
     --foreground: 0 0% 98%;
 
-    --card: 210 20% 12%;
+    --card: 162 15% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 20% 12%;
+    --popover: 162 15% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 210 100% 88%;
-    --primary-foreground: 210 100% 12%;
-    --primary-hover: 210 100% 80%;
-    --primary-glow: 210 100% 75%;
+    --primary: 162 37% 82%; /* Light sage for dark mode */
+    --primary-foreground: 162 37% 12%;
+    --primary-hover: 162 37% 90%;
+    --primary-glow: 162 37% 95%;
 
-    --secondary: 48 100% 50%;
-    --secondary-foreground: 0 0% 18%;
+    --secondary: 27 65% 66%; /* Terracotta stays warm */
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 210 20% 20%;
+    --muted: 162 15% 18%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 48 100% 50%;
-    --accent-foreground: 0 0% 18%;
+    --accent: 162 37% 70%;
+    --accent-foreground: 0 0% 12%;
 
-    --destructive: 0 84% 40%;
+    --destructive: 0 84% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 20%;
-    --input: 210 20% 20%;
-    --ring: 210 100% 85%;
-    --deep-blue: 210 100% 35%;
-    --safety-yellow: 48 100% 50%;
+    --border: 162 15% 20%;
+    --input: 162 15% 20%;
+    --ring: 162 37% 75%;
+    --sage-green: 162 37% 82%;
+    --terracotta: 27 65% 66%;
   }
 }
 
@@ -274,52 +272,78 @@ All colors MUST be HSL.
 
 @layer components {
   .hero-text {
-    @apply text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tighter;
-    letter-spacing: -0.04em;
+    @apply text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight;
+    letter-spacing: -0.02em;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl font-bold tracking-tight mb-4;
   }
 
+  /* Modern button styles with warmth */
   .btn-hero {
-    @apply relative overflow-hidden bg-[hsl(48_100%_35%)] text-primary font-semibold px-8 py-4 rounded-xl;
-    @apply transition-all duration-300 hover:scale-105 hover:bg-[hsl(48_100%_30%)] hover:shadow-[0_0_40px_hsl(var(--orange-bright)/0.4)];
+    @apply relative overflow-hidden bg-secondary text-secondary-foreground font-semibold px-8 py-4 rounded-2xl;
+    @apply transition-all duration-300 hover:scale-[1.05] hover:brightness-110;
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .btn-hero:hover {
+    box-shadow: var(--shadow-glow);
   }
 
   .btn-outline-hero {
-    @apply relative border-2 border-primary text-primary font-semibold px-8 py-4 rounded-xl;
-    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105;
+    @apply relative border-2 border-primary text-primary font-semibold px-8 py-4 rounded-2xl;
+    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-[1.05];
+    @apply backdrop-blur-sm;
   }
 
+  /* Card styles - warm, elevated */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-[--shadow-medium] hover:-translate-y-1;
+    @apply transition-all duration-300 hover:-translate-y-2 rounded-2xl;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-medium);
   }
 
   .parallax-layer {
     @apply transition-transform duration-300 ease-out;
   }
   
-  /* Contrast-safe text utilities */
+  /* Modern text utilities */
   .text-contrast-primary {
-    @apply text-[hsl(0_0%_18%)];  /* Charcoal - always safe on light backgrounds */
+    @apply text-foreground;
   }
   
   .text-contrast-secondary {
-    @apply text-[hsl(48_100%_35%)];  /* Dark yellow - safe on white */
+    @apply text-secondary;
   }
   
   .text-contrast-muted {
-    @apply text-[hsl(0_0%_35%)];  /* Accessible muted - WCAG AA compliant */
+    @apply text-muted-foreground;
   }
   
-  /* Accessible button variants */
-  .btn-accessible-yellow {
-    @apply bg-[hsl(48_100%_35%)] text-[hsl(0_0%_18%)] hover:bg-[hsl(48_100%_30%)] font-bold;
+  /* Warm, accessible button variants */
+  .btn-warm {
+    @apply bg-secondary text-secondary-foreground hover:brightness-110 font-semibold rounded-2xl;
+    @apply transition-all duration-300 hover:scale-[1.02];
+    box-shadow: var(--shadow-soft);
   }
   
-  .btn-accessible-outline {
-    @apply border-2 border-[hsl(0_0%_35%)] text-[hsl(0_0%_18%)] hover:bg-[hsl(0_0%_18%)] hover:text-white;
+  .btn-warm:hover {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .btn-sage {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover font-semibold rounded-2xl;
+    @apply transition-all duration-300 hover:scale-[1.02];
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-outline-sage {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-2xl;
+    @apply transition-all duration-300;
   }
 }
 
