@@ -53,6 +53,9 @@ const Articles = lazy(() => import("./pages/admin/Articles"));
 const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
 const AdminProjects = lazy(() => import("./pages/admin/Projects"));
 const ProjectEditor = lazy(() => import("./pages/admin/ProjectEditor"));
+const AdminServices = lazy(() => import("./pages/admin/Services"));
+const AuditLog = lazy(() => import("./pages/admin/AuditLog"));
+const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const MaterialSelector = lazy(() => import("./pages/MaterialSelector"));
 
 const queryClient = new QueryClient();
@@ -120,9 +123,12 @@ const App = () => {
                   <Route path="projects" element={<AdminProjects />} />
                   <Route path="projects/new" element={<ProjectEditor />} />
                   <Route path="projects/:id/edit" element={<ProjectEditor />} />
+                  <Route path="services" element={<AdminServices />} />
                   <Route path="media" element={<MediaLibrary />} />
                   <Route path="materials" element={<AdminMaterials />} />
                   <Route path="users" element={<AdminUsers />} />
+                  <Route path="audit" element={<AuditLog />} />
+                  <Route path="settings" element={<AdminSettings />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>
