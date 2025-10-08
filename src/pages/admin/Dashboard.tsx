@@ -7,7 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import SEO from '@/components/SEO';
-import { LogOut, Mail, FileText } from 'lucide-react';
+import { LogOut, Mail, FileText, Package, FolderKanban, FileEdit } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ContactSubmission {
   id: string;
@@ -131,6 +132,42 @@ export default function Dashboard() {
         </header>
 
         <main className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Link to="/admin/services">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Package className="w-5 h-5 text-primary" />
+                    Services
+                  </CardTitle>
+                  <CardDescription>Manage service offerings</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link to="/admin/projects">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FolderKanban className="w-5 h-5 text-primary" />
+                    Projects
+                  </CardTitle>
+                  <CardDescription>Manage project portfolio</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link to="/admin/blog">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileEdit className="w-5 h-5 text-primary" />
+                    Blog Posts
+                  </CardTitle>
+                  <CardDescription>Manage blog content</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+
           <Tabs defaultValue="contacts" className="space-y-6">
             <TabsList className="grid w-full max-w-md grid-cols-2">
               <TabsTrigger value="contacts">
