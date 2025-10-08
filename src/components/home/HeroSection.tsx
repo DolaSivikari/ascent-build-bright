@@ -104,7 +104,7 @@ const HeroSection = () => {
             }`}
           >
             <Shield className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-medium text-white">Licensed & Insured • GTA's Trusted Builder</span>
+            <span className="text-sm font-medium text-white">Small jobs welcome • No project too small</span>
           </div>
 
           {/* Main Headline */}
@@ -113,32 +113,39 @@ const HeroSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              lineHeight: "1.2",
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
+              lineHeight: "1.1",
               letterSpacing: "-0.01em",
               textShadow: "0 4px 12px rgba(0,0,0,0.5)",
             }}
           >
-            Building Toronto's Future
-            <br />
-            <span className="text-secondary">Affordably, One Project at a Time</span>
+            Small jobs. <span className="text-secondary">Big care.</span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className={`max-w-2xl mx-auto text-base md:text-lg text-white/95 mb-8 transition-all duration-600 delay-200 ${
+            className={`max-w-2xl mx-auto text-lg md:text-xl text-white/95 mb-6 transition-all duration-600 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{
               fontFamily: "var(--font-body)",
             }}
           >
-            Quality residential and commercial construction across the GTA. From small renovations to full builds—honest pricing, WSIB-certified crews, and free quotes in 24 hours.
+            From a leaky faucet to a fresh-painted room or a tidy patio repair — fast, friendly, affordable. Free estimates in 24–48 hours.
+          </p>
+
+          {/* Short intro */}
+          <p
+            className={`max-w-3xl mx-auto text-base text-white/90 mb-10 transition-all duration-600 delay-250 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            We help homeowners with quick repairs, painting, tiling and outdoor touch-ups — no large project minimums, no confusing jargon, just straightforward pricing and dependable service.
           </p>
 
           {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 transition-all duration-600 delay-300 ${
+            className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transition-all duration-600 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -148,7 +155,7 @@ const HeroSection = () => {
               className="bg-secondary text-primary hover:bg-secondary/90 font-bold text-base px-8 py-6 rounded-lg shadow-lg transition-all duration-200 hover:scale-105"
             >
               <Link to="/estimate">
-                Get Free Quote in 24hrs
+                Get a Fast Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -158,62 +165,71 @@ const HeroSection = () => {
               variant="outline"
               className="bg-white/5 border-2 border-white/30 text-white hover:bg-white/15 font-semibold text-base px-8 py-6 rounded-lg backdrop-blur-sm transition-all duration-200"
             >
-              <a href="tel:+14165550100">(416) 555-0100</a>
+              <a href="#packages">See Starter Packages</a>
             </Button>
           </div>
 
-          {/* Trust Indicators */}
+          {/* Trust Strip */}
           <div
-            className={`flex flex-wrap justify-center gap-6 mb-10 text-white/95 transition-all duration-600 delay-400 ${
+            className={`text-center mb-6 transition-all duration-600 delay-350 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">WSIB Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">Licensed & Insured</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">Serving All GTA</span>
-            </div>
+            <p className="text-sm text-white/80 max-w-2xl mx-auto">
+              <span className="font-semibold text-secondary">Small jobs welcome</span> • Typical homeowner jobs start from affordable packages • 30-day workmanship guarantee • <span className="text-secondary">★ 4.8</span> average from real customers
+            </p>
           </div>
 
-          {/* Animated Stats */}
+          {/* Micro CTA Row */}
           <div
-            ref={statsRef}
-            className={`flex flex-wrap justify-center gap-8 bg-black/20 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/10 transition-all duration-1000 delay-500 ${
+            className={`flex flex-col sm:flex-row gap-3 justify-center transition-all duration-600 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
-            role="list"
-            aria-label="Company statistics"
           >
-            <div className="text-center min-w-[120px]" role="listitem">
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-secondary mb-1">
-                {counters.projects}+
+            <Link to="/estimate" className="text-sm text-white/90 hover:text-secondary underline transition-colors">
+              Free Estimate — 24–48 hrs
+            </Link>
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link to="/estimate" className="text-sm text-white/90 hover:text-secondary underline transition-colors">
+              Upload a Photo for a Quick Ballpark
+            </Link>
+          </div>
+
+          {/* Quick Benefits */}
+          <div
+            className={`grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12 transition-all duration-600 delay-450 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="flex items-start gap-3 text-left">
+              <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 text-secondary" />
               </div>
-              <div className="text-sm text-white/90 font-medium">Projects Completed</div>
+              <div>
+                <p className="text-white/95 text-sm leading-relaxed">
+                  <span className="font-semibold">Friendly teams</span> who treat your home like theirs — small-job specialists.
+                </p>
+              </div>
             </div>
-            <div className="text-center min-w-[120px]" role="listitem">
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-secondary mb-1">
-                {counters.years}
+            <div className="flex items-start gap-3 text-left">
+              <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 text-secondary" />
               </div>
-              <div className="text-sm text-white/90 font-medium">Years Experience</div>
+              <div>
+                <p className="text-white/95 text-sm leading-relaxed">
+                  <span className="font-semibold">Transparent pricing</span> & clear timelines — no surprises.
+                </p>
+              </div>
             </div>
-            <div className="text-center min-w-[120px]" role="listitem">
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-secondary mb-1">
-                {counters.coverage}km
+            <div className="flex items-start gap-3 text-left">
+              <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-secondary" />
               </div>
-              <div className="text-sm text-white/90 font-medium">GTA Coverage</div>
-            </div>
-            <div className="text-center min-w-[120px]" role="listitem">
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-secondary mb-1">
-                {counters.satisfaction}%
+              <div>
+                <p className="text-white/95 text-sm leading-relaxed">
+                  <span className="font-semibold">Fast booking:</span> same-week availability for most jobs.
+                </p>
               </div>
-              <div className="text-sm text-white/90 font-medium">Client Satisfaction</div>
             </div>
           </div>
         </div>

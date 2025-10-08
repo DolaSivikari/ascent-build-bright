@@ -7,36 +7,28 @@ import {
 
 const faqs = [
   {
-    question: "How much does a typical project cost?",
-    answer: "Our projects range from $5,000 for small renovations to $500,000+ for full builds. Most homeowners spend between $15,000-$75,000. We provide free, detailed quotes within 24 hours so you know exactly what to expect—no surprises."
+    question: "Do you do small jobs or only big renovations?",
+    answer: "We specialize in small- to mid-size homeowner jobs — same-week for many requests. No project is too small for us!"
   },
   {
-    question: "Do you offer payment plans?",
-    answer: "Yes! We offer flexible, no-fee payment plans to make your project affordable. We also accept all major credit cards and e-transfers. Payment schedules are customized to your project timeline."
+    question: "How much will my job cost?",
+    answer: "We give transparent ballpark pricing in 24–48 hours. For a firm quote we'll confirm scope during a short visit or a photo-assisted estimate."
   },
   {
-    question: "Are you licensed and insured?",
-    answer: "Absolutely. Ascent Group is fully licensed, WSIB-certified, and carries comprehensive liability insurance. All our tradespeople are certified professionals, and we pull all necessary permits for your project."
+    question: "Are there hidden fees?",
+    answer: "No. All estimates list labour, materials and any permits (if needed). We only change the estimate with your written approval."
   },
   {
-    question: "How long will my project take?",
-    answer: "Small projects (painting, repairs) typically take 3-7 days. Medium renovations (kitchens, bathrooms) take 2-6 weeks. Larger builds can take 3-6 months. We'll give you a detailed timeline in your quote and keep you updated every step."
+    question: "Can I get a price online?",
+    answer: "Yes — upload a photo or answer 3 quick questions and we'll send a reliable ballpark within 24–48 hours."
   },
   {
-    question: "What areas do you serve?",
-    answer: "We serve all of Toronto and the Greater Toronto Area, including Mississauga, Brampton, Vaughan, Markham, Richmond Hill, Oakville, and surrounding communities. Contact us to confirm service in your area."
+    question: "What if something goes wrong?",
+    answer: "We include a workmanship guarantee (30 days for small fixes; 1 year for packaged work). We'll make it right quickly."
   },
   {
-    question: "Do you handle permits and inspections?",
-    answer: "Yes. We handle all permits, inspections, and coordination with the city. Our team ensures your project meets all building codes and safety standards—you don't have to worry about the paperwork."
-  },
-  {
-    question: "Can you work with my budget?",
-    answer: "We specialize in finding solutions that fit your budget. During the quote process, we'll discuss options for materials, phasing, and design to maximize value without compromising quality. No project is too small."
-  },
-  {
-    question: "What if I need changes during the project?",
-    answer: "We understand plans evolve. If you need changes mid-project, we'll provide a clear cost estimate and timeline impact before proceeding. Communication is key—we'll keep you informed every step of the way."
+    question: "Do you offer payment options?",
+    answer: "Yes — we accept card, e-transfer, and short-term payment plans on qualifying projects."
   }
 ];
 
@@ -47,10 +39,10 @@ const FAQSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-              Frequently Asked Questions
+              Questions About Cost & Service
             </h2>
             <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-              Got questions? We've got answers. Here's what our Toronto-area clients ask most.
+              Honest answers to help you feel confident about your project.
             </p>
           </div>
 
