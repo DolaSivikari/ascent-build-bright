@@ -25,54 +25,54 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 18%;
+    --foreground: 210 11% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card-foreground: 210 11% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 210 11% 15%;
 
-    /* Warm Teal #0D7377 - Primary brand color */
-    --primary: 177 81% 26%;
+    /* PCL Dark Blue - Primary brand color */
+    --primary: 210 60% 20%;
     --primary-foreground: 0 0% 100%;
 
-    /* Warm Orange #FF6B35 - Secondary/accent color */
-  --secondary: 15 100% 60%;
-  --secondary-foreground: 0 0% 100%;
+    /* PCL Accent Yellow - Secondary/accent color */
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 210 11% 15%;
   
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 35%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 40%;
 
-    /* Success/Trust Green */
+    /* Success/Trust indicator */
     --success: 145 63% 42%;
     --success-foreground: 0 0% 100%;
     
-    /* Accent (same as secondary for consistency) */
-    --accent: 15 100% 60%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent (vibrant yellow for CTAs) */
+    --accent: 45 100% 51%;
+    --accent-foreground: 210 11% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 18%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 60% 20%;
 
-    --radius: 0.375rem;
+    --radius: 0.25rem;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(177 81% 26%) 0%, hsl(177 81% 20%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(15 100% 60%) 0%, hsl(15 100% 65%) 100%);
+    /* Corporate gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 60% 20%) 0%, hsl(210 60% 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(45 100% 58%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(13, 115, 119, 0.08);
-    --shadow-medium: 0 4px 16px rgba(13, 115, 119, 0.12);
-    --shadow-strong: 0 8px 32px rgba(13, 115, 119, 0.16);
-    --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.3);
+    /* Professional shadows */
+    --shadow-soft: 0 2px 8px rgba(31, 54, 79, 0.08);
+    --shadow-medium: 0 4px 16px rgba(31, 54, 79, 0.12);
+    --shadow-strong: 0 8px 32px rgba(31, 54, 79, 0.16);
+    --shadow-glow: 0 0 40px rgba(255, 204, 0, 0.25);
     
     /* Transitions */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
@@ -126,22 +126,22 @@ All colors MUST be HSL.
 
 @layer components {
   .hero-text {
-    @apply text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tighter;
-    letter-spacing: -0.04em;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight;
+    letter-spacing: -0.02em;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
   }
 
-  .btn-hero {
-    @apply relative overflow-hidden bg-[hsl(48_100%_35%)] text-primary font-semibold px-8 py-4 rounded-xl;
-    @apply transition-all duration-300 hover:scale-105 hover:bg-[hsl(48_100%_30%)] hover:shadow-[0_0_40px_hsl(var(--orange-bright)/0.4)];
+  .btn-primary-corporate {
+    @apply relative overflow-hidden bg-accent text-accent-foreground font-bold px-8 py-4 rounded;
+    @apply transition-all duration-300 hover:brightness-110 hover:shadow-lg;
   }
 
-  .btn-outline-hero {
-    @apply relative border-2 border-primary text-primary font-semibold px-8 py-4 rounded-xl;
-    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105;
+  .btn-outline-corporate {
+    @apply relative border-2 border-white text-white font-bold px-8 py-4 rounded;
+    @apply transition-all duration-300 hover:bg-white hover:text-primary;
   }
 
   .card-hover {
