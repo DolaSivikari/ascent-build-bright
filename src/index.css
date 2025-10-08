@@ -33,24 +33,23 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 18%;
 
-    /* Charcoal #2E2E2E - Primary brand color */
-    --primary: 0 0% 18%;
+    /* Warm Teal #0D7377 - Primary brand color */
+    --primary: 177 81% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Safety Yellow #FFD500 - Secondary/accent color */
-  --secondary: 48 100% 50%;
-  --secondary-foreground: 0 0% 18%;
+    /* Warm Orange #FF6B35 - Secondary/accent color */
+  --secondary: 15 100% 60%;
+  --secondary-foreground: 0 0% 100%;
   
-  /* Accessible color variants for WCAG AA compliance */
-  --safety-yellow-accessible: 48 100% 35%; /* Darker yellow for white backgrounds - 4.8:1 contrast */
-  --accent-orange-dark: 24 100% 40%; /* Accessible orange - 5.2:1 contrast */
-  --text-on-yellow: 0 0% 18%; /* Charcoal on yellow - 6.8:1 contrast */
-
   --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 35%; /* Updated for WCAG AA contrast - was 45% */
+  --muted-foreground: 0 0% 35%;
 
-    /* Accent Orange #FF6600 */
-    --accent: 24 100% 50%;
+    /* Success/Trust Green */
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Accent (same as secondary for consistency) */
+    --accent: 15 100% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -62,22 +61,15 @@ All colors MUST be HSL.
 
     --radius: 0.375rem;
 
-    /* New construction brand tokens */
-    --charcoal: 0 0% 18%;
-    --safety-yellow: 48 100% 50%;
-    --deep-blue: 210 29% 24%;
-    --accent-orange: 24 100% 50%;
-    
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 18%) 0%, hsl(210 29% 24%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(48 100% 60%) 100%);
-    --gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(177 81% 26%) 0%, hsl(177 81% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(15 100% 60%) 0%, hsl(15 100% 65%) 100%);
     
     /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(46, 46, 46, 0.08);
-    --shadow-medium: 0 4px 16px rgba(46, 46, 46, 0.12);
-    --shadow-strong: 0 8px 32px rgba(46, 46, 46, 0.16);
-    --shadow-glow: 0 0 40px rgba(255, 213, 0, 0.4);
+    --shadow-soft: 0 2px 8px rgba(13, 115, 119, 0.08);
+    --shadow-medium: 0 4px 16px rgba(13, 115, 119, 0.12);
+    --shadow-strong: 0 8px 32px rgba(13, 115, 119, 0.16);
+    --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
