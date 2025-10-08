@@ -4,37 +4,38 @@ import { Card, CardContent } from "@/components/ui/card";
 const capabilities = [
   {
     icon: HardHat,
-    {
-      title: "Project Management",
-      description: "Comprehensive oversight from conception to completion",
-      features: [
-        "Strategic planning and scheduling",
-        "Budget management and cost control",
-        "Quality assurance programs",
-        "Risk mitigation strategies"
-      ]
-    },
-    {
-      title: "Construction Services",
-      description: "Full-spectrum construction capabilities",
-      features: [
-        "General contracting",
-        "Design-build solutions",
-        "Construction management",
-        "Program management"
-      ]
-    },
-    {
-      title: "Specialized Solutions",
-      description: "Advanced technical expertise",
-      features: [
-        "Building information modeling (BIM)",
-        "Sustainable construction practices",
-        "Advanced safety protocols",
-        "Technology integration"
-      ]
-    }
-  ];
+    title: "Project Management",
+    description: "End-to-end project delivery with proven methodologies",
+    features: [
+      "Design-Build Services",
+      "Construction Management",
+      "Project Scheduling",
+      "Cost Control",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Construction Services",
+    description: "Comprehensive construction solutions for complex projects",
+    features: [
+      "General Contracting",
+      "Civil Works",
+      "Structural Systems",
+      "Quality Assurance",
+    ],
+  },
+  {
+    icon: Cog,
+    title: "Specialized Solutions",
+    description: "Advanced capabilities for unique project requirements",
+    features: [
+      "Advanced Manufacturing",
+      "Sustainable Building",
+      "Technology Integration",
+      "Post-Construction Support",
+    ],
+  },
+];
 
 const CorporateCapabilities = () => {
   return (
@@ -42,25 +43,24 @@ const CorporateCapabilities = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `repeating-linear-gradient(45deg, hsl(210 45% 22%) 0, hsl(210 45% 22%) 1px, transparent 0, transparent 50%)`,
+          backgroundSize: '10px 10px',
         }} />
       </div>
 
+      {/* Diagonal Yellow Stripe */}
+      <div 
+        className="absolute top-0 left-0 w-full h-32 bg-secondary transform -skew-y-2 origin-top-left -mt-16"
+      />
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-accent" />
-            <span className="text-accent font-bold text-sm tracking-widest uppercase">
-              Our Capabilities
-            </span>
-            <div className="h-px w-12 bg-accent" />
-          </div>
-          <h2 className="section-title mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4 tracking-tight">
             Comprehensive Construction Solutions
           </h2>
-          <p className="text-xl text-white/80">
-            Delivering complex projects with proven expertise and innovation
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Integrated services delivering value from concept to completion
           </p>
         </div>
 
@@ -99,23 +99,24 @@ const CorporateCapabilities = () => {
           ))}
         </div>
 
-        {/* Bottom Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
-          <div>
-            <div className="text-4xl font-bold text-accent mb-2">98%</div>
-            <div className="text-sm text-white/70">Safety Record</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-accent mb-2">95%</div>
-            <div className="text-sm text-white/70">On-Time Delivery</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-accent mb-2">1,200+</div>
-            <div className="text-sm text-white/70">Skilled Workers</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-accent mb-2">50+</div>
-            <div className="text-sm text-white/70">Industry Awards</div>
+        {/* Stats Bar */}
+        <div className="bg-primary rounded-lg overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+            {[
+              { label: "Safety Record", value: "1.2M+", suffix: "safe hours" },
+              { label: "On-Time Delivery", value: "98%", suffix: "completion rate" },
+              { label: "Skilled Workers", value: "5,500+", suffix: "professionals" },
+              { label: "Industry Awards", value: "150+", suffix: "recognitions" },
+            ].map((stat) => (
+              <div key={stat.label} className="p-8 text-center">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-white/60 uppercase tracking-wider">
+                  {stat.suffix}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
