@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone, Shield, Star, MapPin, Award } from 'lucide-react';
-import heroPoster from '/assets/hero-poster.jpg';
 import { setVariant, getVariant, trackEvent } from '@/lib/analytics';
 import { QuoteModal } from '@/components/QuoteModal';
 import { checkTestStatus } from '@/lib/ab-test-manager';
@@ -109,7 +108,7 @@ const HeroVariantTest = () => {
         {/* Hero Image with Parallax */}
         <div className="absolute inset-0" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
           <img
-            src={heroPoster}
+            src="/assets/hero-friendly-consultation.jpg"
             alt="Ascent Group crew member providing friendly home repair consultation in Toronto living room"
             className="w-full h-[120%] object-cover"
             loading="eager"
