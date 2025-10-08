@@ -18,6 +18,9 @@ verify_jwt = true
 [functions.articles-publish]
 verify_jwt = true
 
+[functions.projects-crud]
+verify_jwt = true
+
 [functions.media-presign]
 verify_jwt = true
 
