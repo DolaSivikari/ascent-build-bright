@@ -66,15 +66,52 @@ export const QuoteModal = ({ open, onOpenChange, defaultPackage }: QuoteModalPro
     }
   };
 
+  const uploadPhotos = async () => {
+    if (uploadedFiles.length === 0) return [];
+    
+    const uploadedUrls: string[] = [];
+    
+    for (const file of uploadedFiles) {
+      try {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        
+        const { data, error } = await supabase.storage
+          .from('quote-photos')
+          .upload(fileName, file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+        
+        if (error) throw error;
+        
+        // Get public URL
+        const { data: urlData } = supabase.storage
+          .from('quote-photos')
+          .getPublicUrl(data.path);
+        
+        uploadedUrls.push(urlData.publicUrl);
+      } catch (error) {
+        console.error('Photo upload error:', error);
+        // Continue with other photos even if one fails
+      }
+    }
+    
+    return uploadedUrls;
+  };
+
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     
     try {
-      // Send to edge function which handles both DB insert and email
+      // 1. Upload photos first
+      const photoUrls = await uploadPhotos();
+      
+      // 2. Send to edge function which handles both DB insert and email
       const { data: result, error } = await supabase.functions.invoke('notify-quote', {
         body: {
           ...data,
-          photo_urls: [], // TODO: Upload photos to storage bucket
+          photo_urls: photoUrls,
           source_variant: sessionStorage.getItem('ab_test_variant'),
           referrer: window.location.href
         }
