@@ -53,10 +53,10 @@ const Header = () => {
 
       <header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-card/98 backdrop-blur-xl shadow-xl shadow-primary/5 border-b border-border/50"
-            : "bg-transparent"
+            ? "bg-white shadow-lg border-b border-border"
+            : "bg-white/95 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -86,10 +86,10 @@ const Header = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`font-semibold text-sm uppercase tracking-wider transition-all duration-300 relative group ${
+                  className={`font-bold text-xs uppercase tracking-[0.1em] transition-all duration-300 relative group ${
                     location.pathname === link.to
                       ? "text-primary"
-                      : "text-foreground/70 hover:text-primary"
+                      : "text-foreground hover:text-primary"
                   }`}
                   aria-current={location.pathname === link.to ? "page" : undefined}
                 >
@@ -116,7 +116,7 @@ const Header = () => {
                 </div>
               </a>
               <Link to="/estimate">
-                <Button className="btn-hero shadow-lg shadow-secondary/20 hover:shadow-secondary/40 transition-all duration-300">
+                <Button variant="pcl-primary" size="lg">
                   Get Estimate
                 </Button>
               </Link>

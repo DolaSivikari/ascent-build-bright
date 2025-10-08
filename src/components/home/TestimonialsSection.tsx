@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, Calendar, ExternalLink } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
@@ -41,12 +41,14 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title mb-4 text-primary">Client Testimonials</h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4 tracking-tight">
+            Client Success Stories
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it — hear from our satisfied clients
+            Trusted partnerships delivering exceptional results
           </p>
         </div>
 
@@ -54,51 +56,27 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.name}
-              className="p-8 card-hover border-2 hover:shadow-[--shadow-medium]"
+              className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               style={{
                 animationDelay: `${index * 0.1}s`,
                 opacity: 0,
                 animation: 'slide-up 0.6s ease-out forwards',
               }}
             >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
-                ))}
-              </div>
-              <p className="text-foreground mb-6 italic leading-relaxed">
-                "{testimonial.quote}"
-              </p>
-              <div className="pt-4 border-t border-border space-y-3">
-                <div className="flex items-center gap-4">
-                  <Avatar className="h-12 w-12 bg-primary text-primary-foreground">
-                    <AvatarFallback className="bg-primary text-primary-foreground">{testimonial.initials}</AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <div className="font-semibold text-primary">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                  </div>
-                </div>
+              <CardContent className="p-8">
+                {/* Large Yellow Quote Mark */}
+                <div className="text-6xl text-secondary font-serif leading-none mb-4">"</div>
                 
-                <div className="space-y-1.5 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3 h-3" />
-                    <span>{testimonial.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="w-3 h-3" />
-                    <span>{testimonial.date}</span>
-                  </div>
+                <p className="text-foreground mb-6 text-lg leading-relaxed">
+                  {testimonial.quote}
+                </p>
+                
+                <div className="pt-6 border-t border-border">
+                  <div className="font-bold text-primary text-lg mb-1">{testimonial.name}</div>
+                  <div className="text-sm text-muted-foreground mb-3">{testimonial.role}</div>
+                  <div className="text-xs text-muted-foreground">{testimonial.project}</div>
                 </div>
-
-                <Link
-                  to={testimonial.projectLink}
-                  className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-medium transition-colors"
-                >
-                  View Project
-                  <ExternalLink className="w-3 h-3" />
-                </Link>
-              </div>
+              </CardContent>
             </Card>
           ))}
         </div>

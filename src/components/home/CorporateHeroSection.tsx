@@ -1,133 +1,120 @@
-import { Building2, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Shield, Award, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import heroImage from "@/assets/hero-home.jpg";
+
+const heroSlides = [
+  {
+    title: "Building Excellence",
+    subtitle: "Across Canada",
+    description: "Leading construction company delivering complex commercial, industrial, and institutional projects with precision, safety, and innovation.",
+    image: heroImage,
+    cta: {
+      primary: { text: "Explore Our Work", link: "/projects" },
+      secondary: { text: "Our Capabilities", link: "/services" },
+    },
+  },
+];
 
 const CorporateHeroSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide] = useState(0);
+  const slide = heroSlides[currentSlide];
 
-  const heroSlides = [
-    {
-      title: "Building Excellence Across Canada",
-      subtitle: "CONSTRUCTION LEADERSHIP",
-      description: "Delivering complex construction projects with precision, safety, and innovation",
-      image: "/assets/hero-home.jpg",
-      cta: "Explore Our Work"
-    },
-    {
-      title: "Industrial & Commercial Solutions",
-      subtitle: "COMPREHENSIVE SERVICES",
-      description: "From planning to completion, we build the infrastructure that powers communities",
-      image: "/assets/project-office-tower.jpg",
-      cta: "Our Capabilities"
-    },
-    {
-      title: "Sustainable Construction Practices",
-      subtitle: "ENVIRONMENTAL COMMITMENT",
-      description: "Leading the industry in sustainable building methods and green technology",
-      image: "/assets/project-commercial-stucco.jpg",
-      cta: "Learn More"
+  const handleCtaClick = () => {
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      (window as any).gtag('event', 'cta_explore_work_click', {
+        event_category: 'engagement',
+        event_label: 'Hero CTA',
+      });
     }
-  ];
+  };
 
   return (
-    <section className="relative h-[85vh] md:h-[90vh] overflow-hidden bg-primary">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ 
-          backgroundImage: `url(${heroSlides[currentSlide].image})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/40" />
+    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={slide.image}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        {/* Navy Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, hsl(210 45% 22% / 0.95) 0%, hsl(210 45% 22% / 0.7) 40%, hsl(210 45% 22% / 0.3) 70%, transparent 100%)'
+          }}
+        />
       </div>
 
+      {/* Diagonal Yellow Accent */}
+      <div className="absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-secondary z-10 hidden lg:block"
+        style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }}
+      />
+
       {/* Content */}
-      <div className="relative h-full container mx-auto px-4 flex items-center">
-        <div className="max-w-3xl text-white space-y-6">
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-16 bg-accent" />
-            <span className="text-accent font-bold text-sm tracking-widest uppercase">
-              {heroSlides[currentSlide].subtitle}
+          <div className="mb-6">
+            <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground font-bold text-sm uppercase tracking-wider">
+              Industry Leaders Since 1906
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="hero-text text-white drop-shadow-lg">
-            {heroSlides[currentSlide].title}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white mb-6 leading-[0.95] tracking-tight">
+            {slide.title}
+            <br />
+            <span className="text-secondary">{slide.subtitle}</span>
           </h1>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl leading-relaxed">
-            {heroSlides[currentSlide].description}
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
+            {slide.description}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button 
-              size="lg" 
-              className="btn-primary-corporate group"
-              onClick={() => {
-                if (typeof window !== 'undefined' && 'gtag' in window) {
-                  (window as any).gtag('event', 'cta_explore_work_click');
-                }
-              }}
-            >
-              {heroSlides[currentSlide].cta}
-              <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="btn-outline-corporate"
-            >
-              Contact Us
-            </Button>
-          </div>
-
-          {/* Stats Strip */}
-          <div className="grid grid-cols-3 gap-6 pt-12 border-t border-white/20">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-accent">500+</div>
-              <div className="text-sm text-white/80 mt-1">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-accent">$2B+</div>
-              <div className="text-sm text-white/80 mt-1">Annual Revenue</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-accent">25+</div>
-              <div className="text-sm text-white/80 mt-1">Years Experience</div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <Link to={slide.cta.primary.link}>
+              <Button 
+                variant="pcl-primary" 
+                size="lg" 
+                className="text-base px-10 py-6"
+                onClick={handleCtaClick}
+              >
+                {slide.cta.primary.text}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to={slide.cta.secondary.link}>
+              <Button 
+                variant="pcl-outline" 
+                size="lg"
+                className="text-base px-10 py-6 border-white text-white hover:bg-white hover:text-primary"
+              >
+                {slide.cta.secondary.text}
+              </Button>
+            </Link>
           </div>
         </div>
-      </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`h-1 transition-all duration-300 ${
-              currentSlide === index 
-                ? 'w-12 bg-accent' 
-                : 'w-8 bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Decorative Yellow Triangle */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/4 hidden lg:block">
-        <svg 
-          viewBox="0 0 100 100" 
-          preserveAspectRatio="none" 
-          className="h-full w-full"
-        >
-          <polygon points="100,0 100,100 50,100" fill="hsl(45 100% 51%)" fillOpacity="0.9" />
-        </svg>
+        {/* Stats Strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
+          {[
+            { icon: Shield, label: "Safety First", value: "Zero Harm" },
+            { icon: Award, label: "Projects Delivered", value: "10,000+" },
+            { icon: Users, label: "Skilled Workforce", value: "5,500+" },
+            { icon: Award, label: "Industry Awards", value: "150+" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded">
+              <stat.icon className="w-8 h-8 text-secondary mb-2" />
+              <div className="text-2xl font-bold text-white">{stat.value}</div>
+              <div className="text-sm text-white/80">{stat.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,9 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Wrench, HardHat, Cog } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
-const CorporateCapabilities = () => {
-  const capabilities = [
+const capabilities = [
+  {
+    icon: HardHat,
     {
       title: "Project Management",
       description: "Comprehensive oversight from conception to completion",
@@ -34,8 +36,9 @@ const CorporateCapabilities = () => {
     }
   ];
 
+const CorporateCapabilities = () => {
   return (
-    <section className="py-20 bg-primary text-white relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -62,27 +65,37 @@ const CorporateCapabilities = () => {
         </div>
 
         {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
           {capabilities.map((capability, index) => (
-            <div 
-              key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 hover:bg-white/10 transition-all duration-300"
+            <Card
+              key={capability.title}
+              className="border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{
+                animationDelay: `${index * 0.15}s`,
+                opacity: 0,
+                animation: 'scale-in 0.5s ease-out forwards',
+              }}
             >
-              <h3 className="text-2xl font-bold mb-3 text-accent">
-                {capability.title}
-              </h3>
-              <p className="text-white/80 mb-6 leading-relaxed">
-                {capability.description}
-              </p>
-              <ul className="space-y-3">
-                {capability.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                    <span className="text-white/90">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-secondary/10 rounded flex items-center justify-center mb-6">
+                  <capability.icon className="w-8 h-8 text-secondary" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-primary mb-3">
+                  {capability.title}
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {capability.description}
+                </p>
+                <ul className="space-y-3">
+                  {capability.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
 

@@ -25,51 +25,52 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    --foreground: 210 45% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 210 45% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 210 45% 20%;
 
-    /* PCL Dark Blue - Primary brand color */
-    --primary: 210 60% 20%;
+    /* PCL Navy Blue - Primary brand color #1f364f */
+    --primary: 210 45% 22%;
     --primary-foreground: 0 0% 100%;
 
-    /* PCL Accent Yellow - Secondary/accent color */
-    --secondary: 45 100% 51%;
-    --secondary-foreground: 210 11% 15%;
+    /* PCL Accent Yellow - Secondary/accent color #ffcc00 */
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 210 45% 20%;
   
     --muted: 210 20% 96%;
-    --muted-foreground: 210 10% 40%;
+    --muted-foreground: 210 20% 45%;
 
     /* Success/Trust indicator */
     --success: 145 63% 42%;
     --success-foreground: 0 0% 100%;
     
     /* Accent (vibrant yellow for CTAs) */
-    --accent: 45 100% 51%;
-    --accent-foreground: 210 11% 15%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 210 45% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 210 20% 88%;
     --input: 210 20% 88%;
-    --ring: 210 60% 20%;
+    --ring: 48 100% 50%;
 
-    --radius: 0.25rem;
+    --radius: 0.125rem;
 
-    /* Corporate gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 60% 20%) 0%, hsl(210 60% 15%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(45 100% 58%) 100%);
+    /* PCL Corporate gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 45% 22%) 0%, hsl(210 45% 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(48 100% 60%) 100%);
+    --gradient-overlay: linear-gradient(90deg, hsl(210 45% 22% / 0.95) 0%, hsl(210 45% 22% / 0.6) 50%, transparent 100%);
     
     /* Professional shadows */
     --shadow-soft: 0 2px 8px rgba(31, 54, 79, 0.08);
     --shadow-medium: 0 4px 16px rgba(31, 54, 79, 0.12);
     --shadow-strong: 0 8px 32px rgba(31, 54, 79, 0.16);
-    --shadow-glow: 0 0 40px rgba(255, 204, 0, 0.25);
+    --shadow-yellow: 0 4px 20px rgba(255, 204, 0, 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -134,14 +135,20 @@ All colors MUST be HSL.
     @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
   }
 
-  .btn-primary-corporate {
-    @apply relative overflow-hidden bg-accent text-accent-foreground font-bold px-8 py-4 rounded;
-    @apply transition-all duration-300 hover:brightness-110 hover:shadow-lg;
+  .btn-pcl-primary {
+    @apply bg-secondary text-secondary-foreground font-bold px-8 py-4;
+    @apply transition-all duration-300 hover:brightness-110 hover:scale-[1.02];
+    box-shadow: var(--shadow-yellow);
   }
 
-  .btn-outline-corporate {
-    @apply relative border-2 border-white text-white font-bold px-8 py-4 rounded;
-    @apply transition-all duration-300 hover:bg-white hover:text-primary;
+  .btn-pcl-outline {
+    @apply border-2 border-primary bg-transparent text-primary font-bold px-8 py-4;
+    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+  
+  .diagonal-accent-yellow {
+    @apply absolute top-0 right-0 w-48 h-48 bg-secondary;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
   }
 
   .card-hover {

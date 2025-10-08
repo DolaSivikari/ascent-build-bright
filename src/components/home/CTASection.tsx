@@ -4,7 +4,7 @@ import { Phone } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary to-slate-800 relative overflow-hidden">
+    <section className="py-24 bg-primary relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
@@ -21,14 +21,16 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/estimate">
-              <Button className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-lg px-10 py-6 rounded-xl shadow-[var(--shadow-glow)] hover:scale-105 transition-all">
+              <Button variant="pcl-primary" size="lg" className="text-lg px-12 py-7">
                 Request Free Estimate
               </Button>
             </Link>
 
             <a href="tel:+19055550100">
               <Button 
-                className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold text-lg px-10 py-6 rounded-xl transition-all hover:scale-105"
+                variant="pcl-outline"
+                size="lg"
+                className="text-lg px-12 py-7 border-white text-white hover:bg-white hover:text-primary"
                 aria-label="Call us at (905) 555-0100"
               >
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />

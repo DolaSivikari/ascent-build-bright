@@ -30,89 +30,79 @@ const FeaturedProjects = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-muted/30">
+    <section ref={sectionRef} className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-3 px-4 py-1.5 bg-primary/10 rounded-full">
-            <span className="text-primary font-semibold text-sm tracking-wider uppercase">Our Work</span>
-          </div>
-          <h2 className="section-title mb-4 text-primary">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4 tracking-tight">
+            Featured Projects
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our portfolio of successful transformations across the GTA
+            Delivering exceptional results across diverse sectors
           </p>
         </div>
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
           {featuredProjects.map((project, index) => (
             <Card
               key={project.id}
-              className={`group overflow-hidden border-2 hover:border-primary/30 transition-all duration-500 hover:shadow-xl ${
+              className={`group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${
                 isVisible ? 'animate-fade-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden bg-muted">
+              <div className="relative h-72 overflow-hidden bg-muted">
                 <OptimizedImage
                   src={project.thumbnail}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-secondary text-primary text-xs font-bold rounded-full">
-                    {project.category}
-                  </span>
+                {/* Navy overlay on hover */}
+                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-6 text-white w-full">
+                    <div className="flex items-center gap-3 mb-2 text-sm">
+                      <MapPin className="w-4 h-4" />
+                      <span>{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <Clock className="w-4 h-4" />
+                      <span>{project.timeline}</span>
+                    </div>
+                  </div>
                 </div>
+                
+                {/* Yellow Accent Bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-secondary" />
               </div>
 
               <CardContent className="p-6">
+                {/* Category Badge */}
+                <div className="mb-3">
+                  <span className="px-3 py-1 bg-secondary/10 text-secondary-foreground text-xs font-bold uppercase tracking-wider">
+                    {project.category}
+                  </span>
+                </div>
+
                 {/* Project Title */}
-                <h3 className="font-heading font-bold text-xl mb-3 text-primary group-hover:text-primary/80 transition-colors">
+                <h3 className="font-heading font-bold text-xl mb-3 text-primary">
                   {project.title}
                 </h3>
 
-                {/* Meta Info */}
-                <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{project.timeline}</span>
-                  </div>
-                </div>
-
                 {/* Description */}
-                <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
+                <p className="text-muted-foreground mb-4 line-clamp-2 text-sm leading-relaxed">
                   {project.shortDescription}
                 </p>
-
-                {/* Services Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.services.slice(0, 2).map((service) => (
-                    <span
-                      key={service}
-                      className="px-2 py-1 bg-muted text-xs rounded border border-border"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div>
 
                 {/* View Project Link */}
                 <Link
                   to={`/projects/${project.id}`}
-                  className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all group/link"
+                  className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:text-secondary transition-colors group/link"
                 >
                   View Project Details
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                 </Link>
               </CardContent>
             </Card>
@@ -123,8 +113,8 @@ const FeaturedProjects = () => {
         <div className="text-center">
           <Button
             asChild
+            variant="pcl-outline"
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             <Link to="/projects">
               View Full Portfolio

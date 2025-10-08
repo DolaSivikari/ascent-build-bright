@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground" role="contentinfo">
+    <footer className="bg-primary text-white" role="contentinfo">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
@@ -25,7 +25,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
+                className="touch-target bg-white/10 hover:bg-secondary hover:text-primary rounded transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -34,7 +34,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
+                className="touch-target bg-white/10 hover:bg-secondary hover:text-primary rounded transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -43,7 +43,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target bg-primary-foreground/10 hover:bg-secondary rounded-lg transition-colors"
+                className="touch-target bg-white/10 hover:bg-secondary hover:text-primary rounded transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -55,7 +55,7 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
+                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
                   Residential Painting
                 </Link>
               </li>
