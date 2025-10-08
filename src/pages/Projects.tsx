@@ -9,16 +9,12 @@ import { Loader2 } from "lucide-react";
 const ProjectModal = lazy(() => import("@/components/projects/ProjectModal"));
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useProjects } from "@/hooks/useProjects";
+import projectsData from "@/data/projects-expanded.json";
 
 const Projects = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>(["all"]);
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Fetch projects from API
-  const { data, isLoading, error } = useProjects({ limit: 50 });
-  const projects = data?.projects || [];
 
   const allTags = ["all", "Residential", "Commercial", "Renovation", "GTA"];
 
@@ -34,8 +30,8 @@ const Projects = () => {
   };
 
   const filteredProjects = selectedTags.includes("all")
-    ? projects
-    : projects.filter((project: any) =>
+    ? projectsData.projects
+    : projectsData.projects.filter((project: any) =>
         project.tags?.some((tag: string) => selectedTags.includes(tag))
       );
 
@@ -43,25 +39,6 @@ const Projects = () => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-2">Error Loading Projects</h2>
-          <p className="text-muted-foreground">Please try again later</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">
@@ -122,8 +99,8 @@ const Projects = () => {
                     category={project.category}
                     location={project.location}
                     year={project.year}
-                    thumbnail={project.thumbnail_url || ''}
-                    shortDescription={project.short_description}
+                    thumbnail={project.thumbnail}
+                    shortDescription={project.shortDescription}
                     services={project.services}
                     featured={project.featured}
                   />

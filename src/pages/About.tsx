@@ -21,9 +21,9 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="About Ascent Group Construction | 15+ Years of Construction Excellence"
-        description="Award-winning construction management firm in Toronto. Meet our team of LEED-certified professionals delivering complex projects with COR-certified safety and cutting-edge technology since 2009."
-        keywords="about Ascent Group, construction management Toronto, LEED certified, COR certified, construction company team, values, sustainability"
+        title="About Us"
+        description="Learn about Ascent Group Construction - 15+ years of excellence in residential painting and stucco/EIFS services across the GTA. Meet our team and discover our values."
+        keywords="about Ascent Group, construction company Mississauga, painting contractor team, company values, sustainability"
       />
       <Header />
       
@@ -31,9 +31,9 @@ const About = () => {
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-primary to-primary/80 text-white py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Building Excellence Since 2009</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">About Ascent Group</h1>
             <p className="text-xl max-w-3xl mx-auto opacity-90">
-              Inspired by Canada's construction leaders, we combine heritage craftsmanship with modern technology to deliver exceptional projects on time, on budget, and beyond expectations.
+              Building lasting relationships through exceptional craftsmanship, integrity, and commitment to excellence since 2009.
             </p>
           </div>
         </section>
@@ -45,27 +45,27 @@ const About = () => {
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 2009 by John Martinez, Ascent Group Construction began with a vision to combine the trusted practices of Canada's leading builders—Bird Construction's century of trust, PCL's employee-owned collaborative model, and EllisDon's diversified expertise—with modern technology and client-first service.
+                  Founded in 2009, Ascent Group Construction began with a simple mission: deliver exceptional painting and exterior finishing services with uncompromising quality and integrity.
                 </p>
                 <p>
-                  What started as a small general contractor focused on residential renovations has grown into a trusted construction-management firm delivering complex commercial, institutional, and industrial projects across the Greater Toronto Area. We've completed over 500 projects, achieving zero lost-time incidents and a 98% client satisfaction rating.
+                  What started as a small team of dedicated craftsmen has grown into one of the GTA's most trusted contractors. We've completed over 500 projects, built lasting relationships with hundreds of satisfied clients, and established a reputation for excellence that speaks for itself.
                 </p>
                 <p>
-                  Today, we leverage industry-leading platforms like Procore, Autodesk Construction Cloud, and Bluebeam to deliver transparency, collaboration, and efficiency. Our LEED Accredited Professionals and COR-certified safety protocols ensure every project meets the highest standards of quality and sustainability.
+                  Today, we continue to uphold the same values that guided us from day one—quality first, transparent communication, unwavering commitment to safety, and complete customer satisfaction.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Years Excellence</div>
+                  <div className="text-sm text-muted-foreground">Years</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Projects Delivered</div>
+                  <div className="text-sm text-muted-foreground">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary">Zero</div>
-                  <div className="text-sm text-muted-foreground">Lost-Time Incidents</div>
+                  <div className="text-4xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Referral Rate</div>
                 </div>
               </div>
             </div>
@@ -76,9 +76,9 @@ const About = () => {
                 className="rounded-lg shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-secondary text-primary p-6 rounded-lg shadow-xl max-w-xs">
-                <p className="font-bold text-lg mb-2">Our Commitment</p>
+                <p className="font-bold text-lg mb-2">Our Promise</p>
                 <p className="text-sm">
-                  Every project delivered on time, on budget, with zero lost-time incidents and exceptional quality.
+                  Every project completed on time, within budget, and exceeding expectations.
                 </p>
               </div>
             </div>

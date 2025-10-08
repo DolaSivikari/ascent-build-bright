@@ -15,9 +15,7 @@ const PerformanceMonitor = () => {
       const lcpObserver = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1] as any;
-        if (import.meta.env.DEV) {
-          console.log('🎯 LCP:', lastEntry.renderTime || lastEntry.loadTime, 'ms');
-        }
+        console.log('🎯 LCP:', lastEntry.renderTime || lastEntry.loadTime, 'ms');
       });
       lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
 
@@ -25,9 +23,7 @@ const PerformanceMonitor = () => {
       const fidObserver = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         entries.forEach((entry: any) => {
-          if (import.meta.env.DEV) {
-            console.log('⚡ FID:', entry.processingStart - entry.startTime, 'ms');
-          }
+          console.log('⚡ FID:', entry.processingStart - entry.startTime, 'ms');
         });
       });
       fidObserver.observe({ type: 'first-input', buffered: true });
@@ -40,15 +36,13 @@ const PerformanceMonitor = () => {
             clsValue += (entry as any).value;
           }
         }
-        if (import.meta.env.DEV) {
-          console.log('📐 CLS:', clsValue.toFixed(4));
-        }
+        console.log('📐 CLS:', clsValue.toFixed(4));
       });
       clsObserver.observe({ type: 'layout-shift', buffered: true });
 
       // Time to First Byte (TTFB)
       const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      if (navigationEntry && import.meta.env.DEV) {
+      if (navigationEntry) {
         console.log('🚀 TTFB:', navigationEntry.responseStart - navigationEntry.requestStart, 'ms');
       }
 

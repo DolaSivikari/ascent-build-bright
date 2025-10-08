@@ -5,37 +5,37 @@ import { Link } from "react-router-dom";
 
 const testimonials = [
   {
-    name: "David Thompson",
-    role: "Facilities Director",
+    name: "Sarah Mitchell",
+    role: "Homeowner",
     location: "Toronto, ON",
-    project: "Office Tower Renovation",
-    projectLink: "/projects",
-    quote: "Ascent Group delivered our $15M office renovation on time and under budget. Their use of Procore for real-time updates kept stakeholders informed every step of the way. Exceptional construction management.",
+    project: "Condo Interior Painting",
+    projectLink: "/projects/modern-downtown-condo",
+    quote: "Ascent Group exceeded all expectations. Their attention to detail and professionalism made the entire process stress-free. The transformation is stunning!",
     rating: 5,
-    initials: "DT",
-    date: "November 2024"
+    initials: "SM",
+    date: "October 2024"
   },
   {
-    name: "Sarah Chen, P.Eng.",
-    role: "Project Manager",
+    name: "Robert & Linda K.",
+    role: "Heritage Homeowners",
     location: "Mississauga, ON",
-    project: "Healthcare Facility Expansion",
-    projectLink: "/projects",
-    quote: "Their VDC team's BIM coordination eliminated costly rework. Ascent's collaborative approach and technical expertise made this complex institutional project a success.",
+    project: "EIFS Restoration",
+    projectLink: "/projects/heritage-home-eifs",
+    quote: "They perfectly balanced preserving our home's character with modern performance. The craftsmanship is outstanding.",
     rating: 5,
-    initials: "SC",
+    initials: "RK",
     date: "September 2024"
   },
   {
-    name: "Michael Rodriguez",
-    role: "Property Owner",
+    name: "Michael Johnson",
+    role: "Homeowner",
     location: "Oakville, ON",
-    project: "Commercial Buildout",
-    projectLink: "/projects",
-    quote: "From preconstruction budgeting to final handover, Ascent Group demonstrated professionalism and quality. Their COR-certified safety record and LEED expertise were invaluable.",
+    project: "Exterior Repaint",
+    projectLink: "/projects/oakville-family-home",
+    quote: "After our DIY disaster, Ascent Group rescued our home. Their expertise and quality are unmatched. Completed before winter!",
     rating: 5,
-    initials: "MR",
-    date: "October 2024"
+    initials: "MJ",
+    date: "August 2024"
   },
 ];
 

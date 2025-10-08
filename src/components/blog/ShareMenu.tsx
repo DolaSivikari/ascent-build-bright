@@ -30,7 +30,7 @@ const ShareMenu = ({ title, url }: ShareMenuProps) => {
       try {
         await navigator.share({ title, url });
       } catch (error) {
-        // Share cancelled or failed - silently ignore
+        console.log('Share cancelled or failed');
       }
       return;
     }

@@ -49,22 +49,15 @@ export default function PackageBuilder({
 
     setIsSaving(true);
     try {
-      // Get authenticated user
-      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      const userIdentifier = localStorage.getItem('material_selector_user_id') || 
+        `anon-${Date.now()}`;
       
-      if (authError || !user) {
-        toast({
-          title: 'Authentication required',
-          description: 'Please log in to save material packages.',
-          variant: 'destructive',
-        });
-        navigate('/admin/login');
-        return;
+      if (!localStorage.getItem('material_selector_user_id')) {
+        localStorage.setItem('material_selector_user_id', userIdentifier);
       }
 
       const { error } = await supabase.from('material_packages' as any).insert({
-        user_id: user.id,
-        user_identifier: user.email || `user-${user.id.substring(0, 8)}`, // Keep for backward compatibility
+        user_identifier: userIdentifier,
         project_type: criteria.projectType,
         substrate: criteria.substrate[0] || 'mixed',
         climate_tags: criteria.climateTags,
@@ -84,9 +77,7 @@ export default function PackageBuilder({
       setPackageName('');
       setNotes('');
     } catch (error) {
-      if (import.meta.env.DEV) {
-        console.error('Error saving package:', error);
-      }
+      console.error('Error saving package:', error);
       toast({
         title: 'Error',
         description: 'Failed to save package. Please try again.',

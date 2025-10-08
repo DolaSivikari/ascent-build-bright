@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, User, Loader2 } from "lucide-react";
-import DOMPurify from 'dompurify';
+import { Calendar, Clock, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -10,23 +9,14 @@ import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import OptimizedImage from "@/components/OptimizedImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useArticle, useArticles } from "@/hooks/useArticles";
+import blogData from "@/data/blog-posts-complete.json";
 import { generateArticleSchema } from "@/utils/structured-data";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data: article, isLoading, error } = useArticle(slug || '');
-  const { data: articlesData } = useArticles({ limit: 10 });
+  const post = blogData.posts.find(p => p.slug === slug);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (error || !article) {
+  if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -38,20 +28,6 @@ const BlogPost = () => {
       </div>
     );
   }
-
-  const post = {
-    id: article.id,
-    title: article.title,
-    slug: article.slug,
-    author: article.author,
-    date: article.published_at,
-    category: article.category,
-    excerpt: article.excerpt,
-    featured: article.featured,
-    image: article.featured_image_url || '',
-    readTime: article.read_time || '5 min read',
-    content: article.content,
-  };
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     month: 'long',
@@ -99,32 +75,19 @@ const BlogPost = () => {
   };
 
   // Improved related articles logic: same category, then by date
-  const allArticles = articlesData?.articles || [];
-  const relatedArticles = allArticles
-    .filter(a => a.id !== article.id && a.category === article.category)
+  const relatedPosts = blogData.posts
+    .filter(p => p.id !== post.id && p.category === post.category)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
   
   // If not enough same-category posts, add recent posts from other categories
-  if (relatedArticles.length < 3) {
-    const otherArticles = allArticles
-      .filter(a => a.id !== article.id && a.category !== article.category)
-      .slice(0, 3 - relatedArticles.length);
-    relatedArticles.push(...otherArticles);
+  if (relatedPosts.length < 3) {
+    const otherPosts = blogData.posts
+      .filter(p => p.id !== post.id && p.category !== post.category)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 3 - relatedPosts.length);
+    relatedPosts.push(...otherPosts);
   }
-
-  const relatedPosts = relatedArticles.map(a => ({
-    id: a.id,
-    title: a.title,
-    slug: a.slug,
-    author: a.author,
-    date: a.published_at,
-    category: a.category,
-    excerpt: a.excerpt,
-    featured: a.featured,
-    image: a.featured_image_url || '',
-    readTime: a.read_time || '5 min read',
-    content: a.content,
-  }));
 
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const articleSchema = generateArticleSchema(post, currentUrl);
@@ -193,13 +156,7 @@ const BlogPost = () => {
           <div className="max-w-4xl mx-auto">
             <div 
               className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ 
-                __html: DOMPurify.sanitize(formatContent(post.content), {
-                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
-                  ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class'],
-                  ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
-                })
-              }}
+              dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
             />
 
             {/* Share Section */}

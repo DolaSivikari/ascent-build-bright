@@ -4,281 +4,332 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  FileText, 
+  Paintbrush, 
   Building2, 
-  Layers, 
-  Cpu, 
-  Hammer, 
-  Leaf,
+  Home, 
+  Wrench, 
+  Shield, 
   ArrowRight,
   CheckCircle2,
   Users,
   Building,
-  Briefcase,
-  Shield
+  Briefcase
 } from "lucide-react";
 
 const Services = () => {
-  const coreServices = [
+  const paintingServices = [
     {
-      icon: FileText,
-      title: "Preconstruction & Consulting",
-      description: "Strategic planning sets the foundation for project success",
-      features: [
-        "Feasibility studies & site analysis",
-        "Cost estimation & budgeting",
-        "Value engineering & optimization",
-        "Risk assessment & mitigation",
-        "Permitting & regulatory compliance",
-        "Schedule development & planning"
-      ],
-      benefits: "Accurate budgets using Procore analytics and historical data from 500+ projects. Identify cost savings early through value engineering.",
-      link: "/estimate"
+      title: "Residential Painting",
+      description: "Transform your home with expert interior and exterior painting services",
+      link: "/services/painting",
+      features: ["Color Consultation", "Premium Finishes", "Full Surface Prep", "Clean Workspace"]
     },
     {
-      icon: Building2,
-      title: "Construction Management",
-      description: "Expert oversight from groundbreaking to completion",
-      features: [
-        "CM at Risk delivery",
-        "Multi-Prime coordination",
-        "Real-time cost tracking with Procore",
-        "Schedule management & acceleration",
-        "Quality control & inspections",
-        "Stakeholder collaboration"
-      ],
-      benefits: "Proven track record managing $2M-$50M projects with zero lost-time incidents. Real-time dashboards keep clients informed.",
-      link: "/estimate"
+      title: "Commercial Painting",
+      description: "Professional painting for offices, retail, and industrial spaces",
+      link: "/services/commercial",
+      features: ["After-Hours Work", "Minimal Disruption", "Large-Scale Projects", "Fast Turnaround"]
     },
     {
-      icon: Layers,
-      title: "Design-Build & Turnkey",
-      description: "Single-source delivery for faster completion",
-      features: [
-        "Integrated design & construction",
-        "Early cost certainty",
-        "Reduced project timelines",
-        "Single point of accountability",
-        "Collaborative problem-solving",
-        "Fast-track delivery options"
-      ],
-      benefits: "20-30% faster delivery than traditional methods. Early involvement reduces change orders and maximizes budget efficiency.",
-      link: "/estimate"
-    },
-    {
-      icon: Cpu,
-      title: "Virtual Design & Construction (VDC)",
-      description: "Technology-driven precision and coordination",
-      features: [
-        "3D/4D BIM modeling",
-        "Laser scanning & as-builts",
-        "Clash detection & coordination",
-        "Digital collaboration with Autodesk Cloud",
-        "Quantity take-offs & estimating",
-        "Construction sequencing"
-      ],
-      benefits: "Minimize rework through clash detection. Coordinate MEP, structural, and architectural systems before construction starts.",
-      link: "/estimate"
-    },
-    {
-      icon: Hammer,
-      title: "General Contracting",
-      description: "Comprehensive project execution and trade coordination",
-      features: [
-        "Trade procurement & coordination",
-        "Site supervision & management",
-        "Quality assurance & testing",
-        "COR-certified safety protocols",
-        "Material procurement",
-        "Progress reporting & documentation"
-      ],
-      benefits: "Trusted relationships with 100+ trade partners. COR certification and zero lost-time incidents across 500+ projects.",
-      link: "/estimate"
-    },
-    {
-      icon: Leaf,
-      title: "Sustainable Building & LEED",
-      description: "Environmentally responsible construction",
-      features: [
-        "LEED certification support (all levels)",
-        "Energy-efficient systems design",
-        "Green material sourcing",
-        "Waste diversion programs (85% rate)",
-        "Building envelope optimization",
-        "Renewable energy integration"
-      ],
-      benefits: "LEED AP professionals guide certification. 15+ LEED projects completed with average 30% energy cost reduction.",
-      link: "/estimate"
+      title: "Condo & Multi-Unit",
+      description: "Specialized painting for property managers and condo boards",
+      link: "/services/condo",
+      features: ["Volume Pricing", "Tenant Coordination", "Board Presentations", "Phased Scheduling"]
     }
   ];
 
-  const sectors = [
+  const exteriorServices = [
     {
-      icon: Building,
-      title: "Commercial",
-      description: "Office buildings, retail spaces, mixed-use developments",
-      link: "/projects"
+      title: "Stucco & EIFS",
+      description: "Complete installation, repair, and restoration of exterior cladding systems",
+      link: "/services/stucco",
+      features: ["New Installation", "Crack Repair", "Water Damage", "Energy Efficient"]
     },
     {
-      icon: Shield,
-      title: "Institutional",
-      description: "Healthcare facilities, educational buildings, government",
-      link: "/projects"
+      title: "Metal Cladding & Panels",
+      description: "Modern building facades with architectural metal systems",
+      link: "/services/metal-cladding",
+      features: ["ACM Panels", "Standing Seam", "Rainscreen Systems", "Custom Fabrication"]
     },
     {
-      icon: Building2,
-      title: "Industrial",
-      description: "Manufacturing facilities, warehouses, distribution centers",
-      link: "/projects"
+      title: "Sealants & Caulking",
+      description: "Professional weatherproofing and building envelope protection",
+      link: "/services/sealants",
+      features: ["Waterproofing", "Air Sealing", "Joint Sealing", "Building Envelope"]
     },
     {
-      icon: Users,
-      title: "Multi-Residential",
-      description: "Condos, apartments, senior living facilities",
-      link: "/projects"
+      title: "Masonry",
+      description: "Brick, block, and stone construction and restoration services",
+      link: "/services/masonry",
+      features: ["Structural Work", "Tuckpointing", "Stone Veneer", "Chimney Repair"]
     }
   ];
+
+  const specialtyServices = [
+    {
+      title: "Parking Garage Coating",
+      description: "Heavy-duty protective coatings for parking structures",
+      link: "/services/parking-garage",
+      features: ["Traffic Coatings", "Line Striping", "Waterproofing", "Concrete Repair"]
+    },
+    {
+      title: "Suite Buildouts",
+      description: "Complete interior construction and tenant improvements",
+      link: "/services/suite-buildouts",
+      features: ["Office Buildouts", "Retail Fit-Outs", "Medical Suites", "Turnkey Solutions"]
+    },
+    {
+      title: "Tile & Flooring",
+      description: "Expert installation of tile and resilient flooring",
+      link: "/services/tile-flooring",
+      features: ["Ceramic & Porcelain", "Natural Stone", "LVT/LVP", "Commercial Grade"]
+    }
+  ];
+
+  const audiences = [
+    {
+      title: "Homeowners",
+      description: "Personalized service for your most valuable investment",
+      icon: Home,
+      link: "/for/homeowners"
+    },
+    {
+      title: "Property Managers",
+      description: "Reliable service for multi-unit properties",
+      icon: Building,
+      link: "/for/property-managers"
+    },
+    {
+      title: "Commercial Clients",
+      description: "Professional solutions for businesses",
+      icon: Briefcase,
+      link: "/for/commercial"
+    }
+  ];
+
+  const ServiceCard = ({ service }: { service: any }) => (
+    <Link to={service.link}>
+      <Card className="h-full card-hover border-2 group overflow-hidden">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-secondary transition-colors">
+            {service.title}
+          </h3>
+          <p className="text-muted-foreground mb-4 text-sm">
+            {service.description}
+          </p>
+          <ul className="space-y-2 mb-4">
+            {service.features.map((feature: string) => (
+              <li key={feature} className="flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+            Learn More <ArrowRight className="w-4 h-4" />
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
+  );
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <SEO 
-        title="Construction Management Services | Toronto & GTA"
-        description="Comprehensive construction services: preconstruction planning, CM at Risk, design-build, VDC/BIM, general contracting, and LEED-certified sustainable building. Serving commercial, institutional, and industrial sectors."
-        keywords="construction management Toronto, design-build contractor, preconstruction services, BIM coordination, LEED certified, general contractor GTA, CM at risk, virtual design construction"
+        title="Services"
+        description="Professional painting, stucco, and construction services across the GTA. Expert craftsmanship for residential and commercial projects."
+        keywords="painting services, stucco installation, EIFS, exterior painting, interior painting, commercial painting, residential construction"
       />
       <Header />
       
-      <main>
+      <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary to-primary/80 text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-full border border-secondary/30 mb-6">
-              <span className="text-secondary text-sm font-semibold uppercase tracking-wider">Full-Spectrum Services</span>
+        <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-primary/80 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-white/[0.05] pointer-events-none" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+                Professional Construction Services
+              </h1>
+              <p className="text-xl md:text-2xl opacity-90 mb-8">
+                Expert painting, exterior systems, and specialty construction for residential and commercial properties
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/estimate">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-lg px-8 py-6 shadow-lg">
+                    Get Free Estimate
+                  </Button>
+                </Link>
+                <Link to="/our-process">
+                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6">
+                    Our Process
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Construction Solutions Built for Success</h1>
-            <p className="text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
-              From preconstruction consulting to final handover, we deliver comprehensive construction services backed by technology, expertise, and 15+ years of proven results.
-            </p>
           </div>
         </section>
 
-        {/* Core Services */}
+        {/* Main Services - Tabbed View */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-4">Our Services</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Integrated construction services leveraging Procore, Autodesk Construction Cloud, and Bluebeam for transparency and efficiency
-              </p>
-            </div>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-primary mb-4">Our Services</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Browse our comprehensive range of construction services organized by specialty
+                </p>
+              </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {coreServices.map((service, index) => (
-                <Card 
-                  key={index}
-                  className="card-hover border-border/50 overflow-hidden group"
-                  style={{ animationDelay: `${index * 100}ms`, animation: 'fade-in 0.6s ease-out forwards' }}
-                >
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="w-8 h-8 text-primary" />
-                    </div>
+              <Tabs defaultValue="painting" className="w-full">
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto">
+                  <TabsTrigger value="painting" className="text-base py-4 gap-2">
+                    <Paintbrush className="w-5 h-5" />
+                    Painting Services
+                  </TabsTrigger>
+                  <TabsTrigger value="exterior" className="text-base py-4 gap-2">
+                    <Building2 className="w-5 h-5" />
+                    Exterior Systems
+                  </TabsTrigger>
+                  <TabsTrigger value="specialty" className="text-base py-4 gap-2">
+                    <Wrench className="w-5 h-5" />
+                    Specialty Services
+                  </TabsTrigger>
+                </TabsList>
 
-                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
+                <TabsContent value="painting" className="mt-0">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {paintingServices.map((service) => (
+                      <ServiceCard key={service.title} service={service} />
+                    ))}
+                  </div>
+                </TabsContent>
 
-                    <ul className="space-y-2 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm">
-                          <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <TabsContent value="exterior" className="mt-0">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {exteriorServices.map((service) => (
+                      <ServiceCard key={service.title} service={service} />
+                    ))}
+                  </div>
+                </TabsContent>
 
-                    <div className="p-4 bg-secondary/5 rounded-lg mb-6">
-                      <p className="text-sm text-muted-foreground italic">
-                        <strong className="text-primary font-semibold">Why it matters:</strong> {service.benefits}
-                      </p>
-                    </div>
-
-                    <Link to={service.link}>
-                      <Button variant="outline" className="w-full group/btn">
-                        Request Consultation
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
+                <TabsContent value="specialty" className="mt-0">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {specialtyServices.map((service) => (
+                      <ServiceCard key={service.title} service={service} />
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </section>
 
-        {/* Sectors We Serve */}
+        {/* Who We Serve */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-4">Sectors We Serve</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Diverse experience across commercial, institutional, industrial, and multi-residential projects
-              </p>
-            </div>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-primary mb-4">Who We Serve</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Tailored solutions for every type of client
+                </p>
+              </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {sectors.map((sector, index) => (
-                <Card 
-                  key={index}
-                  className="card-hover text-center group"
-                  style={{ animationDelay: `${index * 100}ms`, animation: 'fade-in 0.6s ease-out forwards' }}
-                >
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <sector.icon className="w-8 h-8 text-secondary" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{sector.title}</h3>
-                    <p className="text-sm text-muted-foreground">{sector.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+              <div className="grid md:grid-cols-3 gap-8">
+                {audiences.map((audience, index) => (
+                  <Link key={audience.title} to={audience.link}>
+                    <Card className="p-8 h-full card-hover border-2 group text-center"
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        opacity: 0,
+                        animation: 'slide-up 0.6s ease-out forwards'
+                      }}
+                    >
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                        <audience.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-primary group-hover:text-secondary transition-colors">
+                        {audience.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4">
+                        {audience.description}
+                      </p>
+                      <div className="flex items-center justify-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                        Learn More <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Technology & Tools */}
+        {/* Why Choose Us */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="section-title mb-6">Technology-Driven Excellence</h2>
-              <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-                We leverage industry-leading platforms to deliver transparency, collaboration, and efficiency on every project
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl border border-border/50">
-                  <h3 className="font-bold text-xl mb-3 text-primary">Procore</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Real-time project management, cost tracking, document control, and RFI workflows
-                  </p>
-                </div>
-                <div className="p-6 bg-gradient-to-br from-secondary/5 to-transparent rounded-2xl border border-border/50">
-                  <h3 className="font-bold text-xl mb-3 text-secondary">Autodesk Construction Cloud</h3>
-                  <p className="text-sm text-muted-foreground">
-                    BIM coordination, model management, clash detection, and design collaboration
-                  </p>
-                </div>
-                <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl border border-border/50">
-                  <h3 className="font-bold text-xl mb-3 text-primary">Bluebeam</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Digital markups, take-offs, submittal management, and document coordination
-                  </p>
-                </div>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-primary mb-4">The Ascent Advantage</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  What sets us apart from the competition
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: Shield,
+                    title: "Licensed & Insured",
+                    description: "Full licensing, WSIB coverage, and comprehensive liability insurance"
+                  },
+                  {
+                    icon: CheckCircle2,
+                    title: "Quality Materials",
+                    description: "Premium brands like Benjamin Moore and Sherwin-Williams"
+                  },
+                  {
+                    icon: Users,
+                    title: "Experienced Team",
+                    description: "15+ years of expertise with certified professionals"
+                  },
+                  {
+                    icon: Building2,
+                    title: "Project Management",
+                    description: "Dedicated coordinator for every project from start to finish"
+                  },
+                  {
+                    icon: CheckCircle2,
+                    title: "Transparent Pricing",
+                    description: "Clear estimates with detailed breakdowns and no hidden fees"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Warranty Backed",
+                    description: "Comprehensive workmanship warranty on all projects"
+                  }
+                ].map((advantage, index) => (
+                  <Card
+                    key={advantage.title}
+                    className="p-6 card-hover border-2"
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                      opacity: 0,
+                      animation: 'slide-up 0.6s ease-out forwards'
+                    }}
+                  >
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <advantage.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 text-primary">
+                      {advantage.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{advantage.description}</p>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>
@@ -286,23 +337,26 @@ const Services = () => {
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-primary to-primary/80 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6">Let's Build Something Exceptional</h2>
-            <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-              Schedule a consultation to discuss your construction project. We'll provide transparent budgeting, realistic timelines, and expert guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/estimate">
-                <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-primary px-10 py-6 text-lg font-semibold rounded-2xl shadow-2xl">
-                  Request Consultation
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
-              <Link to="/projects">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm">
-                  View Our Work
-                </Button>
-              </Link>
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-xl opacity-90 mb-10">
+                Get a free, detailed estimate with no obligation
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/estimate">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-lg px-10 py-6 shadow-lg">
+                    Request Free Estimate
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-6">
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

@@ -1,40 +1,7 @@
 project_id = "wiksprbjwvifckfmlndh"
 
-[functions.notify-quote]
-verify_jwt = false
-
 [functions.submit-contact]
 verify_jwt = false
 
 [functions.submit-estimate]
-verify_jwt = false
-
-[functions.subscribe-newsletter]
-verify_jwt = false
-
-[functions.articles-crud]
-verify_jwt = true
-
-[functions.articles-publish]
-verify_jwt = true
-
-[functions.projects-crud]
-verify_jwt = true
-
-[functions.media-presign]
-verify_jwt = true
-
-[functions.media-crud]
-verify_jwt = true
-
-[functions.services-crud]
-verify_jwt = true
-
-[functions.articles-public]
-verify_jwt = false
-
-[functions.projects-public]
-verify_jwt = false
-
-[functions.services-public]
 verify_jwt = false

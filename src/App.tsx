@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingFallback from "@/components/LoadingFallback";
 import SkipToContent from "@/components/SkipToContent";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import SplashOverlay from "@/components/SplashOverlay";
 
 // Only run PerformanceMonitor in development
 const PerformanceMonitor = import.meta.env.DEV
@@ -21,9 +20,6 @@ const Services = lazy(() => import("./pages/Services"));
 const OurProcess = lazy(() => import("./pages/OurProcess"));
 const Projects = lazy(() => import("./pages/Projects"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const Sustainability = lazy(() => import("./pages/Sustainability"));
-const Careers = lazy(() => import("./pages/Careers"));
-const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -44,100 +40,60 @@ const PropertyManagers = lazy(() => import("./pages/audience/PropertyManagers"))
 const CommercialClients = lazy(() => import("./pages/audience/CommercialClients"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Login = lazy(() => import("./pages/admin/Login"));
-const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
-const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
-const AdminMaterials = lazy(() => import("./pages/admin/Materials"));
-const AdminUsers = lazy(() => import("./pages/admin/Users"));
-const AdminTest = lazy(() => import("./pages/admin/AdminTest"));
-const Articles = lazy(() => import("./pages/admin/Articles"));
-const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
-const AdminProjects = lazy(() => import("./pages/admin/Projects"));
-const ProjectEditor = lazy(() => import("./pages/admin/ProjectEditor"));
-const AdminServices = lazy(() => import("./pages/admin/Services"));
-const AuditLog = lazy(() => import("./pages/admin/AuditLog"));
-const AdminSettings = lazy(() => import("./pages/admin/Settings"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
 const MaterialSelector = lazy(() => import("./pages/MaterialSelector"));
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  const handleSplashComplete = () => {
-    console.log('Splash animation completed');
-  };
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-      <SplashOverlay 
-        waitImages={['/assets/hero-poster.jpg']} 
-        onlyFirstVisit={true} 
-        maxWait={3500}
-        onFinish={handleSplashComplete}
-      />
-        
-        {PerformanceMonitor && (
-          <Suspense fallback={null}>
-            <PerformanceMonitor />
-          </Suspense>
-        )}
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <SkipToContent />
-          <ErrorBoundary>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/our-process" element={<OurProcess />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/services/painting" element={<ResidentialPainting />} />
-                <Route path="/services/stucco" element={<StuccoEIFS />} />
-                <Route path="/services/commercial" element={<CommercialPainting />} />
-                <Route path="/services/parking-garage" element={<ParkingGarage />} />
-                <Route path="/services/condo" element={<CondoPainting />} />
-                <Route path="/services/suite-buildouts" element={<SuiteBuildouts />} />
-                <Route path="/services/sealants" element={<Sealants />} />
-                <Route path="/services/masonry" element={<Masonry />} />
-                <Route path="/services/tile-flooring" element={<TileFlooring />} />
-                <Route path="/services/metal-cladding" element={<MetalCladding />} />
-                <Route path="/for/homeowners" element={<Homeowners />} />
-                <Route path="/for/property-managers" element={<PropertyManagers />} />
-                <Route path="/for/commercial" element={<CommercialClients />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:id" element={<CaseStudy />} />
-                <Route path="/sustainability" element={<Sustainability />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/resources/material-selector" element={<MaterialSelector />} />
-                <Route path="/estimate" element={<Estimate />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/admin/login" element={<Login />} />
-                <Route path="/admin/test" element={<AdminTest />} />
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<AdminDashboard />} />
-                  <Route path="articles" element={<Articles />} />
-                  <Route path="projects" element={<AdminProjects />} />
-                  <Route path="projects/new" element={<ProjectEditor />} />
-                  <Route path="projects/:id/edit" element={<ProjectEditor />} />
-                  <Route path="services" element={<AdminServices />} />
-                  <Route path="media" element={<MediaLibrary />} />
-                  <Route path="materials" element={<AdminMaterials />} />
-                  <Route path="users" element={<AdminUsers />} />
-                  <Route path="audit" element={<AuditLog />} />
-                  <Route path="settings" element={<AdminSettings />} />
-                </Route>
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </ErrorBoundary>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      {PerformanceMonitor && (
+        <Suspense fallback={null}>
+          <PerformanceMonitor />
+        </Suspense>
+      )}
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <SkipToContent />
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/our-process" element={<OurProcess />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/painting" element={<ResidentialPainting />} />
+            <Route path="/services/stucco" element={<StuccoEIFS />} />
+            <Route path="/services/commercial" element={<CommercialPainting />} />
+            <Route path="/services/parking-garage" element={<ParkingGarage />} />
+            <Route path="/services/condo" element={<CondoPainting />} />
+            <Route path="/services/suite-buildouts" element={<SuiteBuildouts />} />
+            <Route path="/services/sealants" element={<Sealants />} />
+            <Route path="/services/masonry" element={<Masonry />} />
+            <Route path="/services/tile-flooring" element={<TileFlooring />} />
+            <Route path="/services/metal-cladding" element={<MetalCladding />} />
+            <Route path="/for/homeowners" element={<Homeowners />} />
+            <Route path="/for/property-managers" element={<PropertyManagers />} />
+            <Route path="/for/commercial" element={<CommercialClients />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<CaseStudy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/material-selector" element={<MaterialSelector />} />
+            <Route path="/estimate" element={<Estimate />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        </ErrorBoundary>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

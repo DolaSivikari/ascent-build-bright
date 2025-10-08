@@ -13,7 +13,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 export default function MaterialSelector() {
-  const { data: materials, isLoading, isError, error, refetch } = useMaterials();
+  const { data: materials, isLoading } = useMaterials();
   
   // Check for demo mode via URL parameter
   const [isDemoMode, setIsDemoMode] = useState(false);
@@ -86,27 +86,6 @@ export default function MaterialSelector() {
       <div className="flex items-center justify-center min-h-[400px]">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
         <span className="ml-3 text-muted-foreground">Loading materials...</span>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-        <div className="text-center space-y-2">
-          <h3 className="text-xl font-semibold text-destructive">Unable to Load Materials</h3>
-          <p className="text-muted-foreground max-w-md">
-            {error instanceof Error ? error.message : 'Failed to load materials. Please try again.'}
-          </p>
-        </div>
-        <div className="flex gap-3">
-          <Button onClick={() => refetch()} variant="default">
-            Retry
-          </Button>
-          <Button asChild variant="outline">
-            <a href="/contact">Contact Support</a>
-          </Button>
-        </div>
       </div>
     );
   }

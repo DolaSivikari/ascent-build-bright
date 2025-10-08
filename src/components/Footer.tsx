@@ -18,7 +18,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm opacity-90 mb-6">
-              Construction management and design-build services across Toronto and the GTA. COR-certified, LEED-accredited, delivering excellence since 2009.
+              Serving homeowners across the GTA with trusted, professional painting and Stucco services. Licensed, insured, and locally proud.
             </p>
             <div className="flex gap-4 touch-group">
               <a
@@ -55,23 +55,23 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services#construction-management" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
-                  Construction Management
+                <Link to="/services/painting" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
+                  Residential Painting
                 </Link>
               </li>
               <li>
-                <Link to="/services#design-build" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
-                  Design-Build
+                <Link to="/services/stucco" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
+                  Stucco / EIFS
                 </Link>
               </li>
               <li>
-                <Link to="/services#preconstruction" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
-                  Preconstruction
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-secondary transition-all">
+                <Link to="/services" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
                   All Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/estimate" className="text-sm opacity-90 hover:opacity-100 hover:text-[hsl(48_100%_35%)] transition-all">
+                  Get an Estimate
                 </Link>
               </li>
             </ul>
@@ -114,8 +114,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 opacity-80" />
                 <span className="text-sm opacity-90">
-                  Toronto, Ontario<br />
-                  Serving the GTA
+                  123 Construction Way<br />
+                  Mississauga, ON L5B 1M5
                 </span>
               </li>
               <li className="flex items-center gap-3">

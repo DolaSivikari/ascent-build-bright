@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Moon, Sun } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import ascentLogo from "@/assets/ascent-logo.png";
-import { trackEvent } from "@/lib/analytics";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -32,35 +30,14 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    if (newMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
-
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
+    { to: "/our-process", label: "Our Process" },
     { to: "/services", label: "Services" },
     { to: "/projects", label: "Projects" },
-    { to: "/case-studies", label: "Case Studies" },
-    { to: "/sustainability", label: "Sustainability" },
-    { to: "/careers", label: "Careers" },
-    { to: "/blog", label: "Insights" },
+    { to: "/blog", label: "Blog" },
+    { to: "/resources", label: "Resources" },
     { to: "/contact", label: "Contact" },
   ];
 
@@ -103,8 +80,8 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation & Dark Mode */}
-            <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
@@ -124,20 +101,10 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Dark Mode Toggle - Desktop */}
-            <button
-              onClick={toggleDarkMode}
-              className="hidden lg:flex p-2 rounded-md hover:bg-accent/10 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
-            <a
-                href="tel:+14165550100"
-                onClick={() => trackEvent('phone_click', { location: 'header' })}
+              <a
+                href="tel:+19055550100"
                 className="flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-primary transition-all duration-300 group"
               >
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -145,7 +112,7 @@ const Header = () => {
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-muted-foreground">Call Now</div>
-                  <div className="font-bold text-sm">(416) 555-0100</div>
+                  <div className="font-bold text-sm">(905) 555-0100</div>
                 </div>
               </a>
               <Link to="/estimate">
@@ -154,15 +121,6 @@ const Header = () => {
                 </Button>
               </Link>
             </div>
-
-            {/* Dark Mode Toggle - Mobile */}
-            <button
-              onClick={toggleDarkMode}
-              className="lg:hidden p-2 rounded-md hover:bg-accent/10 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
 
             {/* Mobile Menu Button */}
             <button
@@ -214,13 +172,13 @@ const Header = () => {
               
               <div className="pt-4 space-y-3">
                 <a
-                  href="tel:+14165550100"
+                  href="tel:+19055550100"
                   className="flex items-center gap-3 px-4 py-3 bg-primary/10 rounded-lg text-primary hover:bg-primary/20 transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <div>
                     <div className="text-xs opacity-80">Call Now</div>
-                    <div className="font-bold">(416) 555-0100</div>
+                    <div className="font-bold">(905) 555-0100</div>
                   </div>
                 </a>
                 
