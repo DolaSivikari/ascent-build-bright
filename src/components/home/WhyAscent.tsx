@@ -1,21 +1,12 @@
-import { Award, Users, Sparkles } from "lucide-react";
+import { Award, Shield, Cpu, Handshake, Leaf, Lightbulb } from "lucide-react";
 
 const values = [
-  {
-    icon: Award,
-    title: "Quality Craftsmanship",
-    description: "Premium materials and expert techniques ensure lasting results that exceed expectations.",
-  },
-  {
-    icon: Users,
-    title: "Community First",
-    description: "Local team dedicated to building trust and relationships throughout the GTA.",
-  },
-  {
-    icon: Sparkles,
-    title: "Tech-Led Innovation",
-    description: "Modern scheduling, transparent estimates, and cutting-edge materials for your project.",
-  },
+  { icon: Award, title: "Excellence in Execution", description: "Every project receives the same commitment to quality, precision, and craftsmanship." },
+  { icon: Shield, title: "Safety First, Always", description: "500+ projects with zero lost-time incidents. COR-certified safety protocols on every site." },
+  { icon: Cpu, title: "Innovation & Technology", description: "Autodesk Construction Cloud, Bluebeam, and BIM coordination reduce rework and improve accuracy." },
+  { icon: Handshake, title: "Client Partnership", description: "Collaborative approach with clients, architects, and trades ensures your vision becomes reality." },
+  { icon: Leaf, title: "Sustainable Building", description: "LEED-certified expertise and sustainable practices deliver long-term value." },
+  { icon: Lightbulb, title: "Transparent Communication", description: "Real-time insights via Procore and shared dashboards—no surprises, just collaboration." }
 ];
 
 const WhyAscent = () => {
@@ -33,7 +24,7 @@ const WhyAscent = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {values.map((value, index) => (
             <div
               key={value.title}

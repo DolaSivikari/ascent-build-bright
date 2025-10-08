@@ -169,6 +169,164 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_posts: {
+        Row: {
+          author_id: string | null
+          category: string
+          content: string
+          created_at: string
+          excerpt: string | null
+          featured: boolean | null
+          featured_image_url: string | null
+          id: string
+          published_at: string | null
+          read_time: number | null
+          slug: string
+          status: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          category: string
+          content: string
+          created_at?: string
+          excerpt?: string | null
+          featured?: boolean | null
+          featured_image_url?: string | null
+          id?: string
+          published_at?: string | null
+          read_time?: number | null
+          slug: string
+          status?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          category?: string
+          content?: string
+          created_at?: string
+          excerpt?: string | null
+          featured?: boolean | null
+          featured_image_url?: string | null
+          id?: string
+          published_at?: string | null
+          read_time?: number | null
+          slug?: string
+          status?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      case_studies: {
+        Row: {
+          after_image_url: string | null
+          before_image_url: string | null
+          budget_range: string | null
+          challenge: string
+          client_name: string | null
+          created_at: string
+          duration_months: number | null
+          featured: boolean | null
+          featured_image_url: string | null
+          gallery_urls: string[] | null
+          id: string
+          location: string | null
+          materials_used: string[] | null
+          project_type: string
+          published_at: string | null
+          results: string
+          sector: string | null
+          services_provided: string[] | null
+          slug: string
+          solution: string
+          square_footage: number | null
+          status: string
+          technologies_used: string[] | null
+          testimonial_author: string | null
+          testimonial_role: string | null
+          testimonial_text: string | null
+          title: string
+          updated_at: string
+          year: number | null
+        }
+        Insert: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          budget_range?: string | null
+          challenge: string
+          client_name?: string | null
+          created_at?: string
+          duration_months?: number | null
+          featured?: boolean | null
+          featured_image_url?: string | null
+          gallery_urls?: string[] | null
+          id?: string
+          location?: string | null
+          materials_used?: string[] | null
+          project_type: string
+          published_at?: string | null
+          results: string
+          sector?: string | null
+          services_provided?: string[] | null
+          slug: string
+          solution: string
+          square_footage?: number | null
+          status?: string
+          technologies_used?: string[] | null
+          testimonial_author?: string | null
+          testimonial_role?: string | null
+          testimonial_text?: string | null
+          title: string
+          updated_at?: string
+          year?: number | null
+        }
+        Update: {
+          after_image_url?: string | null
+          before_image_url?: string | null
+          budget_range?: string | null
+          challenge?: string
+          client_name?: string | null
+          created_at?: string
+          duration_months?: number | null
+          featured?: boolean | null
+          featured_image_url?: string | null
+          gallery_urls?: string[] | null
+          id?: string
+          location?: string | null
+          materials_used?: string[] | null
+          project_type?: string
+          published_at?: string | null
+          results?: string
+          sector?: string | null
+          services_provided?: string[] | null
+          slug?: string
+          solution?: string
+          square_footage?: number | null
+          status?: string
+          technologies_used?: string[] | null
+          testimonial_author?: string | null
+          testimonial_role?: string | null
+          testimonial_text?: string | null
+          title?: string
+          updated_at?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
@@ -307,6 +465,140 @@ export type Database = {
           last_submission?: string
           submission_count?: number
           window_start?: string
+        }
+        Relationships: []
+      }
+      industry_insights: {
+        Row: {
+          author_id: string | null
+          category: string
+          content: string | null
+          created_at: string
+          download_count: number | null
+          excerpt: string | null
+          external_url: string | null
+          featured: boolean | null
+          id: string
+          pdf_url: string | null
+          published_at: string | null
+          slug: string
+          status: string
+          tags: string[] | null
+          thumbnail_url: string | null
+          title: string
+          type: string
+          updated_at: string
+          view_count: number | null
+        }
+        Insert: {
+          author_id?: string | null
+          category: string
+          content?: string | null
+          created_at?: string
+          download_count?: number | null
+          excerpt?: string | null
+          external_url?: string | null
+          featured?: boolean | null
+          id?: string
+          pdf_url?: string | null
+          published_at?: string | null
+          slug: string
+          status?: string
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title: string
+          type: string
+          updated_at?: string
+          view_count?: number | null
+        }
+        Update: {
+          author_id?: string | null
+          category?: string
+          content?: string | null
+          created_at?: string
+          download_count?: number | null
+          excerpt?: string | null
+          external_url?: string | null
+          featured?: boolean | null
+          id?: string
+          pdf_url?: string | null
+          published_at?: string | null
+          slug?: string
+          status?: string
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title?: string
+          type?: string
+          updated_at?: string
+          view_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "industry_insights_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      job_postings: {
+        Row: {
+          benefits: string[] | null
+          closes_at: string | null
+          created_at: string
+          department: string
+          description: string
+          employment_type: string
+          experience_level: string
+          id: string
+          location: string
+          posted_at: string | null
+          requirements: string[] | null
+          responsibilities: string[] | null
+          salary_range: string | null
+          slug: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          benefits?: string[] | null
+          closes_at?: string | null
+          created_at?: string
+          department: string
+          description: string
+          employment_type: string
+          experience_level: string
+          id?: string
+          location: string
+          posted_at?: string | null
+          requirements?: string[] | null
+          responsibilities?: string[] | null
+          salary_range?: string | null
+          slug: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          benefits?: string[] | null
+          closes_at?: string | null
+          created_at?: string
+          department?: string
+          description?: string
+          employment_type?: string
+          experience_level?: string
+          id?: string
+          location?: string
+          posted_at?: string | null
+          requirements?: string[] | null
+          responsibilities?: string[] | null
+          salary_range?: string | null
+          slug?: string
+          status?: string
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -708,6 +1000,156 @@ export type Database = {
           source_variant?: string | null
           user_agent?: string | null
           utm?: Json | null
+        }
+        Relationships: []
+      }
+      resume_submissions: {
+        Row: {
+          cover_letter: string | null
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          ip_address: string | null
+          job_posting_id: string | null
+          last_name: string
+          linkedin_url: string | null
+          notes: string | null
+          phone: string | null
+          portfolio_url: string | null
+          resume_url: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          user_agent: string | null
+          years_experience: number | null
+        }
+        Insert: {
+          cover_letter?: string | null
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          ip_address?: string | null
+          job_posting_id?: string | null
+          last_name: string
+          linkedin_url?: string | null
+          notes?: string | null
+          phone?: string | null
+          portfolio_url?: string | null
+          resume_url: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          user_agent?: string | null
+          years_experience?: number | null
+        }
+        Update: {
+          cover_letter?: string | null
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          ip_address?: string | null
+          job_posting_id?: string | null
+          last_name?: string
+          linkedin_url?: string | null
+          notes?: string | null
+          phone?: string | null
+          portfolio_url?: string | null
+          resume_url?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          user_agent?: string | null
+          years_experience?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "resume_submissions_job_posting_id_fkey"
+            columns: ["job_posting_id"]
+            isOneToOne: false
+            referencedRelation: "job_postings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "resume_submissions_reviewed_by_fkey"
+            columns: ["reviewed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      service_categories: {
+        Row: {
+          benefits: Json | null
+          created_at: string
+          cta_link: string | null
+          cta_text: string | null
+          description: string
+          display_order: number | null
+          faq: Json | null
+          featured_image_url: string | null
+          features: Json | null
+          icon_name: string | null
+          id: string
+          is_active: boolean | null
+          overview: string | null
+          pricing_info: string | null
+          process_steps: Json | null
+          related_case_studies: string[] | null
+          related_services: string[] | null
+          slug: string
+          subtitle: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          benefits?: Json | null
+          created_at?: string
+          cta_link?: string | null
+          cta_text?: string | null
+          description: string
+          display_order?: number | null
+          faq?: Json | null
+          featured_image_url?: string | null
+          features?: Json | null
+          icon_name?: string | null
+          id?: string
+          is_active?: boolean | null
+          overview?: string | null
+          pricing_info?: string | null
+          process_steps?: Json | null
+          related_case_studies?: string[] | null
+          related_services?: string[] | null
+          slug: string
+          subtitle?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          benefits?: Json | null
+          created_at?: string
+          cta_link?: string | null
+          cta_text?: string | null
+          description?: string
+          display_order?: number | null
+          faq?: Json | null
+          featured_image_url?: string | null
+          features?: Json | null
+          icon_name?: string | null
+          id?: string
+          is_active?: boolean | null
+          overview?: string | null
+          pricing_info?: string | null
+          process_steps?: Json | null
+          related_case_studies?: string[] | null
+          related_services?: string[] | null
+          slug?: string
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }

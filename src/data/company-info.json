@@ -1,118 +1,142 @@
 {
+  "company": {
+    "name": "Ascent Group Construction",
+    "tagline": "Building Excellence, Delivering Trust",
+    "founded": 2009,
+    "employees": "50+",
+    "projectsCompleted": "500+",
+    "yearsOfExperience": 15,
+    "missionStatement": "We combine Canadian craftsmanship with cutting-edge technology to deliver construction projects that exceed expectations. From small renovations to large-scale developments, we bring integrity, innovation, and expertise to every build.",
+    "vision": "To be Canada's most trusted construction-management partner, known for delivering complex projects on time, on budget, and with exceptional quality."
+  },
   "team": [
     {
       "id": "john-martinez",
       "name": "John Martinez",
       "role": "Founder & CEO",
       "image": "/src/assets/team-john-martinez.jpg",
-      "bio": "With over 20 years in construction and project management, John founded Ascent Group in 2009 with a vision to deliver exceptional craftsmanship across the GTA. His commitment to quality and customer satisfaction has built our reputation as a trusted contractor.",
-      "expertise": ["Project Management", "Client Relations", "Business Strategy"],
-      "certifications": ["Licensed Contractor", "OSHA Certified"]
+      "bio": "With over 25 years in construction management and a portfolio spanning commercial, institutional, and industrial projects, John founded Ascent Group in 2009. His vision: to combine the trusted practices of Canada's leading builders with modern technology and client-first service. Under his leadership, Ascent has delivered over 500 projects across the GTA.",
+      "expertise": ["Construction Management", "Client Relations", "Strategic Planning", "Risk Management"],
+      "certifications": ["Licensed General Contractor (Ontario)", "LEED AP", "PMP Certified"]
     },
     {
       "id": "sarah-chen",
-      "name": "Sarah Chen",
-      "role": "Operations Manager",
+      "name": "Sarah Chen, P.Eng.",
+      "role": "Director of Engineering",
       "image": "/src/assets/team-sarah-chen.jpg",
-      "bio": "Sarah brings 15 years of operational excellence to Ascent Group. She ensures every project runs smoothly, on time, and within budget while maintaining our high standards of quality and safety.",
-      "expertise": ["Operations Management", "Quality Control", "Team Coordination"],
-      "certifications": ["PMP Certified", "Six Sigma Green Belt"]
+      "bio": "Sarah brings 18 years of structural and civil engineering expertise to Ascent Group. She leads our preconstruction and VDC teams, leveraging Autodesk Construction Cloud and Bluebeam to optimize project delivery. Her innovative approach has reduced rework by 40% across our portfolio.",
+      "expertise": ["Structural Engineering", "Virtual Design & Construction", "BIM Coordination", "Value Engineering"],
+      "certifications": ["Professional Engineer (P.Eng.)", "LEED AP BD+C", "Certified Construction Manager"]
     },
     {
       "id": "michael-thompson",
       "name": "Michael Thompson",
-      "role": "Lead Painter",
+      "role": "Operations Manager",
       "image": "/src/assets/team-michael-thompson.jpg",
-      "bio": "A master craftsman with 18 years of painting experience, Michael leads our painting division with precision and expertise. His attention to detail and knowledge of advanced techniques ensures flawless finishes.",
-      "expertise": ["Interior Painting", "Exterior Coatings", "Color Consultation"],
-      "certifications": ["Benjamin Moore Authorized", "Sherwin-Williams Certified"]
+      "bio": "Michael oversees day-to-day operations across all active job sites, ensuring quality, safety, and schedule adherence. With 20 years in field supervision and site management, he's built a reputation for running tight, efficient projects. His teams consistently achieve zero lost-time incidents.",
+      "expertise": ["Site Supervision", "Quality Control", "Schedule Management", "Team Leadership"],
+      "certifications": ["Gold Seal Certified", "COR Certified", "OSHA 30-Hour"]
     },
     {
       "id": "david-kowalski",
       "name": "David Kowalski",
-      "role": "Stucco & EIFS Specialist",
+      "role": "Preconstruction Manager",
       "image": "/src/assets/team-david-kowalski.jpg",
-      "bio": "David is our go-to expert for all stucco and EIFS installations. With 16 years specializing in exterior systems, he combines traditional techniques with modern materials for lasting results.",
-      "expertise": ["EIFS Installation", "Stucco Repair", "Waterproofing"],
-      "certifications": ["CertainTeed Certified", "EIFS Industry Accredited"]
+      "bio": "David leads our estimating, budgeting, and scheduling teams. His accurate cost projections and value-engineering insights have saved clients millions. He specializes in CM at Risk and Design-Build delivery, ensuring projects start on solid financial footing.",
+      "expertise": ["Cost Estimation", "Budgeting", "Scheduling", "Value Engineering", "Bid Management"],
+      "certifications": ["Certified Professional Estimator", "LEED Green Associate"]
     },
     {
       "id": "jennifer-lee",
       "name": "Jennifer Lee",
-      "role": "Customer Success Manager",
+      "role": "Client Success Manager",
       "image": "/src/assets/team-jennifer-lee.jpg",
-      "bio": "Jennifer ensures every client has an exceptional experience from first contact to project completion. Her dedication to communication and satisfaction has earned us countless referrals.",
-      "expertise": ["Customer Relations", "Project Coordination", "Quality Assurance"],
-      "certifications": ["Customer Success Professional"]
+      "bio": "Jennifer ensures every client receives exceptional service from initial consultation through project closeout. Her proactive communication and problem-solving have earned Ascent a 98% client satisfaction rating and countless referrals.",
+      "expertise": ["Client Relations", "Project Coordination", "Stakeholder Management", "Quality Assurance"],
+      "certifications": ["Customer Success Professional", "Six Sigma Green Belt"]
     },
     {
       "id": "robert-garcia",
       "name": "Robert Garcia",
-      "role": "Safety Coordinator",
+      "role": "Health & Safety Coordinator",
       "image": "/src/assets/team-robert-garcia.jpg",
-      "bio": "Robert's primary focus is keeping our team and your property safe. With 12 years in construction safety, he implements and monitors protocols that exceed industry standards.",
-      "expertise": ["Safety Management", "Risk Assessment", "Compliance"],
-      "certifications": ["OSHA 30-Hour", "First Aid/CPR", "Fall Protection"]
+      "bio": "Robert's primary focus is keeping our teams and your property safe. With 15 years in construction safety and risk management, he implements protocols that exceed industry standards. His leadership has helped Ascent achieve 500+ projects with zero lost-time incidents.",
+      "expertise": ["Safety Management", "Risk Assessment", "WSIB Compliance", "Emergency Preparedness"],
+      "certifications": ["Canadian Registered Safety Professional (CRSP)", "COR Auditor", "First Aid/CPR"]
     }
   ],
   "values": [
     {
-      "title": "Quality First",
-      "description": "We never compromise on quality. From materials to workmanship, we deliver excellence in every detail.",
+      "title": "Excellence in Execution",
+      "description": "We deliver on our promises. Every project—no matter the size—receives the same commitment to quality, precision, and craftsmanship.",
       "icon": "award"
     },
     {
       "title": "Transparent Communication",
-      "description": "Clear, honest communication throughout your project. No surprises, just straightforward updates.",
+      "description": "Clear, honest updates at every stage. No surprises, just straightforward collaboration with real-time insights via Procore and shared dashboards.",
       "icon": "message-circle"
     },
     {
-      "title": "Safety Above All",
-      "description": "Comprehensive safety protocols protect our team and your property on every job site.",
+      "title": "Safety First, Always",
+      "description": "500+ projects with zero lost-time incidents. Comprehensive safety protocols protect our teams and your property on every job site.",
       "icon": "shield"
     },
     {
-      "title": "Customer Satisfaction",
-      "description": "Your satisfaction is our success. We're not done until you're completely happy with the results.",
-      "icon": "heart"
+      "title": "Innovation & Technology",
+      "description": "We leverage Autodesk Construction Cloud, Bluebeam, and BIM coordination to reduce rework, improve accuracy, and deliver projects faster.",
+      "icon": "lightbulb"
+    },
+    {
+      "title": "Client Partnership",
+      "description": "Your success is our success. We collaborate closely with clients, architects, and trades to ensure your vision becomes reality—on time and on budget.",
+      "icon": "handshake"
+    },
+    {
+      "title": "Sustainable Building",
+      "description": "LEED-certified expertise and sustainable practices that reduce environmental impact while delivering long-term value for your investment.",
+      "icon": "leaf"
     }
   ],
   "sustainability": {
-    "commitment": "At Ascent Group, we're committed to sustainable practices that protect our environment while delivering exceptional results.",
+    "commitment": "At Ascent Group Construction, we're committed to sustainable building practices that protect our environment while delivering exceptional long-term value.",
     "initiatives": [
       {
-        "title": "Low-VOC Materials",
-        "description": "We prioritize low and zero-VOC paints and coatings to improve indoor air quality and reduce environmental impact.",
-        "impact": "Reduced harmful emissions by 80% compared to traditional paints"
+        "title": "LEED & Green Certification",
+        "description": "Our team includes LEED Accredited Professionals who guide projects through sustainable design, energy-efficient systems, and green material selection.",
+        "impact": "15+ LEED-certified projects completed"
       },
       {
-        "title": "Waste Reduction",
-        "description": "Comprehensive recycling program for paint cans, materials, and job site waste. Unused paint donated to community programs.",
-        "impact": "Diverted 85% of job site waste from landfills in 2023"
+        "title": "Waste Diversion & Recycling",
+        "description": "Comprehensive job-site recycling programs for concrete, metal, wood, and drywall. Partnerships with local recyclers minimize landfill waste.",
+        "impact": "85% waste diversion rate across all projects"
       },
       {
-        "title": "Energy-Efficient Solutions",
-        "description": "Reflective coatings and insulation systems that reduce heating and cooling costs for our clients.",
-        "impact": "Average 15-20% energy cost reduction for clients"
+        "title": "Energy-Efficient Systems",
+        "description": "High-performance building envelopes, advanced HVAC systems, and renewable energy integration reduce operational costs and carbon footprint.",
+        "impact": "Average 30% energy cost reduction for clients"
+      },
+      {
+        "title": "Local & Sustainable Sourcing",
+        "description": "Partner with local suppliers and specify materials with recycled content, low embodied carbon, and third-party sustainability certifications.",
+        "impact": "70% of materials sourced within 200km"
       },
       {
         "title": "Water Conservation",
-        "description": "Water-based products and efficient cleanup processes minimize water usage and contamination.",
-        "impact": "30% reduction in water usage per project"
-      },
-      {
-        "title": "Local Sourcing",
-        "description": "Partner with local suppliers to reduce transportation emissions and support our community.",
-        "impact": "75% of materials sourced within 100km"
+        "description": "Low-flow fixtures, rainwater harvesting systems, and efficient irrigation reduce water consumption across commercial and institutional projects.",
+        "impact": "40% reduction in water usage vs. baseline"
       }
     ]
   },
   "safety": {
-    "commitment": "Safety isn't just a priority—it's our core value. Every team member goes home safe, every day.",
+    "commitment": "Safety isn't just a priority—it's our core value. Every team member goes home safe, every day. Our industry-leading safety record speaks for itself.",
     "programs": [
       {
         "title": "Daily Safety Briefings",
-        "description": "Every project starts with a comprehensive safety meeting covering hazards, protocols, and emergency procedures."
+        "description": "Every project starts with a comprehensive safety meeting covering site-specific hazards, protocols, and emergency procedures."
+      },
+      {
+        "title": "COR Certification",
+        "description": "Certificate of Recognition (COR) certified, demonstrating our commitment to health and safety excellence and WSIB compliance."
       },
       {
         "title": "Ongoing Training",
@@ -120,32 +144,73 @@
       },
       {
         "title": "Personal Protective Equipment",
-        "description": "All team members equipped with appropriate PPE for their specific tasks, inspected regularly for compliance."
+        "description": "All team members equipped with task-appropriate PPE, inspected regularly for compliance and effectiveness."
       },
       {
-        "title": "Fall Protection Systems",
-        "description": "OSHA-compliant fall protection for all elevated work, including scaffolding, harnesses, and guardrails."
+        "title": "Fall Protection & Elevated Work",
+        "description": "OSHA and WSIB-compliant fall protection for all elevated work, including scaffolding, harnesses, guardrails, and aerial lifts."
       },
       {
-        "title": "Site Inspections",
-        "description": "Regular safety audits and inspections ensure ongoing compliance and identify potential hazards before they become issues."
+        "title": "Site Inspections & Audits",
+        "description": "Regular safety audits and third-party inspections ensure ongoing compliance and identify potential hazards before they become issues."
       },
       {
         "title": "Emergency Preparedness",
-        "description": "All team members certified in First Aid/CPR with emergency response plans for every job site."
+        "description": "All supervisors certified in First Aid/CPR with site-specific emergency response plans and designated assembly areas."
       }
     ],
     "certifications": [
-      "OSHA 30-Hour Construction Safety",
+      "COR Certified (Certificate of Recognition)",
       "WSIB Compliant",
+      "OSHA 30-Hour Construction Safety",
       "Fall Protection Certified",
       "First Aid/CPR Certified",
-      "Hazardous Materials Handling"
+      "WHMIS Certified"
     ],
     "stats": {
       "zeroIncidents": "500+ projects completed with zero lost-time incidents",
-      "trainingHours": "2,000+ hours of safety training annually",
-      "compliance": "100% OSHA compliance rate"
+      "trainingHours": "3,000+ hours of safety training annually",
+      "compliance": "100% COR and WSIB compliance rate"
     }
+  },
+  "history": {
+    "founding": "Founded in 2009 by John Martinez, Ascent Group began as a small general contractor focused on residential renovations in the Greater Toronto Area. Inspired by the collaborative approaches of Canada's industry leaders—Bird Construction's century of trust, PCL's employee-owned model, and EllisDon's diversified expertise—John built Ascent on a foundation of quality, transparency, and client partnership.",
+    "milestones": [
+      {
+        "year": 2009,
+        "event": "Company founded",
+        "description": "John Martinez establishes Ascent Group Construction with a vision to combine traditional craftsmanship with modern technology."
+      },
+      {
+        "year": 2012,
+        "event": "First commercial project",
+        "description": "Successfully delivered a $2M office renovation, marking our entry into commercial construction."
+      },
+      {
+        "year": 2015,
+        "event": "LEED certification",
+        "description": "Team members achieve LEED AP credentials, expanding our sustainable building capabilities."
+      },
+      {
+        "year": 2017,
+        "event": "COR Certification achieved",
+        "description": "Earned Certificate of Recognition for health and safety excellence."
+      },
+      {
+        "year": 2019,
+        "event": "Technology adoption",
+        "description": "Implemented Procore, Autodesk Construction Cloud, and Bluebeam across all projects."
+      },
+      {
+        "year": 2021,
+        "event": "Institutional expansion",
+        "description": "Secured first institutional project—a $15M healthcare facility renovation."
+      },
+      {
+        "year": 2024,
+        "event": "500+ projects milestone",
+        "description": "Celebrated 500+ completed projects with zero lost-time incidents and 98% client satisfaction."
+      }
+    ]
   }
 }

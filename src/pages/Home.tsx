@@ -9,7 +9,6 @@ const HeroSection = import.meta.env.VITE_AB_TEST_ENABLED === 'true'
   ? lazy(() => import('@/components/home/HeroVariantTest'))
   : lazy(() => import('@/components/home/HeroSection'));
 import TrustBadges from "@/components/home/TrustBadges";
-import PackagesSection from "@/components/home/PackagesSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyAscent from "@/components/home/WhyAscent";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -22,9 +21,9 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Toronto's Premier General Contractor"
-        description="Affordable residential and commercial construction across the GTA. WSIB-certified, licensed, and insured. Free quotes in 24 hours. From small renovations to full builds."
-        keywords="Toronto contractor, GTA construction, residential renovation, commercial builds, affordable contractor, WSIB certified, licensed contractor Toronto"
+        title="Construction Management & Design-Build | Ascent Group Construction"
+        description="Award-winning construction management firm in Toronto. From preconstruction to project delivery, we combine Canadian craftsmanship with cutting-edge technology. LEED-certified, COR-certified, 500+ projects completed."
+        keywords="construction management Toronto, design-build contractor, general contractor GTA, commercial construction, LEED certified, construction technology, Procore, BIM coordination, preconstruction services"
         structuredData={organizationSchema}
       />
       <SkipToContent />
@@ -34,9 +33,9 @@ const Home = () => {
           <HeroSection />
         </Suspense>
         <TrustBadges />
-        <PackagesSection />
         <ServicesPreview />
         <FeaturedProjects />
+        <WhyAscent />
         <TestimonialsSection />
         <FAQSection />
         <CTASection />
